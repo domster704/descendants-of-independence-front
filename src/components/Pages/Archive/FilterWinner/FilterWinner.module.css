@@ -1,0 +1,13 @@
+.filter_winner_container {
+    display: flex;
+    justify-content: center;
+}
+
+.filter_winner_content {
+    padding: 4px;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.04), 5px 5px 7px 0 rgba(0, 0, 0, 0.03), 11px 11px 10px 0 rgba(0, 0, 0, 0.02), 20px 20px 11px 0 rgba(0, 0, 0, 0.01), 31px 31px 12px 0 rgba(0, 0, 0, 0);
+    background: var(--white);
+
+    display: flex;
+    gap: 4px;
+}

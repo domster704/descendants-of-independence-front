@@ -1,0 +1,18 @@
+.filter_button {
+    border-radius: 4px;
+    padding: 5px 18px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--black);
+
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+    max-width: 156px;
+}
+
+.filter_button.active {
+    background: var(--basic-blue);
+    color: var(--white);
+}
