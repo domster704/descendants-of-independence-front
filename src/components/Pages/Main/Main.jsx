@@ -9,6 +9,8 @@ const Main = () => {
         <div className={style.main}>
             <h1>Main</h1>
             <Link to="/test">Test Page</Link>
+            <br/>
+            <Link to="/archive">Archive Page</Link>
         </div>
     );
 }
