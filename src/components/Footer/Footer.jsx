@@ -7,5 +7,7 @@ const Footer = () => {
             <h1>Header</h1>
             <nav></nav>
         </div>
-    )
+    );
 }
+
+export default Footer;
