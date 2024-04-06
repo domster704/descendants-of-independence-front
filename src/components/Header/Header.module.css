@@ -27,13 +27,14 @@ a:hover,
 }
 
 .burger,
-.burger_menu {
+.burger_menu,
+.mobile_bgActive {
   display: none;
 }
 
 .hidden,
 .mobile_bg {
-  display: none !important;
+  display: none;
 }
 
 .flex {
@@ -148,13 +149,14 @@ a:hover,
 
 @media screen and (max-width: 654px) {
   .mobile_bg {
-    display: block !important;
+    display: block;
     background: rgba(22, 97, 245, 1);
     width: 100%;
     height: 46px;
   }
 
   .mobile_bgActive {
+    display: block;
     background: rgba(235, 239, 246, 1);
     width: 100%;
     height: 46px;
