@@ -1,6 +1,5 @@
 .header {
-  max-width: 1440px;
-  margin: 0 auto;
+  width: 100%;
   min-height: 108px;
   background-color: white;
   display: flex;
@@ -15,7 +14,6 @@ button {
 a {
   text-decoration: none;
   color: inherit;
-  font-family: Gilroy;
   font-size: 16px;
   font-weight: 500;
   line-height: 19.41px;
@@ -107,7 +105,6 @@ a:hover,
   padding: 4px, 24px, 4px, 24px;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.1);
-  font-family: Gilroy;
   font-size: 12px;
   font-weight: 500;
   line-height: 14.56px;
@@ -121,7 +118,6 @@ a:hover,
 }
 
 .accordion__btn {
-  font-family: Gilroy;
   font-size: 16px;
   font-weight: 500;
   line-height: 19.41px;
@@ -167,7 +163,6 @@ a:hover,
 
   .header {
     display: block;
-    max-width: 654px;
     min-height: 73px;
     background-color: white;
   }
@@ -220,7 +215,6 @@ a:hover,
   .burger_lang_btn {
     border: none;
     background-color: inherit;
-    font-family: Gilroy;
     font-size: 16px;
     font-weight: 600;
     line-height: 19.6px;
@@ -237,7 +231,6 @@ a:hover,
 
   .list_item {
     color: white;
-    font-family: Gilroy;
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;

@@ -1,12 +1,43 @@
 import React, { useState } from "react";
-import logo from "./img/logo.png";
-import burger from "./img/Group 770816.svg";
 import * as style from "./Header.module.css";
+import Logo from "./HeaderLogo";
+import ButtonMenu from "./HeaderButtonMenu";
+import LanguageSwitcher from "./HeaderLangButton";
+
+const link = [
+  { href: "#", text: "О гранте" },
+  { href: "#", text: "Архив" },
+  { href: "#", text: "Документы" },
+];
+
+const linkModal = [
+  { href: "#", text: "О конкурсе" },
+  { href: "#", text: "Подать заявку" },
+  { href: "#", text: "Узнать статус" },
+  { href: "#", text: "Список победителей" },
+];
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const [accordion, setAccordion] = useState(false);
   const [mobileMenu, openMenu] = useState(false);
+
+  const showActive = () => {
+    setIsActive(true);
+  };
+
+  const closeActive = () => {
+    setIsActive(false);
+  };
+
+  const togleMore = () => {
+    setAccordion(!accordion);
+  };
+
+  const togleBurger = () => {
+    openMenu(!mobileMenu);
+  };
+
   return (
     <div className={`${style.header} ${style.accordion_relative}`}>
       <div
@@ -14,29 +45,20 @@ const Header = () => {
       ></div>
       <h1 className={style.hidden}>Header</h1>
       <div className={style.mobile_flex}>
-        <button className={style.burger} onClick={() => openMenu(!mobileMenu)}>
-          <img src={burger} alt="burger" />
-        </button>
-        <div className={style.logo__container}>
-          <img className={`${style.logo}`} src={logo} alt="Logo" />
-        </div>
+        <ButtonMenu style={style} onClick={togleBurger} />
+        <Logo style={style} />
       </div>
       <nav className={style.navbar}>
         <ul className={`${style.list__type} ${style.flex}`}>
-          <li>
-            <a href="#">О гранте</a>
-          </li>
-          <li>
-            <a href="#">Архив</a>
-          </li>
-          <li>
-            <a href="#">Документы</a>
-          </li>
+          {link.map((item, index) => {
+            return (
+              <li key={index}>
+                <a href={item.href}>{item.text}</a>
+              </li>
+            );
+          })}
           <li className={style.accordion_relative}>
-            <button
-              className={style.accordion__btn}
-              onClick={() => setAccordion(!accordion)}
-            >
+            <button className={style.accordion__btn} onClick={togleMore}>
               Конкурс{" "}
               <span className={style.arrow}>
                 <svg
@@ -59,78 +81,64 @@ const Header = () => {
                 style.list__type
               } ${style.accordion_absolute}`}
             >
-              <li>
-                <a href="#">О конкурсе</a>
-              </li>
-              <li>
-                <a href="#">Подать заявку</a>
-              </li>
-              <li>
-                <a href="#">Узнать статус</a>
-              </li>
-              <li>
-                <a href="#">Список победителей</a>
-              </li>
+              {linkModal.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <a href={item.href}>{item.text}</a>
+                  </li>
+                );
+              })}
             </ul>
           </li>
           <li className={style.lang__flex}>
-            <button
-              onClick={() => setIsActive(false)}
-              className={`${style.lang__btn} ${isActive ? "" : style.active}`}
-            >
-              Рус
-            </button>
-            <button
-              onClick={() => setIsActive(true)}
-              className={`${style.lang__btn} ${isActive ? style.active : ""}`}
-            >
-              Қаз
-            </button>
+            <LanguageSwitcher
+              isActive={!isActive}
+              label="Рус"
+              onClick={closeActive}
+              active={style.active}
+              lang_btn={style.lang__btn}
+            />
+            <LanguageSwitcher
+              isActive={isActive}
+              label="Қаз"
+              onClick={showActive}
+              active={style.active}
+              lang_btn={style.lang__btn}
+            />
           </li>
         </ul>
       </nav>
       <div className={`${style.burger_menu} ${mobileMenu ? "" : style.hidden}`}>
         <div className={style.burger__lang}>
-          <button
-            onClick={() => setIsActive(false)}
-            className={`${style.burger_lang_btn} ${
-              isActive ? "" : style.active_lang
-            }`}
-          >
-            Рус
-          </button>
+          <LanguageSwitcher
+            isActive={!isActive}
+            label="Рус"
+            onClick={closeActive}
+            active={style.active_lang}
+            lang_btn={style.burger_lang_btn}
+          />
           -
-          <button
-            onClick={() => setIsActive(true)}
-            className={`${style.burger_lang_btn} ${
-              isActive ? style.active_lang : ""
-            }`}
-          >
-            Қаз
-          </button>
+          <LanguageSwitcher
+            isActive={isActive}
+            label="Қаз"
+            onClick={showActive}
+            active={style.active_lang}
+            lang_btn={style.burger_lang_btn}
+          />
         </div>
         <nav className={`${style.burger_list} `}>
           <ul className={style.list__type}>
+            {link.map((item, index) => {
+              return (
+                <li key={index} className={style.list_item}>
+                  <a className={style.concurse} href={item.href}>
+                    {item.text}
+                  </a>
+                </li>
+              );
+            })}
             <li className={style.list_item}>
-              <a className={style.concurse} href="#">
-                О гранте
-              </a>
-            </li>
-            <li className={style.list_item}>
-              <a className={style.concurse} href="#">
-                Архив
-              </a>
-            </li>
-            <li className={style.list_item}>
-              <a className={style.concurse} href="#">
-                Документы
-              </a>
-            </li>
-            <li className={style.list_item}>
-              <button
-                className={style.concurse}
-                onClick={() => setAccordion(!accordion)}
-              >
+              <button className={style.concurse} onClick={togleMore}>
                 Конкурс
                 <span>
                   <svg
