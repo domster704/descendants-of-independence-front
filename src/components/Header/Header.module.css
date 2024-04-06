@@ -1,3 +1,286 @@
 .header {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 108px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.41px;
+  text-align: left;
+  transition: 0.4s;
+}
+
+a:hover,
+.accordion__btn:hover {
+  color: blue;
+}
+
+.burger,
+.burger_menu {
+  display: none;
+}
+
+.hidden,
+.mobile_bg {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+  align-items: baseline;
+  gap: 50px;
+}
+
+.navbar {
+  max-width: 670px;
+}
+
+.list__type {
+  list-style-type: none;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.logo__container {
+  width: 125px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.lang__flex {
+  display: flex;
+  gap: 10px;
+}
+
+.accordion_relative {
+  position: relative;
+}
+
+.accordion_absolute {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+  border-radius: 10px;
+  width: 230px;
+  height: 180px;
+  background-color: white;
+  z-index: 1;
+  left: -120px;
+  top: 30px;
+  animation: slideIn 0.5s forwards;
+}
+
+.accordion_absolute li {
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 40px;
+  padding: 5px 20px 5px 5px;
+  gap: 10px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0px;
+}
+
+.lang__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 69px;
+  height: 24px;
+  padding: 4px, 24px, 4px, 24px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.56px;
+  text-align: left;
+  border: none;
+}
+
+.active {
+  background: rgba(22, 97, 245, 1);
+  color: white;
+}
+
+.accordion__btn {
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.41px;
+  text-align: left;
+  width: 95px;
+  height: 24px;
+  border: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  background-color: inherit;
+  transition: 0.4s;
+}
+
+.arrow {
+  display: inline-block;
+}
+
+.rotate {
+  transform: rotate(270deg);
+}
+
+@media screen and (max-width: 820px) {
+  .flex {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 654px) {
+  .mobile_bg {
+    display: block !important;
+    background: rgba(22, 97, 245, 1);
+    width: 100%;
+    height: 46px;
+  }
+
+  .mobile_bgActive {
+    background: rgba(235, 239, 246, 1);
+    width: 100%;
+    height: 46px;
+    animation: slideX 0.5s forwards;
+  }
+
+  .header {
+    display: block;
+    max-width: 654px;
+    min-height: 73px;
+    background-color: white;
+  }
+
+  .burger {
+    display: block;
+    height: 25px;
+    border: none;
+    background-color: inherit;
+  }
+
+  .burger_menu {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    background: rgba(38, 40, 54, 1);
+    width: 100%;
+    height: 90vh;
+    animation: slideX 0.5s forwards;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile_flex {
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    align-items: baseline;
+    gap: 35%;
+  }
+
+  .logo__container {
+    width: 99px;
+    height: 47px;
+  }
+
+  .burger__lang {
+    width: 100%;
+    padding: 24px 30px 24px 0px;
+    background: rgba(28, 30, 39, 1);
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .burger_lang_btn {
+    border: none;
+    background-color: inherit;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.6px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .active_lang {
+    color: white;
+  }
+
+  .burger_list {
+    margin-top: 50px;
+  }
+
+  .list_item {
+    color: white;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+    border-bottom: 1px solid #1c1e27;
+  }
+
+  .concurse {
+    padding: 13px 27px 13px 27px;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .mobile_accordion {
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.5s forwards;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideX {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
