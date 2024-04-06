@@ -28,13 +28,13 @@ a:hover,
 
 .burger,
 .burger_menu,
-.mobile_bgActive {
+.mobile_bgActive,
+.mobile_bg {
   display: none;
 }
 
-.hidden,
-.mobile_bg {
-  display: none;
+.hidden {
+  display: none !important;
 }
 
 .flex {
