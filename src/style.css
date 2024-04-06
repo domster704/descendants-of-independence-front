@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Gilroy";
+    src: url("./assets/fonts/gilroy-regular.ttf");
+}
+
 * {
     position: relative;
     box-sizing: border-box;

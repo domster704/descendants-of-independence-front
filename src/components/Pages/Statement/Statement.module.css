@@ -1,0 +1,52 @@
+.statement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.title h1 {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.title p {
+  font-size: 20px;
+}
+
+.form {
+  background-color: var(--white);
+  width: 840px;
+  border-radius: 10px;
+  padding: 30px 39px;
+  margin-top: 40px;
+}
+
+.text_fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 50px;
+}
+
+.residential_address {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  grid-area: 4 / 1 / span 2 / span 1;
+}
+
+.submit_button {
+  background-color: var(--basic-blue);
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  padding: 15px 50px 14px 49px;
+  margin-top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}

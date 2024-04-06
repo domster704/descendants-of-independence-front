@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 
 import background from './assets/img/top_background.png';
 import * as styles from './App.module.css';
+import Statement from './components/Pages/Statement/Statement';
 
 const App = () => {
     let env = useSelector(state => state.env);
@@ -22,6 +23,7 @@ const App = () => {
                     <Route path="/" element={<Main/>}/>
                     <Route path="/test" element={<TestPage/>}/>
                     <Route path="/archive" element={<Archive/>}/>
+                    <Route path="/statement" element={<Statement />}/>
                 </Routes>
             </HashRouter >
             <Footer/>
