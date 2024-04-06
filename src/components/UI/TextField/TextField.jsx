@@ -51,35 +51,47 @@ const selectStyles = {
   })
 };
 
-const TextField = ({ type, name, label, placeholder, value, onChange, required, options, currentOption }) => {
+const TextField = ({ type, name, label, placeholder, value, onChange, required, options, currentOption, inputStyles }) => {
+
   return (
     <div className={styles.text_field}>
       <label htmlFor={'text-field-' + name}>{label}</label>
 
-      {type === 'select' ?
-        <Select
-          id={'text-field-' + name}
-          name={name}
-          options={options}
-          value={currentOption}
-          onChange={(newValue) =>
-            newValue &&
-            onChange({ target: { name, value: { value: newValue.value, label: newValue.label } } })
-          }
-          placeholder={placeholder}
-          styles={selectStyles}
-          required={required}
-        /> :
-        <input
-          className={styles.text_field_input}
-          id={'text-field-' + name}
-          type={type ?? 'text'}
-          name={name}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          required={required}
-        />
+      {
+        type === 'select' ?
+          <Select
+            id={'text-field-' + name}
+            name={name}
+            options={options}
+            value={currentOption}
+            onChange={(newValue) =>
+              newValue &&
+              onChange({ target: { name, value: { value: newValue.value, label: newValue.label } } })
+            }
+            placeholder={placeholder}
+            styles={selectStyles}
+            required={required}
+          /> :
+          type === 'textarea' ?
+            <textarea
+              className={styles.text_field_textarea}
+              style={inputStyles}
+              id={'text-field-' + name}
+              name={name}
+              placeholder={placeholder}
+            ></textarea>
+            :
+            <input
+              className={styles.text_field_input}
+              style={inputStyles}
+              id={'text-field-' + name}
+              type={type ?? 'text'}
+              name={name}
+              value={value}
+              onChange={onChange}
+              placeholder={placeholder}
+              required={required}
+            />
       }
     </div>
   );

@@ -70,6 +70,7 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 }
 
 .drop_down_block h2 {
@@ -80,6 +81,13 @@
 .drop_down_block img {
   width: 14px;
   height: 9px;
+}
+
+.drop_down_block_text_fields {
+  margin-top: 40px;
+  margin-bottom: calc(54px - 14px);
+  padding: 0 20px;
+  gap: 26px 20px;
 }
 
 .submit_button {

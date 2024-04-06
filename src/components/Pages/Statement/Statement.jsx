@@ -6,6 +6,7 @@ import {
   EDUCATION_OPTIONS,
   INITIAL_STATE,
   MONTH_OPTIONS,
+  PROJECT_DESCRIPTION_INITIAL_STATE,
   PROJECT_DIRECTION_OPTIONS,
   REGION_OPTIONS,
   YEAR_OPTIONS
@@ -14,6 +15,7 @@ import chevronDown from '../../../assets/img/chevron-down.svg';
 
 const Statement = () => {
   const [state, setState] = useState(INITIAL_STATE);
+  const [projectDescription, setProjectDescription] = useState(null);
   const [isValid, setIsValid] = useState(false);
 
   const changeValue = (e) => {
@@ -172,9 +174,109 @@ const Statement = () => {
         </div>
 
         <div className={styles.drop_down_block_wrapper}>
-          <div className={styles.drop_down_block}>
-            <h2>Описание проекта</h2>
-            <img src={chevronDown} alt="chevron-up-img"/>
+          <div>
+            <div
+              className={styles.drop_down_block}
+              onClick={() =>
+                setProjectDescription(projectDescription ? null : PROJECT_DESCRIPTION_INITIAL_STATE)
+              }
+            >
+              <h2>Описание проекта</h2>
+              <img src={chevronDown} alt="chevron-up-img" style={{ rotate: projectDescription ? '180deg' : 'none' }}/>
+            </div>
+
+            {projectDescription &&
+              <div className={styles.text_fields + ' ' + styles.drop_down_block_text_fields}>
+                <div style={{ gridArea: '1 / 1 / span 2 / span 1' }}>
+                  <TextField
+                    type="textarea"
+                    name="shortDescription"
+                    label="Краткое описание проекта"
+                    placeholder="Опишите ваш проект"
+                    value={projectDescription.shortDescription}
+                    onChange={changeValue}
+                  />
+                </div>
+
+                <TextField
+                  name="targetAudience"
+                  label="Целевая аудитория"
+                  value={projectDescription.targetAudience}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectMission"
+                  label="Миссия проекта"
+                  value={projectDescription.projectMission}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectTasks"
+                  label="Задачи проекта"
+                  value={projectDescription.projectTasks}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectJustification"
+                  label="Обоснование проекта"
+                  value={projectDescription.projectJustification}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="implementationTimeline"
+                  label="Сроки реализации проекта"
+                  value={projectDescription.implementationTimeline}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectObjectivesAndSuccessCriteria"
+                  label="Целевые показатели и критерии оценки успеха проекта"
+                  value={projectDescription.projectObjectivesAndSuccessCriteria}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectDeliverables"
+                  label="Продукт проекта"
+                  value={projectDescription.projectDeliverables}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectStakeholders"
+                  label="Заинтересованые стороны проекта"
+                  value={projectDescription.projectStakeholders}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="preliminaryCostForecasts"
+                  label="Предварительные прогнозы по стоимости реализации проекта"
+                  value={projectDescription.preliminaryCostForecasts}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  name="projectConstraintsAndRisks"
+                  label="Ограничения (риски) проекта"
+                  value={projectDescription.projectConstraintsAndRisks}
+                  onChange={changeValue}
+                />
+
+                <TextField
+                  type="textarea"
+                  name="projectImplementationGeography"
+                  label="География реализации проекта (область, города республиканского значения, столица)"
+                  value={projectDescription.projectImplementationGeography}
+                  onChange={changeValue}
+                />
+              </div>
+            }
           </div>
 
           <div className={styles.drop_down_block}>

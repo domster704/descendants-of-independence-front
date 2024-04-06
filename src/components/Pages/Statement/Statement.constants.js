@@ -72,3 +72,18 @@ export const INITIAL_STATE = {
   currentActivity: '',
   projectDirection: '',
 };
+
+export const PROJECT_DESCRIPTION_INITIAL_STATE = {
+  shortDescription: '',
+  targetAudience: '',
+  projectTasks: '',
+  projectMission: '',
+  projectJustification: '',
+  implementationTimeline: '',
+  projectObjectivesAndSuccessCriteria: '',
+  projectDeliverables: '',
+  projectStakeholders: '',
+  preliminaryCostForecasts: '',
+  projectConstraintsAndRisks: '',
+  projectImplementationGeography: '',
+};
