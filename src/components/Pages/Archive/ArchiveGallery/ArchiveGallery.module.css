@@ -1,0 +1,11 @@
+.gallery {
+    padding: 70px 0 120px 0;
+    background: var(--white);
+}
+
+.gallery h1 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--dark-blue);
+}

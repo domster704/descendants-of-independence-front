@@ -1,24 +1,4 @@
 .archive {
 }
 
-.top {
-    margin: 27px 0 59px 0;
-}
 
-.top h1 {
-    font-weight: 700;
-    font-size: 46px;
-    color: var(--dark-blue);
-    margin-bottom: 25px;
-}
-
-.top_left_and_right {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.top_right {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}

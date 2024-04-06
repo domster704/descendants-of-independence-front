@@ -58,3 +58,8 @@
     --font10: "TESLA", sans-serif;
     --font11: "SF Pro Text", sans-serif;
 }
+
+button {
+    outline: none;
+    border: none;
+}

@@ -4,19 +4,17 @@
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.04), 5px 5px 7px 0 rgba(0, 0, 0, 0.03), 11px 11px 10px 0 rgba(0, 0, 0, 0.02), 20px 20px 11px 0 rgba(0, 0, 0, 0.01), 31px 31px 12px 0 rgba(0, 0, 0, 0);
     background: var(--white);
 
-    display: flex;
-    align-self: center;
-    gap: 60px;
-
     width: fit-content;
+    justify-self: center;
 }
 
 .left {
-    width: 100%;
+    width: fit-content;
     display: grid;
     column-gap: 20px;
     row-gap: 12px;
     grid-template-columns: 1fr 2fr;
+    align-items: end;
 }
 
 .left p {
@@ -30,6 +28,27 @@
     max-width: 151px;
 }
 
+.left p:nth-child(odd) {
+    max-width: 58px;
+}
+
 .winner_card_img {
     max-width: 262px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.status {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrows {
+    display: flex;
+    gap: 20px;
 }

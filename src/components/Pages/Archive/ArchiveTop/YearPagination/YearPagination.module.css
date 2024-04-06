@@ -1,0 +1,20 @@
+.pagination {
+    display: flex;
+    gap: 21px;
+    align-items: center;
+}
+
+.pagination_content {
+    display: flex;
+    gap: 15px;
+    height: fit-content;
+}
+
+.pagination_content p {
+    font-family: var(--font4);
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--black);
+    align-self: end;
+}
+

@@ -11,6 +11,8 @@ const Main = () => {
             <Link to="/test">Test Page</Link>
             <br/>
             <Link to="/archive">Archive Page</Link>
+            <br/>
+            <Link to="/statement">Statement</Link>
         </div>
     );
 }
