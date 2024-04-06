@@ -1,0 +1,35 @@
+.text_field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+}
+
+.text_field label {
+  font-size: 12px;
+  font-family: var(--font-family);
+}
+
+.text_field .text_field_input {
+  border: 1px solid var(--black-30);
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 52px;
+  font-size: 16px;
+}
+
+.text_field .text_field_input::-webkit-outer-spin-button,
+.text_field .text_field_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.text_field .text_field_input:focus {
+  border-color: #2683FF;
+  outline: none;
+  box-shadow: 0 0 0 1px #2683FF;
+}
+
+.text_field input::placeholder {
+  color: var(--black-30);
+  font-size: 16px;
+}
