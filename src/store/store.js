@@ -3,7 +3,7 @@ import envSlice from "./envSlice";
 
 const store = configureStore({
     reducer: {
-        env: envSlice
+        env: envSlice,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false,

@@ -1,100 +1,79 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as styles from './TextField.module.css';
 import Select from 'react-select';
-import chevronDown from '../../../assets/img/chevron-down.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { SELECT_STYLES } from './TextField.constants';
 
-const selectStyles = {
-  control: (baseStyles, state) => ({
-    ...baseStyles,
-    height: '52px',
-    padding: '0 14px',
-    borderRadius: 10,
-    borderColor: 'rgba(0, 0, 0, 0.3)',
-    background: state.hasValue ? '#1661F51A' : ''
-  }),
-  placeholder: (baseStyles) => ({
-    ...baseStyles,
-    color: 'var(--black-30)'
-  }),
-  dropdownIndicator: (baseStyles, state) => ({
-    ...baseStyles,
-    color: '#000',
-    ':hover': {
-      color: '#000'
-    },
-    'svg': {
-      display: 'none',
-    },
-    '&:before': {
-      content: '""',
-      display: 'inline-block',
-      width: '14px',
-      height: '9px',
-      backgroundImage: `url(${chevronDown})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-    }
-  }),
-  indicatorSeparator: (baseStyles) => ({
-    ...baseStyles,
-    display: 'none'
-  }),
-  valueContainer: (baseStyles) => ({
-    ...baseStyles,
-    padding: 0,
-  }),
-  singleValue: (baseValue) => ({
-    ...baseValue,
-    minWidth: 20,
-    fontSize: 16,
-    color: '#000',
-  })
-};
+const TextField = ({
+                       type,
+                       name,
+                       label,
+                       placeholder,
+                       value,
+                       onChange,
+                       required,
+                       options,
+                       currentOption,
+                       inputStyles
+                   }) => {
+    const dispatch = useDispatch();
+    const { isFormError } = useSelector(state => state.env);
 
-const TextField = ({ type, name, label, placeholder, value, onChange, required, options, currentOption, inputStyles }) => {
+    const [isError, setIsError] = useState(false);
 
-  return (
-    <div className={styles.text_field}>
-      <label htmlFor={'text-field-' + name}>{label}</label>
+    useEffect(() => {
+        if (isFormError && required) {
+            const val = value ?? currentOption;
+            if (typeof val === 'object') return;
+            setIsError(!val.length);
+        }
+    }, [isFormError, value, currentOption]);
 
-      {
-        type === 'select' ?
-          <Select
-            id={'text-field-' + name}
-            name={name}
-            options={options}
-            value={currentOption}
-            onChange={(newValue) =>
-              newValue &&
-              onChange({ target: { name, value: { value: newValue.value, label: newValue.label } } })
+    return (
+        <div className={styles.text_field}>
+            <label htmlFor={'text-field-' + name}>{label}</label>
+
+            {
+                type === 'select' ?
+                    <Select
+                        inputId={'text-field-' + name}
+                        name={name}
+                        options={options}
+                        value={currentOption}
+                        onChange={(newValue) =>
+                            newValue &&
+                            onChange({ target: { name, value: { value: newValue.value, label: newValue.label } } })
+                        }
+                        onFocus={() => setIsError(false)}
+                        placeholder={placeholder}
+                        styles={SELECT_STYLES(isError && { borderColor: 'var(--red)' })}
+                    /> :
+                    type === 'textarea' ?
+                        <textarea
+                            className={styles.text_field_textarea}
+                            style={inputStyles}
+                            id={'text-field-' + name}
+                            name={name}
+                            onChange={onChange}
+                            placeholder={placeholder}
+                        >
+                            {value}
+                        </textarea>
+                        :
+                        <input
+                            className={[styles.text_field_input, isError && styles.text_field_error].join(' ')}
+                            style={inputStyles}
+                            id={'text-field-' + name}
+                            type={type ?? 'text'}
+                            name={name}
+                            value={value ?? ''}
+                            onChange={onChange}
+                            onFocus={() => setIsError(false)}
+                            placeholder={placeholder}
+                        />
             }
-            placeholder={placeholder}
-            styles={selectStyles}
-            required={required}
-          /> :
-          type === 'textarea' ?
-            <textarea
-              className={styles.text_field_textarea}
-              style={inputStyles}
-              id={'text-field-' + name}
-              name={name}
-              placeholder={placeholder}
-            ></textarea>
-            :
-            <input
-              className={styles.text_field_input}
-              style={inputStyles}
-              id={'text-field-' + name}
-              type={type ?? 'text'}
-              name={name}
-              value={value}
-              onChange={onChange}
-              placeholder={placeholder}
-              required={required}
-            />
-      }
-    </div>
-  );
+        </div>
+    );
 };
 
 export default TextField;

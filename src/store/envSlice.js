@@ -1,7 +1,8 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 let initialState = {
-    someData: "test"
+    someData: "test",
+    isFormError: false,
 }
 
 const envSlice = createSlice({
@@ -14,9 +15,12 @@ const envSlice = createSlice({
          */
         setSomeData: (state, action) => {
             state.someData = action.payload
+        },
+        setIsFormError: (state, { payload }) => {
+            state.isFormError = payload;
         }
     }
 });
 
-export const {setSomeData} = envSlice.actions;
+export const { setSomeData, setIsFormError } = envSlice.actions;
 export default envSlice.reducer;

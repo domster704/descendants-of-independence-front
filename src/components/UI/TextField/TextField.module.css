@@ -1,43 +1,48 @@
 .text_field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 auto;
 }
 
 .text_field label {
-  font-size: 12px;
-  font-family: var(--font-family);
+    font-size: 12px;
+    font-family: var(--font-family);
 }
 
 .text_field .text_field_input,
 .text_field .text_field_textarea {
-  border: 1px solid var(--black-30);
-  border-radius: 10px;
-  padding: 14px;
-  height: 52px;
-  font-size: 16px;
+    border: 1px solid var(--black-30);
+    border-radius: 10px;
+    padding: 14px;
+    height: 52px;
+    font-size: 16px;
 }
 
 .text_field .text_field_input::-webkit-outer-spin-button,
 .text_field .text_field_input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 .text_field .text_field_input:focus,
 .text_field .text_field_textarea:focus {
-  border-color: #2683FF;
-  outline: none;
-  box-shadow: 0 0 0 1px #2683FF;
+    border-color: #2683FF;
+    outline: none;
+    box-shadow: 0 0 0 1px #2683FF;
 }
 
 .text_field input::placeholder,
 .text_field textarea::placeholder {
-  color: var(--black-30);
-  font-size: 16px;
+    color: var(--black-30);
+    font-size: 16px;
 }
 
 .text_field .text_field_textarea {
-  height: 196px;
-  resize: none;
+    height: 196px;
+    resize: none;
+}
+
+.text_field_error {
+    border-color: var(--red) !important;
+    box-shadow: none !important;
 }
