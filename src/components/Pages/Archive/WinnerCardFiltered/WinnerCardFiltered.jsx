@@ -1,7 +1,7 @@
 import React from 'react';
 
 import * as styles from './WinnerCardFiltered.module.css';
-import ArrowButton from "../../../ArrowButton/ArrowButton";
+import ArrowButton from "../../../UI/ArrowButton/ArrowButton";
 
 const WinnerCardFiltered = (props) => {
     return (

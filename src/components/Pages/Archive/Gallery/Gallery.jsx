@@ -2,7 +2,7 @@ import React from 'react';
 import * as styles from './Gallery.module.css';
 import Wrapper from "../../../Wrapper/Wrapper";
 import GalleryElement from "./GalleryElement/GalleryElement";
-import ArrowButton from "../../../ArrowButton/ArrowButton";
+import ArrowButton from "../../../UI/ArrowButton/ArrowButton";
 
 import gallery1 from "./img/gallery1.png";
 import gallery4 from "./img/gallery4.png";

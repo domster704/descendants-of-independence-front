@@ -1,6 +1,6 @@
 import React from 'react';
 import * as styles from './YearPagination.module.css';
-import ArrowButton from "../../../ArrowButton/ArrowButton";
+import ArrowButton from "../../../UI/ArrowButton/ArrowButton";
 import PaginationNumber from "./PaginationNumber/PaginationNumber";
 
 const YearPagination = ({years_count}) => {
