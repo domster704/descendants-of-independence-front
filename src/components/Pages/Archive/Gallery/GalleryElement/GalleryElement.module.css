@@ -1,0 +1,15 @@
+.element {
+    display: block;
+    width: min-content;
+    border-radius: 10px;
+    padding: 10px;
+    background: var(--white);
+}
+
+.element p {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--black);
+}

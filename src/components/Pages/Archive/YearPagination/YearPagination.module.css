@@ -18,3 +18,14 @@
     align-self: end;
 }
 
+@media screen and (max-width: 551px) {
+    .pagination > :first-child,
+    .pagination > :last-child {
+        display: none;
+    }
+
+    .pagination {
+        width: 100%;
+        justify-content: center;
+    }
+}

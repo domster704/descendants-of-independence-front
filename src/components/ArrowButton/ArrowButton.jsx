@@ -5,11 +5,12 @@ import * as styles from './ArrowButton.module.css';
  *
  * @param {string} [direction=left] - 'left' or 'right' - стрелка направлена влево или вправо
  * @param {string} [size=small] -'small' or 'large' - размер кнопки
+ * @param {Function} onClick
  * @returns {JSX.Element}
  */
-const ArrowButton = ({direction = 'left', size='small'}) => {
+const ArrowButton = ({direction = 'left', size='small', onClick}) => {
     return (
-        <button className={`${styles.arrow} ${styles[direction]} ${styles[size]}`}>
+        <button className={`${styles.arrow} ${styles[direction]} ${styles[size]}`} onClick={onClick}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_1905_7211)">
                     <path

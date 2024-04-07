@@ -26,10 +26,12 @@
 
 .left p:nth-child(even) {
     max-width: 151px;
+    width: 151px;
 }
 
 .left p:nth-child(odd) {
     max-width: 58px;
+    width: 58px;
 }
 
 .winner_card_img {
@@ -51,4 +53,42 @@
 .arrows {
     display: flex;
     gap: 20px;
+    justify-self: end;
+    align-self: end;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 689px){
+    .info {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .right {
+        gap: 10px;
+    }
+
+    .winner_card {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .left p:nth-child(even) {
+        max-width: unset;
+        width: unset;
+    }
+
+    .left p:nth-child(odd) {
+        max-width: unset;
+        width: unset;
+    }
+
+    .winner_card_img {
+        max-width: unset;
+    }
 }

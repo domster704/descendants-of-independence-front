@@ -1,7 +1,7 @@
 import React from 'react';
 
 import * as styles from './WinnerCardFiltered.module.css';
-import ArrowButton from "../../../../ArrowButton/ArrowButton";
+import ArrowButton from "../../../ArrowButton/ArrowButton";
 
 const WinnerCardFiltered = (props) => {
     return (
@@ -22,19 +22,16 @@ const WinnerCardFiltered = (props) => {
 
                     <p><b>Цель:</b></p>
                     <p>Помощь людям с ограниченными возможностями</p>
-                </div>
-                <div>
-                    <img className={styles.winner_card_img} src={props.winner_img} alt=""/>
-                </div>
-            </div>
-            <div className={styles.status}>
-                <div className={styles.left}>
+
                     <p><b>Статус проекта:</b></p>
                     <p><a>Завершен</a></p>
                 </div>
-                <div className={styles.arrows}>
-                    <ArrowButton/>
-                    <ArrowButton direction="right"/>
+                <div className={styles.right}>
+                    <img className={styles.winner_card_img} src={props.winner_img} alt=""/>
+                    <div className={styles.arrows}>
+                        <ArrowButton/>
+                        <ArrowButton direction="right"/>
+                    </div>
                 </div>
             </div>
         </div>
