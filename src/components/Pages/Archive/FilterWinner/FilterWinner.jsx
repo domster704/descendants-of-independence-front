@@ -1,36 +1,28 @@
 import React from 'react';
 import * as styles from './FilterWinner.module.css';
 import FilterButton from "./FilterButton/FilterButton";
+import {useDispatch, useSelector} from "react-redux";
+import {setFilterCategoryActive} from "../../../../store/winnerSlice";
 
 const FilterWinner = () => {
-    let [buttonList, setButtonList] = React.useState([
-        {children: 'Наука', active: false},
-        {children: 'Культура', active: false},
-        {children: 'Информационные технологии', active: true},
-        {children: 'Бизнес', active: false},
-        {children: 'Медиа', active: false},
-    ]);
+    let dispatch = useDispatch();
+    let winnerState = useSelector(state => state.winner);
 
     return (
         <div className={styles.filter_winner_container}>
             <div className={styles.filter_winner_content}>
                 {
-                    buttonList.map((item, index) => {
+                    Object.keys(winnerState.filter.filterCategory).map((key, index) => {
                         return (
                             <FilterButton
-                                key={index}
-                                active={item.active}
+                                key={key}
+                                active={winnerState.filter.active === key}
                                 index={index}
                                 onClick={() => {
-                                    let newButtonList = [...buttonList];
-                                    newButtonList.forEach(element => {
-                                        element.active = false;
-                                    });
-                                    newButtonList[index].active = true;
-                                    setButtonList(newButtonList);
+                                    dispatch(setFilterCategoryActive(Object.keys(winnerState.filter.filterCategory)[index]));
                                 }}
-                            >{item.children}</FilterButton>
-                        )
+                            >{winnerState.filter.filterCategory[key].children}</FilterButton>
+                        );
                     })
                 }
             </div>
