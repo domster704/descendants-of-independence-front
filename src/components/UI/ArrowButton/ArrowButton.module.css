@@ -1,0 +1,41 @@
+.arrow {
+    --padding: 8px;
+    --small-width: 16px;
+    --large-width: 24px;
+
+    border-radius: 100%;
+    background: var(--white);
+    box-shadow: 0 0 14px 0 var(--black-10);
+    padding: var(--padding);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow.small {
+    width: calc(2 * var(--padding) + var(--small-width));
+    height: calc(2 * var(--padding) + var(--small-width));
+}
+
+.arrow.small svg {
+    width: var(--small-width);
+    height: var(--small-width);
+}
+
+.arrow.large {
+    width: calc(2 * var(--padding) + var(--large-width));
+    height: calc(2 * var(--padding) + var(--large-width));
+}
+
+.arrow.large svg {
+    width: var(--large-width);
+    height: var(--large-width);
+}
+
+.arrow.left {
+}
+
+.arrow.right {
+    transform: rotateY(180deg);
+}

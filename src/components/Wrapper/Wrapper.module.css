@@ -1,3 +1,21 @@
 .wrapper {
     margin: 0 120px;
 }
+
+@media screen and (max-width: 1251px) {
+    .wrapper {
+        margin: 0 80px;
+    }
+}
+
+@media screen and (max-width: 881px) {
+    .wrapper {
+        margin: 0 64px;
+    }
+}
+
+@media screen and (max-width: 551px) {
+    .wrapper {
+        margin: 0 27px;
+    }
+}

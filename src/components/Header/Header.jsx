@@ -3,16 +3,17 @@ import * as style from "./Header.module.css";
 import Logo from "./HeaderLogo";
 import ButtonMenu from "./HeaderButtonMenu";
 import LanguageSwitcher from "./HeaderLangButton";
+import {Link} from "react-router-dom";
 
 const link = [
-  { href: "#", text: "О гранте" },
-  { href: "#", text: "Архив" },
+  { href: "/", text: "О гранте" },
+  { href: "/archive", text: "Архив" },
   { href: "#", text: "Документы" },
 ];
 
 const linkModal = [
   { href: "#", text: "О конкурсе" },
-  { href: "#", text: "Подать заявку" },
+  { href: "/statement", text: "Подать заявку" },
   { href: "#", text: "Узнать статус" },
   { href: "#", text: "Список победителей" },
 ];
@@ -53,7 +54,7 @@ const Header = () => {
           {link.map((item, index) => {
             return (
               <li key={index}>
-                <a href={item.href}>{item.text}</a>
+                <Link to={item.href}>{item.text}</Link>
               </li>
             );
           })}
@@ -84,7 +85,7 @@ const Header = () => {
               {linkModal.map((item, index) => {
                 return (
                   <li key={index}>
-                    <a href={item.href}>{item.text}</a>
+                    <Link to={item.href}>{item.text}</Link>
                   </li>
                 );
               })}
@@ -131,9 +132,9 @@ const Header = () => {
             {link.map((item, index) => {
               return (
                 <li key={index} className={style.list_item}>
-                  <a className={style.concurse} href={item.href}>
+                  <Link to={item.href} className={style.concurse} >
                     {item.text}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -161,12 +162,12 @@ const Header = () => {
                   accordion ? "" : style.hidden
                 }`}
               >
-                <a className={style.concurse} href="#">
+                <Link to="#" className={style.concurse} >
                   Узнать статус
-                </a>
-                <a className={style.concurse} href="#">
+                </Link>
+                <Link to="#" className={style.concurse}>
                   Отправить заявку
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
