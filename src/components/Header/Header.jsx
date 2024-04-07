@@ -6,7 +6,7 @@ import LanguageSwitcher from "./HeaderLangButton";
 import {Link} from "react-router-dom";
 
 const link = [
-  { href: "#", text: "О гранте" },
+  { href: "/", text: "О гранте" },
   { href: "/archive", text: "Архив" },
   { href: "#", text: "Документы" },
 ];

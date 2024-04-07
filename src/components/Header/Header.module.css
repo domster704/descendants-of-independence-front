@@ -94,7 +94,8 @@ a:hover,
 	padding: 5px 20px 5px 5px;
 	gap: 10px;
 	border-radius: 5px 0 0 0;
-	opacity: 0;
+	opacity: 1;
+	color: black;
 }
 
 .lang__btn {
