@@ -21,11 +21,6 @@ const Main = () => {
               </button>
               <ChatModal bot={bot} toggleBot={() => togleBot(!bot)} style={style}/>
           </div>
-          <Link to="/test">Test Page</Link>
-          <br/>
-          <Link to="/archive">Archive Page</Link>
-          <br/>
-          <Link to="/statement">Statement Page</Link>
       </div>
   );
 };
