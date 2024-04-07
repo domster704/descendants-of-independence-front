@@ -1,7 +1,6 @@
 import React from 'react';
 import * as styles from "./Archive.module.css";
 
-import winner_img from "./img/winner.png";
 import {Link} from "react-router-dom";
 
 import Wrapper from "../../Wrapper/Wrapper";
@@ -32,7 +31,7 @@ const Archive = () => {
                     <div className={styles.top_left_and_right + " " + styles.years_and_card}>
                         <WinnerYearCardList years={years}
                                             max_years={YEARS_ON_PAGE}/>
-                        <WinnerCardFiltered winner_img={winner_img}/>
+                        <WinnerCardFiltered/>
                     </div>
                     <div className={styles.top_bottom_block}>
                         <Pagination elements_count={years.length}/>
