@@ -11,4 +11,12 @@
 
     display: flex;
     gap: 4px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 689px) {
+    .filter_winner_container {
+        width: 100%;
+    }
 }
