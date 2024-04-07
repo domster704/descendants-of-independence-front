@@ -10,21 +10,23 @@ import ChatModal from "./MainComponents/BotModal";
 const Main = () => {
   const [bot, togleBot] = useState(false);
   return (
-    <div className={style.main}>
-      <h1 className={style.hidden}>Main</h1>
-      <img className={style.main_logo} src={mainLogo} alt="main logo" />
-      <GrandInfo />
-      <Carth />
-      <div className={style.bot}>
-        <button className={style.bot_bnt} onClick={() => togleBot(!bot)}>
-          <img src={botModal} alt="Bot" />
-        </button>
-        <ChatModal bot={bot} toggleBot={() => togleBot(!bot)} style={style} />
+      <div className={style.main}>
+          <h1 className={style.hidden}>Main</h1>
+          <img className={style.main_logo} src={mainLogo} alt="main logo"/>
+          <GrandInfo/>
+          <Carth/>
+          <div className={style.bot}>
+              <button className={style.bot_bnt} onClick={() => togleBot(!bot)}>
+                  <img src={botModal} alt="Bot"/>
+              </button>
+              <ChatModal bot={bot} toggleBot={() => togleBot(!bot)} style={style}/>
+          </div>
+          <Link to="/test">Test Page</Link>
+          <br/>
+          <Link to="/archive">Archive Page</Link>
+          <br/>
+          <Link to="/statement">Statement Page</Link>
       </div>
-      <Link to="/test">Test Page</Link>
-      <br />
-      <Link to="/archive">Archive Page</Link>
-    </div>
   );
 };
 
