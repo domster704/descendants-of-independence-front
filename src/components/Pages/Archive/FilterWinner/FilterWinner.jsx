@@ -33,12 +33,6 @@ const FilterWinner = () => {
                         )
                     })
                 }
-
-                {/* <FilterButton>Наука</FilterButton>*/}
-                {/* <FilterButton>Культура</FilterButton>*/}
-                {/* <FilterButton active={true}>Информационные технологии</FilterButton>*/}
-                {/* <FilterButton>Бизнес</FilterButton>*/}
-                {/* <FilterButton>Медиа</FilterButton>*/}
             </div>
         </div>
     );
