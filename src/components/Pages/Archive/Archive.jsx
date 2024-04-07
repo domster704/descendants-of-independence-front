@@ -8,8 +8,8 @@ import Wrapper from "../../Wrapper/Wrapper";
 import FilterWinner from "./FilterWinner/FilterWinner";
 import WinnerCardFiltered from "./WinnerCardFiltered/WinnerCardFiltered";
 import WinnerYearCardList from "./WinnerYearCardList/WinnerYearCardList";
-import YearPagination from "./YearPagination/YearPagination";
 import Gallery from "./Gallery/Gallery";
+import Pagination from "../../UI/Pagination/Pagination";
 
 const Archive = () => {
     const YEARS_ON_PAGE = 3;
@@ -35,7 +35,7 @@ const Archive = () => {
                         <WinnerCardFiltered winner_img={winner_img}/>
                     </div>
                     <div className={styles.top_bottom_block}>
-                        <YearPagination years_count={years.length}/>
+                        <Pagination elements_count={years.length}/>
                         <Link to="/"
                               className={styles.show_all_winner_button}>Список победителей</Link>
                     </div>
