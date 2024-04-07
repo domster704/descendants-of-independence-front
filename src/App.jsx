@@ -16,18 +16,18 @@ const App = () => {
     console.log(env);
 
     return (
-        <div className={styles.background} style={{backgroundImage: `url(${background})`}}>
-            <Header/>
-            <HashRouter >
-                <Routes>
-                    <Route path="/" element={<Main/>}/>
-                    <Route path="/test" element={<TestPage/>}/>
-                    <Route path="/archive" element={<Archive/>}/>
-                    <Route path="/statement" element={<Statement />}/>
-                </Routes>
-            </HashRouter >
-            <Footer/>
-        </div>
+        <HashRouter>
+            <div className={styles.background} style={{backgroundImage: `url(${background})`}}>
+                <Header/>
+                    <Routes>
+                        <Route path="/" element={<Main/>}/>
+                        <Route path="/test" element={<TestPage/>}/>
+                        <Route path="/archive" element={<Archive/>}/>
+                        <Route path="/statement" element={<Statement />}/>
+                    </Routes>
+                <Footer/>
+            </div>
+        </HashRouter>
     );
 }
 
