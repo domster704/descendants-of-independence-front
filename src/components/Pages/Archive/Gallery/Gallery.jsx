@@ -9,6 +9,9 @@ import gallery4 from "./img/gallery4.png";
 import gallery2 from "./img/gallery2.png";
 import gallery3 from "./img/gallery3.png";
 import * as constants from "./Gallery.constants";
+import TextField from "../../../UI/TextField/TextField";
+
+import {useSelector} from "react-redux";
 
 const Gallery = () => {
     let galleryListRef = React.useRef(null);
@@ -33,12 +36,19 @@ const Gallery = () => {
         description: "Награждение победителей гранта 2022 года"
     }]);
 
-    const width = window.innerWidth;
+    let galleryOptions = useSelector(state => state.gallery);
+    let dropdownTextField = <TextField type="select"
+                                       name="gallery"
+                                       options={galleryOptions.dropdownOptions}
+                                       currentOption={galleryOptions.default.label}
+    onChange={(event) => {
+        console.log(event.target.value);
+    }}/>
 
     return (
         <div className={styles.gallery}>
             <Wrapper>
-                <div className={styles.dropdown_list_mobile}>Выпадающий список</div>
+                <div className={styles.dropdown_list_mobile}>{dropdownTextField}</div>
                 <div className={styles.header_mobile}>
                     <h1>Галерея</h1>
                     <div className={styles.gallery_list_arrows}>
@@ -59,7 +69,7 @@ const Gallery = () => {
                                      }}/>
                     </div>
                 </div>
-                <div className={styles.dropdown_list_desktop}>Выпадающий список</div>
+                <div className={styles.dropdown_list_desktop}>{dropdownTextField}</div>
                 <div className={styles.gallery_list_block}>
                     <div ref={galleryListRef} className={styles.gallery_list}>
                         {

@@ -42,13 +42,16 @@
 .dropdown_list_desktop {
     display: flex;
     justify-content: end;
+    margin-left: auto;
+    max-width: 30%;
 }
 
 .dropdown_list_mobile {
     position: absolute;
     display: none;
-    top: calc(-70px - 4em);
+    top: calc(-70px - 5em);
     right: 0;
+    width: 50%;
 }
 
 .header_mobile .gallery_list_arrows {
