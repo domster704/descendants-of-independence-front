@@ -5,7 +5,7 @@ import * as styles from './ArrowButton.module.css';
  *
  * @param {string} [direction=left] - 'left' or 'right' - стрелка направлена влево или вправо
  * @param {string} [size=small] -'small' or 'large' - размер кнопки
- * @param {Function} onClick
+ * @param {Function} onClick - свой обработчик клика
  * @returns {JSX.Element}
  */
 const ArrowButton = ({direction = 'left', size='small', onClick}) => {
