@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 
 const navigationLinks = [
   { label: "О гранте", url: "#" },
-  { label: "Архив", url: "#" },
+  { label: "Архив", url: "/archive" },
   { label: "Документы", url: "#" },
   { label: "О конкурсе", url: "#" },
-  { label: "Подать заявку", url: "#" },
+  { label: "Подать заявку", url: "/statement" },
   { label: "Узнать статус", url: "#" },
 ];
 
