@@ -1,4 +1,10 @@
 @font-face {
+    font-family: "Gilroy Regular";
+    font-weight: 400;
+    src: url("./assets/fonts/gilroy-regular.ttf");
+}
+
+@font-face {
     font-family: "Gilroy Medium";
     font-weight: 500;
     src: url("./assets/fonts/gilroy-medium.ttf");

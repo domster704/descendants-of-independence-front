@@ -89,6 +89,12 @@ export const PROJECT_DESCRIPTION_INITIAL_STATE = {
     projectImplementationGeography: null,
 };
 
+export const COST_ESTIMATE_INITIAL_STATE = [
+    { number: '1', expenseItem: 'Канат', pricePerOne: '2000', unit: 'M', quantity: '100', summary: '200000' },
+    { number: '2', expenseItem: 'Мяч', pricePerOne: '4000', unit: 'M', quantity: '100', summary: '400000' },
+    { number: '1', expenseItem: 'Канат', pricePerOne: '3000', unit: 'M', quantity: '100', summary: '300000' },
+];
+
 export const MAX_MEGABYTES = 50;
 
 export const getRegularOrErrorDropZoneBorderUrl = (isRed) => `data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23${isRed ? 'F51616FF' : '00000080'}' stroke-width='3' stroke-dasharray='5' stroke-dashoffset='2' stroke-linecap='round'/%3e%3c/svg%3e`;

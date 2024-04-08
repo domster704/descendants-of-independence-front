@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import * as styles from './TextField.module.css';
-import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { SELECT_STYLES } from './TextField.constants';
+import Select from 'react-select';
+import * as styles from './TextField.module.css';
 
 const TextField = ({
                        type,
@@ -27,7 +27,7 @@ const TextField = ({
             if (typeof val === 'object') return;
             setIsError(!val.length);
         }
-    }, [isFormError, value, currentOption]);
+    }, [isFormError, currentOption]);
 
     return (
         <div className={styles.text_field}>
@@ -46,7 +46,10 @@ const TextField = ({
                         }
                         onFocus={() => setIsError(false)}
                         placeholder={placeholder}
-                        styles={SELECT_STYLES(isError && { borderColor: 'var(--red)' })}
+                        styles={SELECT_STYLES(isError && {
+                            borderColor: 'var(--red)',
+                            ':hover': { borderColor: 'var(--red)' }
+                        })}
                     /> :
                     type === 'textarea' ?
                         <textarea
