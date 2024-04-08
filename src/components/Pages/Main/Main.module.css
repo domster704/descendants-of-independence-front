@@ -24,7 +24,7 @@
   margin-bottom: 23px;
 }
 
-.mainSection span {
+.mainSection a {
   color: #1661f5;
   font-size: 18px;
   font-weight: 700;
@@ -44,6 +44,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.infoTopBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.infoBottomBg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .carth {
@@ -317,6 +329,9 @@
 }
 
 @media screen and (max-width: 850px) {
+  .main_logo {
+    border-radius: 0;
+  }
   .btn_flex,
   .button_group {
     display: flex;
