@@ -1,12 +1,16 @@
 import React from 'react';
 
 import * as styles from './WinnerCardFiltered.module.css';
-import ArrowButton from "../../../UI/ArrowButton/ArrowButton";
+import ArrowButton from "../../../../UI/ArrowButton/ArrowButton";
 import {useSelector} from "react-redux";
 
 const WinnerCardFiltered = () => {
     let winnerState = useSelector(state => state.winner);
-    let winnerCards = winnerState.winnerCards[winnerState.filter.year][winnerState.filter.active];
+
+    let winnerCards = Object.keys(winnerState.winnerCards).map(year => {
+        return winnerState.winnerCards[year][winnerState.filter.active]
+    }).flat(2);
+
     let [currentWinnerIndex, setCurrentWinnerIndex] = React.useState(0);
 
     const arrowLeftOnClick = () => {

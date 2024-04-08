@@ -25,8 +25,8 @@
 }
 
 .left p:nth-child(even) {
-    max-width: 151px;
-    width: 151px;
+    max-width: 153px;
+    width: 153px;
 }
 
 .left p:nth-child(odd) {

@@ -1,44 +1,25 @@
 import React from 'react';
-import * as styles from "./Archive.module.css";
-
-import {Link} from "react-router-dom";
 
 import Wrapper from "../../Wrapper/Wrapper";
-import FilterWinner from "./FilterWinner/FilterWinner";
-import WinnerCardFiltered from "./WinnerCardFiltered/WinnerCardFiltered";
-import WinnerYearCardList from "./WinnerYearCardList/WinnerYearCardList";
 import Gallery from "./Gallery/Gallery";
-import Pagination from "../../UI/Pagination/Pagination";
+import WinnerGrant from "./WinnerGrant/WinnerGrant";
+import {Route, Routes} from "react-router-dom";
+import WinnerList from "./WinnerList/WinnerList";
+import {useSelector} from "react-redux";
 
 const Archive = () => {
     const YEARS_ON_PAGE = 3;
-    let [years, setYears] = React.useState([
-        2023, 2022, 2021, 2020, 2019, 2018,
-        2007, 2006, 2005, 2004, 2003, 2002,
-        2001, 2000, 1999, 1998, 1997, 1996,
-        1995, 1994, 1993, 1992, 1991, 1990
-    ]);
+    let winnerStore = useSelector(state => state.winner);
+    let years = Object.keys(winnerStore.winnerCards).reverse();
 
     return (
         <>
             <Wrapper>
-                <div className={styles.top}>
-                    <h1>Победители гранта</h1>
-                    <div className={styles.top_left_and_right}>
-                        <div></div>
-                        <FilterWinner/>
-                    </div>
-                    <div className={styles.top_left_and_right + " " + styles.years_and_card}>
-                        <WinnerYearCardList years={years}
-                                            max_years={YEARS_ON_PAGE}/>
-                        <WinnerCardFiltered/>
-                    </div>
-                    <div className={styles.top_bottom_block}>
-                        <Pagination elements_count={years.length}/>
-                        <Link to="/"
-                              className={styles.show_all_winner_button}>Список победителей</Link>
-                    </div>
-                </div>
+                <Routes>
+                    <Route exact path="/" element={<WinnerGrant years={years}
+                                                                YEARS_ON_PAGE={YEARS_ON_PAGE}/>}/>
+                    <Route exact path="/winner_list/" element={<WinnerList years={years}/>}/>
+                </Routes>
             </Wrapper>
             <Gallery/>
         </>

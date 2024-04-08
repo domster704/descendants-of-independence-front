@@ -23,7 +23,6 @@ const Pagination = ({elements_count, max_numbers_ = 6, onClick}) => {
         }
     }
 
-    console.log(min_numbers, elements_count, max_numbers);
     return (
         <div className={styles.pagination}>
             <ArrowButton direction="left"
