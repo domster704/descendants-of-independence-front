@@ -16,11 +16,6 @@ const Main = () => {
       </div>
       <Carth />
       <ChatBot />
-      <Link to="/test">Test Page</Link>
-      <br />
-      <Link to="/archive">Archive Page</Link>
-      <br />
-      <Link to="/statement">Statement Page</Link>
     </div>
   );
 };

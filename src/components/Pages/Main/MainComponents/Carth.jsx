@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as style from "../Main.module.css";
+import Wrapper from "../../../Wrapper/Wrapper";
 
 const buttonText = {
   culture:
@@ -23,92 +24,96 @@ const Carth = () => {
     setActiveButton(buttonTitle);
   };
   return (
-    <section className={style.carth}>
-      <div className={style.carth_flex}>
-        <div className={style.carth_info}>
-          <h3 className={style.carth_title}>Сумма гранта:</h3>
-          <div>
-            <span className={style.custom_btn}>3 000 000тг</span>
-            <p className={style.carth_info_text}>
-              Используется для реализации проекта.
-            </p>
+    <Wrapper>
+      <section className={style.carth}>
+        <div className={style.carth_flex}>
+          <div className={style.carth_info}>
+            <h3 className={style.carth_title}>Сумма гранта:</h3>
+            <div>
+              <span className={style.custom_btn}>3 000 000тг</span>
+              <p className={style.carth_info_text}>
+                Используется для реализации проекта.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className={style.carth_info}>
-          <h3 className={style.carth_title}>Направления гранта:</h3>
-          <div className={style.button_group}>
-            <button
-              className={
-                activeButton === "Наука"
-                  ? `${style.carth_btn} ${style.active_btn}`
-                  : style.carth_btn
-              }
-              onClick={() => handleButtonClick(buttonText.sciens, "Наука")}
-            >
-              Наука
-            </button>
-            <button
-              className={
-                activeButton === "Культура"
-                  ? `${style.carth_btn} ${style.active_btn}`
-                  : style.carth_btn
-              }
-              onClick={() => handleButtonClick(buttonText.culture, "Культура")}
-            >
-              Культура
-            </button>
-            <button
-              className={
-                activeButton === "Бизнес"
-                  ? `${style.carth_btn} ${style.active_btn}`
-                  : style.carth_btn
-              }
-              onClick={() => handleButtonClick(buttonText.business, "Бизнес")}
-            >
-              Бизнес
-            </button>
-            <div className={style.btn_flex}>
+          <div className={style.carth_info}>
+            <h3 className={style.carth_title}>Направления гранта:</h3>
+            <div className={style.button_group}>
               <button
                 className={
-                  activeButton === "Информационные технологии"
+                  activeButton === "Наука"
+                    ? `${style.carth_btn} ${style.active_btn}`
+                    : style.carth_btn
+                }
+                onClick={() => handleButtonClick(buttonText.sciens, "Наука")}
+              >
+                Наука
+              </button>
+              <button
+                className={
+                  activeButton === "Культура"
                     ? `${style.carth_btn} ${style.active_btn}`
                     : style.carth_btn
                 }
                 onClick={() =>
-                  handleButtonClick(
-                    buttonText.informationTechnology,
-                    "Информационные технологии"
-                  )
+                  handleButtonClick(buttonText.culture, "Культура")
                 }
               >
-                Информационные технологии
+                Культура
               </button>
               <button
                 className={
-                  activeButton === "Медиа"
+                  activeButton === "Бизнес"
                     ? `${style.carth_btn} ${style.active_btn}`
                     : style.carth_btn
                 }
-                onClick={() => handleButtonClick(buttonText.media, "Медиа")}
+                onClick={() => handleButtonClick(buttonText.business, "Бизнес")}
               >
-                Медиа
+                Бизнес
               </button>
+              <div className={style.btn_flex}>
+                <button
+                  className={
+                    activeButton === "Информационные технологии"
+                      ? `${style.carth_btn} ${style.active_btn}`
+                      : style.carth_btn
+                  }
+                  onClick={() =>
+                    handleButtonClick(
+                      buttonText.informationTechnology,
+                      "Информационные технологии"
+                    )
+                  }
+                >
+                  Информационные технологии
+                </button>
+                <button
+                  className={
+                    activeButton === "Медиа"
+                      ? `${style.carth_btn} ${style.active_btn}`
+                      : style.carth_btn
+                  }
+                  onClick={() => handleButtonClick(buttonText.media, "Медиа")}
+                >
+                  Медиа
+                </button>
+              </div>
+              <p className={`${style.carth_text} ${style.text_custom}`}>
+                {initialText}
+              </p>
             </div>
-            <p className={`${style.carth_text} ${style.text_custom}`}>
-              {initialText}
+          </div>
+          <div className={style.carth_info}>
+            <h3 className={style.carth_title}>Реализация и мониторинг:</h3>
+            <p className={style.custom_bg}>
+              Срок использования и мониторинг за целевым использованием гранта -
+              1 календарный год.
             </p>
           </div>
         </div>
-        <div className={style.carth_info}>
-          <h3 className={style.carth_title}>Реализация и мониторинг:</h3>
-          <p className={style.custom_bg}>
-            Срок использования и мониторинг за целевым использованием гранта - 1
-            календарный год.
-          </p>
-        </div>
-      </div>
-      <p className={style.carth_text}>{initialText}</p>
-    </section>
+        <p className={style.carth_text}>{initialText}</p>
+      </section>
+    </Wrapper>
   );
 };
 
