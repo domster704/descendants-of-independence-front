@@ -13,7 +13,6 @@ import * as styles from './App.module.css';
 
 const App = () => {
     let env = useSelector(state => state.env);
-    console.log(env);
 
     return (
         <HashRouter>
@@ -22,7 +21,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Main/>}/>
                         <Route path="/test" element={<TestPage/>}/>
-                        <Route path="/archive" element={<Archive/>}/>
+                        <Route path="/archive/*" element={<Archive/>}/>
                         <Route path="/statement" element={<Statement />}/>
                     </Routes>
                 <Footer/>
