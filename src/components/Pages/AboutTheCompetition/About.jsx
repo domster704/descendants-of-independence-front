@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../Wrapper/Wrapper";
+import Wrapper from "../../../components/UI/Wrapper/Wrapper";
 import ChatBot from "../../ChatBot/ChatBot";
 import AboutTop from "./AboutTop";
 import AboutBottom from "./AboutBottom";

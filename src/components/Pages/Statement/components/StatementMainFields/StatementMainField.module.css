@@ -1,0 +1,32 @@
+.text_fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 50px;
+    padding: 0 9px;
+}
+
+.text_fields div:last-child div:first-child {
+    height: initial;
+}
+
+.date_of_birth {
+
+}
+
+.date_of_birth p {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.date_of_birth .date_of_birth_text_fields {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.residential_address {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-area: 4 / 1 / span 2 / span 1;
+}

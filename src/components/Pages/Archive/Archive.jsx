@@ -3,7 +3,7 @@ import * as styles from "./Archive.module.css";
 
 import {Link} from "react-router-dom";
 
-import Wrapper from "../../Wrapper/Wrapper";
+import Wrapper from "../../UI/Wrapper/Wrapper";
 import FilterWinner from "./FilterWinner/FilterWinner";
 import WinnerCardFiltered from "./WinnerCardFiltered/WinnerCardFiltered";
 import WinnerYearCardList from "./WinnerYearCardList/WinnerYearCardList";

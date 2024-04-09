@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from '../../../UI/TextField/TextField';
+import TextField from '../../../../UI/TextField/TextField';
 import {
     DAY_OPTIONS,
     EDUCATION_OPTIONS,
@@ -7,8 +7,8 @@ import {
     PROJECT_DIRECTION_OPTIONS,
     REGION_OPTIONS,
     YEAR_OPTIONS
-} from '../Statement.constants';
-import * as styles from '../Statement.module.css';
+} from '../../Statement.constants';
+import * as styles from './StatementMainField.module.css';
 
 const StatementMainFields = ({ state, changeValue }) => {
     return (

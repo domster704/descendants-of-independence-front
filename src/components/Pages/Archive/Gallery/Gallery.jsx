@@ -1,6 +1,6 @@
 import React from 'react';
 import * as styles from './Gallery.module.css';
-import Wrapper from "../../../Wrapper/Wrapper";
+import Wrapper from "../../../UI/Wrapper/Wrapper";
 import GalleryElement from "./GalleryElement/GalleryElement";
 import ArrowButton from "../../../UI/ArrowButton/ArrowButton";
 

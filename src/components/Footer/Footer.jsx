@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as style from "./Footer.module.css";
-import Wrapper from "../Wrapper/Wrapper";
+import Wrapper from "../../components/UI/Wrapper/Wrapper";
 import foterBg from "./img/Ellipse 11.png";
 import telegramm from "./img/Group 770845.png";
 import { Link } from "react-router-dom";

@@ -1,0 +1,197 @@
+.drop_down_block_wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.drop_down_block {
+    background-color: #EBEFF6;
+    border-radius: 10px 10px 0 0;
+    padding: 13.5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.drop_down_block h2 {
+    font-family: 'Gilroy Bold';
+    font-size: 20px;
+}
+
+.drop_down_block img {
+    width: 14px;
+    height: 9px;
+}
+
+.drop_down_block_text_fields {
+    margin-top: 40px;
+    margin-bottom: calc(54px - 14px);
+    padding: 0 20px;
+    column-gap: 20px;
+}
+
+.drop_down_block_cost_estimate {
+    padding: calc(40px - 14px) 56px 0 20px;
+}
+
+.drop_down_block_cost_estimate_header {
+    display: flex;
+    margin-bottom: 12px;
+    margin-left: 2px;
+}
+
+.drop_down_block_cost_estimate_header span {
+    font-size: 12px;
+}
+
+.drop_down_block_cost_estimate_table {
+    border: 3px solid var(--black-30);
+    border-radius: 10px;
+}
+
+.drop_down_block_cost_estimate_table_item,
+.drop_down_block_cost_estimate_table_result {
+    display: flex;
+    justify-content: end;
+    height: 52px;
+    font-size: 14px;
+}
+
+.drop_down_block_cost_estimate_header span,
+.drop_down_block_cost_estimate_table_item span,
+.drop_down_block_cost_estimate_table_result span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.drop_down_block_cost_estimate_header span:first-child,
+.drop_down_block_cost_estimate_table_item span:first-child {
+    width: 52px;
+}
+
+.drop_down_block_cost_estimate_header span:nth-child(2),
+.drop_down_block_cost_estimate_table_item span:nth-child(2) {
+    width: 255px;
+    justify-content: start;
+}
+
+.drop_down_block_cost_estimate_header span:nth-child(2) {
+    padding-left: 20px;
+}
+
+.drop_down_block_cost_estimate_header span:nth-child(3),
+.drop_down_block_cost_estimate_table_item span:nth-child(3) {
+    width: 112px;
+}
+
+.drop_down_block_cost_estimate_header span:nth-child(4),
+.drop_down_block_cost_estimate_table_item span:nth-child(4) {
+    max-width: 85px;
+    min-width: 85px;
+    gap: 20px;
+}
+
+.drop_down_block_cost_estimate_header span:nth-child(5),
+.drop_down_block_cost_estimate_table_item span:nth-child(5) {
+    width: 63px;
+}
+
+.drop_down_block_cost_estimate_header span:last-child,
+.drop_down_block_cost_estimate_table_item span:last-child,
+.drop_down_block_cost_estimate_table_result span:last-child {
+    min-width: 136px;
+    max-width: 136px;
+    overflow: hidden;
+}
+
+.drop_down_block_cost_estimate_table_item span {
+    border-right: 3px solid var(--black-30);
+    border-bottom: 3px solid var(--black-30) !important;
+}
+
+.drop_down_block_cost_estimate_table_item span:last-child {
+    border-right: none;
+    font-size: 16px;
+}
+
+.drop_down_block_cost_estimate_table_item:last-child span {
+    border-bottom: none;
+}
+
+.drop_down_block_cost_estimate_table_item_img {
+    width: 14px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.drop_down_block_cost_estimate_table_result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.drop_down_block_cost_estimate_table_result span:first-child {
+    justify-content: start;
+    padding-left: 20px;
+    border-right: 3px solid var(--black-30);
+    width: 100%;
+    height: 100%;
+}
+
+.drop_down_block_cost_estimate_table_result span:last-child {
+    max-width: 136px;
+    width: 100%;
+}
+
+.drop_down_block_cost_estimate_plus {
+    background-color: var(--blue-light);
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 50% 0;
+}
+
+.drop_down_block_cost_estimate_plus img {
+    width: 15.16px;
+    height: 15.16px;
+}
+
+.drop_down_block_cost_estimate_note {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.drop_down_block_cost_estimate_note h2 {
+    font-size: 18px;
+}
+
+.drop_down_block_cost_estimate_note p {
+    font-size: 16px;
+    font-family: "Gilroy Regular";
+    max-width: 476px;
+    margin-top: 4px;
+}
+
+.flex_column {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    height: min-content;
+}
+
+.drop_down_block_cost_estimate_table_item_field:focus {
+    border: 1px solid #2683FF !important;
+}

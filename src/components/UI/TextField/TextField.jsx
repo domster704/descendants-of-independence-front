@@ -14,7 +14,8 @@ const TextField = ({
                        required,
                        options,
                        currentOption,
-                       inputStyles
+                       inputStyles,
+                       className
                    }) => {
     const dispatch = useDispatch();
     const { isFormError } = useSelector(state => state.env);
@@ -29,14 +30,16 @@ const TextField = ({
         }
     }, [isFormError, currentOption]);
 
+
     return (
         <div className={styles.text_field}>
-            <label htmlFor={'text-field-' + name}>{label}</label>
+            {label && <label htmlFor={'text-field-' + name}>{label}</label>}
 
             {
                 type === 'select' ?
                     <Select
                         inputId={'text-field-' + name}
+                        className={className}
                         name={name}
                         options={options}
                         value={currentOption}
@@ -46,25 +49,29 @@ const TextField = ({
                         }
                         onFocus={() => setIsError(false)}
                         placeholder={placeholder}
-                        styles={SELECT_STYLES(isError && {
-                            borderColor: 'var(--red)',
-                            ':hover': { borderColor: 'var(--red)' }
-                        })}
+                        styles={SELECT_STYLES((() => {
+                            const obj = { ...inputStyles };
+
+                            if (isError) {
+                                obj.borderColor = 'var(--red)';
+                                obj[':hover'] = { borderColor: 'var(--red)' };
+                            }
+                            return obj;
+                        })())}
                     /> :
                     type === 'textarea' ?
                         <textarea
-                            className={styles.text_field_textarea}
+                            className={[styles.text_field_textarea, isError && styles.text_field_error, className].join(' ')}
                             style={inputStyles}
                             id={'text-field-' + name}
                             name={name}
+                            value={value}
                             onChange={onChange}
                             placeholder={placeholder}
-                        >
-                            {value}
-                        </textarea>
+                        />
                         :
                         <input
-                            className={[styles.text_field_input, isError && styles.text_field_error].join(' ')}
+                            className={[styles.text_field_input, isError && styles.text_field_error, className].join(' ')}
                             style={inputStyles}
                             id={'text-field-' + name}
                             type={type ?? 'text'}
@@ -73,6 +80,7 @@ const TextField = ({
                             onChange={onChange}
                             onFocus={() => setIsError(false)}
                             placeholder={placeholder}
+                            onWheel={(e) => e.target.blur()}
                         />
             }
         </div>

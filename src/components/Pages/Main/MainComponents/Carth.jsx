@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as style from "../Main.module.css";
-import Wrapper from "../../../Wrapper/Wrapper";
+import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
 
 const buttonText = {
   culture:

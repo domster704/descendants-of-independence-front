@@ -2,7 +2,7 @@ import React from "react";
 import * as style from "../Main.module.css";
 import infoTopBg from "../img/Vector.jpg";
 import infoBottomBg from "../img/vector2.jpg";
-import Wrapper from "../../../Wrapper/Wrapper";
+import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
 
 const GrandInfo = () => {
   return (
