@@ -9,7 +9,7 @@ const navigationLinks = [
   { label: "О гранте", url: "#" },
   { label: "Архив", url: "/archive" },
   { label: "Документы", url: "#" },
-  { label: "О конкурсе", url: "#" },
+  { label: "О конкурсе", url: "/about" },
   { label: "Подать заявку", url: "/statement" },
   { label: "Узнать статус", url: "#" },
 ];

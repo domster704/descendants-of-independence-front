@@ -3,7 +3,7 @@ import * as style from "./Header.module.css";
 import Logo from "./HeaderLogo";
 import ButtonMenu from "./HeaderButtonMenu";
 import LanguageSwitcher from "./HeaderLangButton";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const link = [
   { href: "/", text: "О гранте" },
@@ -12,7 +12,7 @@ const link = [
 ];
 
 const linkModal = [
-  { href: "#", text: "О конкурсе" },
+  { href: "/about", text: "О конкурсе" },
   { href: "/statement", text: "Подать заявку" },
   { href: "#", text: "Узнать статус" },
   { href: "#", text: "Список победителей" },
@@ -132,7 +132,7 @@ const Header = () => {
             {link.map((item, index) => {
               return (
                 <li key={index} className={style.list_item}>
-                  <Link to={item.href} className={style.concurse} >
+                  <Link to={item.href} className={style.concurse}>
                     {item.text}
                   </Link>
                 </li>
@@ -162,7 +162,7 @@ const Header = () => {
                   accordion ? "" : style.hidden
                 }`}
               >
-                <Link to="#" className={style.concurse} >
+                <Link to="#" className={style.concurse}>
                   Узнать статус
                 </Link>
                 <Link to="#" className={style.concurse}>
