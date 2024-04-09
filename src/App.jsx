@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 import background from "./assets/img/top_background.png";
 import * as styles from "./App.module.css";
 import About from "./components/Pages/AboutTheCompetition/About";
-import Sucsses from "./components/Pages/Sucsses/Sucsses";
+import Success from "./components/Pages/Success/Success";
 
 const App = () => {
   let env = useSelector((state) => state.env);
@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/archive/*" element={<Archive />} />
           <Route path="/statement" element={<Statement />} />
           <Route path="/about" element={<About />} />
-          <Route path="/sucsses" element={<Sucsses />} />
+          <Route path="/sucsses" element={<Success />} />
         </Routes>
         <Footer />
       </div>
