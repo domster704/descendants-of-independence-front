@@ -1,0 +1,10 @@
+.table {
+    width: 100%;
+    text-align: center;
+    border-spacing: 0 27px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 27px;
+
+    margin: 25px 0 20px 0;
+}

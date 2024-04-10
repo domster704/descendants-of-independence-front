@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './WinnerList.module.css'
-import WinnerYearCardList from "../WinnerGrant/WinnerYearCardList/WinnerYearCardList";
+import WinnerYearCardList from "../WinnerYearCardList/WinnerYearCardList";
 import {useSelector} from "react-redux";
 
 const WinnerList = ({years}) => {

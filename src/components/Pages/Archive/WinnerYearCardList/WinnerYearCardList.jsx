@@ -2,7 +2,7 @@ import React from 'react';
 import * as styles from './WinnerYearCardList.module.css';
 import WinnerYearCard from "./WinnerYearCard/WinnerYearCard";
 import {useDispatch} from "react-redux";
-import {setFilterYear} from "../../../../../store/winnerSlice";
+import {setFilterYear} from "../../../../store/winnerSlice";
 
 /**
  *
@@ -13,7 +13,12 @@ import {setFilterYear} from "../../../../../store/winnerSlice";
  * @returns {Element}
  * @constructor
  */
-const WinnerYearCardList = ({years, max_years, is_max_width, onClick}) => {
+const WinnerYearCardList = ({
+                                years,
+                                max_years,
+                                is_max_width,
+                                onClick
+                            }) => {
     let dispatch = useDispatch();
 
     return (
@@ -23,7 +28,10 @@ const WinnerYearCardList = ({years, max_years, is_max_width, onClick}) => {
                                                                       year={year}
                                                                       onClick={(event) => {
                                                                           dispatch(setFilterYear(year));
-                                                                          onClick || onClick(event);
+
+                                                                          if (typeof onClick === 'function') {
+                                                                              onClick(event);
+                                                                          }
                                                                       }}/>)
             }
         </div>
