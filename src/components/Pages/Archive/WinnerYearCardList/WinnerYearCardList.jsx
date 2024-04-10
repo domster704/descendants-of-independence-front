@@ -10,6 +10,7 @@ import {setFilterYear} from "../../../../store/winnerSlice";
  * @param {number} max_years - максимальное количество годов, отображемых до пагинации
  * @param {boolean} is_max_width - включить или нет максимальную ширину у блока
  * @param {Function} onClick - callback при клике на +. Вставляется в конец обработчика клика.
+ * @param {boolean} isShowList - показывать ли список с победителями
  * @returns {Element}
  * @constructor
  */
@@ -17,7 +18,8 @@ const WinnerYearCardList = ({
                                 years,
                                 max_years,
                                 is_max_width,
-                                onClick
+                                onClick,
+                                isShowList = false
                             }) => {
     let dispatch = useDispatch();
 
@@ -32,7 +34,8 @@ const WinnerYearCardList = ({
                                                                           if (typeof onClick === 'function') {
                                                                               onClick(event);
                                                                           }
-                                                                      }}/>)
+                                                                      }}
+                                                                      isShowList={isShowList}/>)
             }
         </div>
     );

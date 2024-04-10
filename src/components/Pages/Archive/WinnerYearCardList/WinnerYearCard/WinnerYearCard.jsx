@@ -1,8 +1,17 @@
 import React from 'react';
 import * as styles from './WinnerYearCard.module.css';
 import WinnerYearList from "./WinnerYearList/WinnerYearList";
+import {useSelector} from "react-redux";
 
-const WinnerYearCard = ({year, onClick}) => {
+/**
+ *
+ * @param {number} year - год выигрыша
+ * @param onClick
+ * @param {boolean} isShowList - показывать ли список выигрышей
+ * @returns {Element}
+ * @constructor
+ */
+const WinnerYearCard = ({year, onClick, isShowList=false}) => {
     const minus = <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="34" height="34" rx="17" fill="#1661F5" fillOpacity="0.1"/>
         <rect x="0.5" y="0.5" width="33" height="33" rx="16.5" stroke="#1661F5" strokeOpacity="0.5"/>
@@ -20,6 +29,8 @@ const WinnerYearCard = ({year, onClick}) => {
     </svg>;
 
     const [isPlus, setIsPlus] = React.useState(true);
+    const winnerFilter = useSelector(state => state.winner.filter);
+
     const onClickSVG = (event) => {
         setIsPlus(!isPlus);
         onClick(event);
@@ -35,7 +46,7 @@ const WinnerYearCard = ({year, onClick}) => {
                 </button>
             </div>
             {
-                !isPlus && <WinnerYearList year={year}/>
+                isShowList && (!isPlus || winnerFilter.year === year) && <WinnerYearList year={year}/>
             }
         </div>
     );
