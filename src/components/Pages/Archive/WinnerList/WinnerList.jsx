@@ -9,7 +9,8 @@ const WinnerList = ({years}) => {
         <div className={styles.winner_list}>
             <h1>Список победителей </h1>
             <WinnerYearCardList years={years}
-                                max_years={YEARS_ON_PAGE}/>
+                                max_years={YEARS_ON_PAGE}
+                                isShowList={true}/>
         </div>
     );
 }

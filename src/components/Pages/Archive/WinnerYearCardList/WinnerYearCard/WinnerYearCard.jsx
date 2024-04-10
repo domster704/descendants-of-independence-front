@@ -30,10 +30,14 @@ const WinnerYearCard = ({year, onClick, isShowList=false}) => {
 
     const [isPlus, setIsPlus] = React.useState(true);
     const winnerFilter = useSelector(state => state.winner.filter);
+    let [isShownInBeginning, setIsShownInBeginning] = React.useState(winnerFilter.year === year);
 
     const onClickSVG = (event) => {
         setIsPlus(!isPlus);
         onClick(event);
+        if (isShownInBeginning) {
+            setIsShownInBeginning(false);
+        }
     }
 
     return (
@@ -46,7 +50,7 @@ const WinnerYearCard = ({year, onClick, isShowList=false}) => {
                 </button>
             </div>
             {
-                isShowList && (!isPlus || winnerFilter.year === year) && <WinnerYearList year={year}/>
+                isShowList && (!isPlus || isShownInBeginning) && <WinnerYearList year={year}/>
             }
         </div>
     );
