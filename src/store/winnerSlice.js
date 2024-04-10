@@ -39,7 +39,15 @@ const initialState = {
             media: []
         },
         2022: {
-            science: [],
+            science: [{
+                name: 'Амирова Аида Зухрабкызы',
+                age: '25 лет',
+                region: 'Астана',
+                project: '«Life on the Spectrum: Механизмы социальной поддержки детей с расстройствами аутистического спектра и способы их улучшения»',
+                purpose: 'Достичь мечты',
+                status: 'Завершен',
+                image: null
+            }],
             culture: [],
             it: [],
             business: [],

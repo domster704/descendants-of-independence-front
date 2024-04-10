@@ -8,10 +8,11 @@ import ArrowButton from "../ArrowButton/ArrowButton";
  * @param {number} elements_count - количество элементов в списке
  * @param {number} [max_numbers=6] - максимальное количество элементов, отображаемых до ...
  * @param {Function} [onClick] - функция, вызываемая при клике на элемент пагинации
+ * @param {number} [max_element_on_page=3] - максимальное количество элементов на странице д=
  * @returns {Element}
  * @constructor
  */
-const Pagination = ({elements_count, max_numbers_ = 6, onClick}) => {
+const Pagination = ({elements_count, max_numbers_ = 6, onClick, max_element_on_page = 3}) => {
     let [max_numbers, setMaxNumbers] = React.useState(max_numbers_);
     let [min_numbers, setMinNumbers] = React.useState(0);
 
@@ -23,7 +24,6 @@ const Pagination = ({elements_count, max_numbers_ = 6, onClick}) => {
         }
     }
 
-    console.log(min_numbers, elements_count, max_numbers);
     return (
         <div className={styles.pagination}>
             <ArrowButton direction="left"
@@ -35,7 +35,7 @@ const Pagination = ({elements_count, max_numbers_ = 6, onClick}) => {
                          }}/>
             <div className={styles.pagination_content}>
                 {
-                    [...Array(elements_count).keys()].map(index => {
+                    [...Array(elements_count / max_element_on_page).keys()].map(index => {
                         if (index === max_numbers + min_numbers && min_numbers + 1 < (elements_count - 1) - max_numbers) {
                             return <p key={index + 1}>...</p>;
                         }

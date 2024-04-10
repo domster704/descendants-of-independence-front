@@ -2,7 +2,7 @@ import React from 'react';
 import * as styles from './FilterWinner.module.css';
 import FilterButton from "./FilterButton/FilterButton";
 import {useDispatch, useSelector} from "react-redux";
-import {setFilterCategoryActive} from "../../../../store/winnerSlice";
+import {setFilterCategoryActive} from "../../../../../store/winnerSlice";
 
 const FilterWinner = () => {
     let dispatch = useDispatch();

@@ -1,0 +1,17 @@
+.row {
+    display: contents;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--black);
+}
+
+.row > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    font-weight: 600;
+}
