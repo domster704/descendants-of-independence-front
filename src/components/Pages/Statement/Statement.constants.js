@@ -54,39 +54,40 @@ export const PROJECT_DIRECTION_OPTIONS = [
 ];
 
 export const INITIAL_STATE = {
-    fullName: '',
+    fullName: 'a',
     dateOfBirth: {
         day: '',
-        month: '',
-        year: '',
+        // day: DAY_OPTIONS[0],
+        month: MONTH_OPTIONS[0],
+        year: YEAR_OPTIONS[0],
     },
-    number: '',
-    email: '',
-    education: '',
+    number: '99',
+    email: 'amanturmomunjanov12580@gmail.com',
+    education: EDUCATION_OPTIONS[0],
     academicDegree: null,
     address: {
-        region: '',
-        city: '',
-        street: '',
+        region: REGION_OPTIONS[0],
+        city: 'sdsd',
+        street: 'sdsd',
     },
     currentActivity: null,
-    projectDirection: '',
+    projectDirection: PROJECT_DIRECTION_OPTIONS[0],
     files: [],
 };
 
 export const PROJECT_DESCRIPTION_INITIAL_STATE = {
-    shortDescription: '',
-    targetAudience: '',
-    projectTasks: '',
-    projectMission: '',
-    projectJustification: '',
-    implementationTimeline: '',
-    projectObjectivesAndSuccessCriteria: '',
-    projectDeliverables: '',
-    projectStakeholders: '',
-    preliminaryCostForecasts: '',
-    projectConstraintsAndRisks: '',
-    projectImplementationGeography: '',
+    shortDescription: 'sdsd',
+    targetAudience: 'wew',
+    projectTasks: 'wewe',
+    projectMission: 'ewew',
+    projectJustification: 'ew',
+    implementationTimeline: 'we',
+    projectObjectivesAndSuccessCriteria: 'ewe',
+    projectDeliverables: 'ewew',
+    projectStakeholders: 'ew',
+    preliminaryCostForecasts: 'eww',
+    projectConstraintsAndRisks: 'ewe',
+    projectImplementationGeography: 'wew',
 };
 
 export const UNIT_OPTIONS = [
@@ -101,7 +102,7 @@ export const UNIT_OPTIONS = [
 ];
 
 export const COST_ESTIMATE_INITIAL_STATE = [
-    { number: '1', expenseItem: '', pricePerOne: '', unit: '', quantity: '' },
+    { expenseItem: '', pricePerOne: '', unit: '', quantity: '' },
 ];
 
 export const TABLE_INPUT_STYLES = {

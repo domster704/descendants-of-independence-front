@@ -66,7 +66,7 @@ const StatementDropzone = ({ state, setState }) => {
                                 <div className={styles.files} onClick={(e) => e.stopPropagation()}>
                                     {state.files.map((file, index) =>
                                         <div key={`file-${index + 1}`}>
-                                            <p>{file.name}</p>
+                                            <p>{file.name.substring(0, 16) + '....' + file.name.substring(file.name.length - 4)}</p>
                                             <img
                                                 src={trash}
                                                 onClick={() => setState(prevState => ({
@@ -87,15 +87,12 @@ const StatementDropzone = ({ state, setState }) => {
             <div className={styles.files_description}>
                 <div className={styles.files_info}>
                     <p>Загружено: <span>{state.files.length} из 2</span></p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <div className={styles.size_indicator_wrapper}>
                         <p>{filesMegabytes} МБ</p>
                         <div className={styles.size_indicator}>
                             <div
                                 className={styles.size_indicator_filler}
-                                style={{
-                                    transition: 'width 250ms ease-in-out',
-                                    width: percentageOfMaximum + '%'
-                                }}
+                                style={{ width: percentageOfMaximum + '%' }}
                             ></div>
                         </div>
                         <p>{MAX_MEGABYTES} МБ</p>

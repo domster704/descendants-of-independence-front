@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { setIsFormError } from '../../../store/envSlice';
 import { COST_ESTIMATE_INITIAL_STATE, INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE } from './Statement.constants';
-import StatementDropDownBlock from './components/StatementDropDownBlock/StatementDropDownBlock';
+import StatementDropdownBlock from './components/StatementDropdownBlock/StatementDropdownBlock';
 import StatementDropzone from './components/StatementDropzone/StatementDropzone';
 import StatementMainFields from './components/StatementMainFields/StatementMainFields';
 import * as styles from './Statement.module.css';
 
 const Statement = () => {
+    const navigate = useNavigate();
+
     const dispatch = useDispatch();
-    const { isFormError } = useSelector(state => state.env);
 
     const [state, setState] = useState(INITIAL_STATE);
     const [projectDescription, setProjectDescription] = useState(PROJECT_DESCRIPTION_INITIAL_STATE);
@@ -46,19 +48,33 @@ const Statement = () => {
 
         const isStateValid = (obj) => {
             for (const key in obj) {
-                if (Array.isArray(obj[key]) && obj[key].length === 0) return false;
+                if (key === 'costEstimate') {
+                    return !Boolean(obj[key].find(item => !isStateValid(item)));
+                }
+
+                if (Array.isArray(obj[key])) {
+                    if (obj[key].length === 0) return false;
+                    else continue;
+                }
+
                 if (typeof obj[key] === 'object' && obj[key] !== null && !isStateValid(obj[key])) return false;
                 if (obj[key] === '') return false;
             }
             return true;
         };
 
-        if (!isStateValid({ ...state, ...projectDescription, ...costEstimate })) {
+        if (!isStateValid({ ...state, ...projectDescription, costEstimate })) {
             dispatch(setIsFormError(true));
             return;
         }
 
-        // Request code...
+        try {
+            // Request code...
+        } catch (e) {
+            // Error code...
+        } finally {
+            navigate('/success');
+        }
     };
 
     return (
@@ -74,7 +90,7 @@ const Statement = () => {
                     changeValue={changeValue}
                 />
 
-                <StatementDropDownBlock
+                <StatementDropdownBlock
                     projectDescription={projectDescription}
                     setProjectDescription={setProjectDescription}
                     changeValue={changeValue}
@@ -87,9 +103,7 @@ const Statement = () => {
                     setState={setState}
                 />
 
-                <div style={{ textAlign: 'end' }}>
-                    <button className={styles.submit_button}>Подать заявку</button>
-                </div>
+                <button className={styles.submit_button}>Подать заявку</button>
             </form>
         </div>
     );

@@ -28,8 +28,7 @@ const TextField = ({
             if (typeof val === 'object') return;
             setIsError(!val.length);
         }
-    }, [isFormError, currentOption]);
-
+    }, [isFormError]);
 
     return (
         <div className={styles.text_field}>
@@ -43,18 +42,25 @@ const TextField = ({
                         name={name}
                         options={options}
                         value={currentOption}
+                        placeholder={placeholder}
                         onChange={(newValue) =>
                             newValue &&
-                            onChange({ target: { name, value: { value: newValue.value, label: newValue.label } } })
+                            onChange({
+                                target: {
+                                    name,
+                                    value: { value: newValue.value, label: newValue.label }
+                                }
+                            })
                         }
                         onFocus={() => setIsError(false)}
-                        placeholder={placeholder}
                         styles={SELECT_STYLES((() => {
                             const obj = { ...inputStyles };
 
                             if (isError) {
-                                obj.borderColor = 'var(--red)';
-                                obj[':hover'] = { borderColor: 'var(--red)' };
+                                const borderError = '1px solid var(--red)';
+
+                                obj.border = borderError;
+                                obj[':hover'] = { border: borderError };
                             }
                             return obj;
                         })())}
@@ -66,8 +72,9 @@ const TextField = ({
                             id={'text-field-' + name}
                             name={name}
                             value={value}
-                            onChange={onChange}
                             placeholder={placeholder}
+                            onChange={onChange}
+                            onFocus={() => setIsError(false)}
                         />
                         :
                         <input
@@ -77,9 +84,9 @@ const TextField = ({
                             type={type ?? 'text'}
                             name={name}
                             value={value ?? ''}
+                            placeholder={placeholder}
                             onChange={onChange}
                             onFocus={() => setIsError(false)}
-                            placeholder={placeholder}
                             onWheel={(e) => e.target.blur()}
                         />
             }
