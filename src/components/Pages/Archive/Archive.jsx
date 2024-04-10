@@ -1,11 +1,10 @@
 import React from 'react';
-
-import Wrapper from "../../Wrapper/Wrapper";
 import Gallery from "./Gallery/Gallery";
 import WinnerGrant from "./WinnerGrant/WinnerGrant";
 import {Route, Routes} from "react-router-dom";
 import WinnerList from "./WinnerList/WinnerList";
 import {useSelector} from "react-redux";
+import Wrapper from "../../UI/Wrapper/Wrapper";
 
 const WINNER_LIST_PATH = "/archive/winner_list";
 
