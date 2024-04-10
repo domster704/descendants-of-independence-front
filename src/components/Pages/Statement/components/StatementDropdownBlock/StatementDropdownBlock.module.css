@@ -195,3 +195,9 @@
 .drop_down_block_cost_estimate_table_item_field:focus {
     border: 1px solid #2683FF !important;
 }
+
+@media screen and (max-width: 776px) {
+    .drop_down_block h2 {
+        font-size: 16px;
+    }
+}

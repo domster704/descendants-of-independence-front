@@ -1,14 +1,13 @@
 .drop_zone {
-    height: 338px;
+    height: 340px;
+    width: 97%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
-    margin-top: 30px;
-    margin-left: 9px;
-    margin-right: 9px;
+    margin: 30px auto 0;
     padding: 14px;
     outline: none;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .drop_zone_over {
@@ -97,6 +96,12 @@
     color: var(--basic-blue);
 }
 
+.size_indicator_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .size_indicator {
     width: 310px;
     height: 5px;
@@ -109,6 +114,7 @@
     background-color: var(--basic-blue);
     height: 100%;
     border-radius: 100px;
+    transition: width 250ms linear;
 }
 
 .files_info_list {
@@ -144,4 +150,85 @@
 
 .files_info_list strong {
     font-weight: 600;
+}
+
+@media screen and (max-width: 776px) {
+    .drop_zone {
+        height: 260px;
+    }
+
+    .files {
+        right: -14px !important;
+        left: initial;
+        bottom: -95px;
+        z-index: 1;
+    }
+
+    .files_info {
+        padding: 0 !important;
+    }
+
+    .files_info > p:first-child {
+        display: none;
+    }
+
+    .files_info_list {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .files {
+        right: -10px !important;
+        left: initial;
+        bottom: -115px;
+    }
+
+    .files_info {
+        display: grid !important;
+        justify-content: normal;
+        width: 100% !important;
+    }
+
+    .files_info div:not(.size_indicator_filler) {
+        width: 100% !important;
+    }
+
+    .files_info p {
+        white-space: nowrap;
+    }
+
+    .files_info p:last-child {
+        text-align: end;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .drop_zone_content {
+        justify-content: space-between;
+        padding: 0 !important;
+    }
+
+    .upload_file_button {
+        width: 100%;
+        margin-top: 0 !important;
+    }
+
+    .files_description {
+        margin-top: 10px;
+    }
+
+    .size_indicator_wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 10px !important;
+    }
+
+    .size_indicator_wrapper div {
+        grid-area: 2 / 1 / span 1 / span 2;
+    }
+
+    .size_indicator {
+        width: 80vw !important;
+    }
 }

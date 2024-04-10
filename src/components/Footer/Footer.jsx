@@ -4,6 +4,7 @@ import Wrapper from "../../components/UI/Wrapper/Wrapper";
 import foterBg from "./img/Ellipse 11.png";
 import telegramm from "./img/Group 770845.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const navigationLinks = [
   { label: "О гранте", url: "/" },
@@ -22,6 +23,7 @@ const helpLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation("footer");
   const [navTogle, setNavTogle] = useState(false);
   const [helperTogle, setHelperTogle] = useState(false);
   const togle = (value, setter) => {
@@ -68,7 +70,7 @@ const Footer = () => {
               </ul>
             </nav>
             <div className={style.custom_color}>
-              <h3 className={style.footer_title}>Помощь</h3>
+              <h3 className={style.footer_title}>{t("help_nav")}</h3>
               <button
                 className={style.mobile}
                 onClick={() => togle(helperTogle, setHelperTogle)}

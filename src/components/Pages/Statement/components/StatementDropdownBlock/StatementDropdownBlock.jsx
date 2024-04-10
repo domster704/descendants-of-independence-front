@@ -4,10 +4,10 @@ import TextField from '../../../../UI/TextField/TextField';
 import chevronDown from '../../../../../assets/img/chevron-down.svg';
 import trash from '../../../../../assets/img/trash.svg';
 import plus from '../../../../../assets/img/plus.svg';
-import * as styles from './StatementDropDownBlock.module.css';
+import * as styles from './StatementDropdownBlock.module.css';
 import * as statement_main_fields_styles from '../StatementMainFields/StatementMainField.module.css';
 
-const StatementDropDownBlock = ({
+const StatementDropdownBlock = ({
                                     projectDescription,
                                     setProjectDescription,
                                     changeValue,
@@ -183,7 +183,7 @@ const StatementDropDownBlock = ({
                             <div key={`${item.number}-${index}`}>
                                 <div className={styles.drop_down_block_cost_estimate_table_item}>
                                     <span>
-                                        {item.number}
+                                        {index + 1}
                                     </span>
                                     <span>
                                         <TextField
@@ -293,4 +293,4 @@ const StatementDropDownBlock = ({
     );
 };
 
-export default StatementDropDownBlock;
+export default StatementDropdownBlock;

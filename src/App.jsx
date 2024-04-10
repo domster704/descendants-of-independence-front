@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/archive/*" element={<Archive />} />
           <Route path="/statement" element={<Statement />} />
           <Route path="/about" element={<About />} />
-          <Route path="/sucsses" element={<Success />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
         <Footer />
       </div>

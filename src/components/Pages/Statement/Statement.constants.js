@@ -101,7 +101,7 @@ export const UNIT_OPTIONS = [
 ];
 
 export const COST_ESTIMATE_INITIAL_STATE = [
-    { number: '1', expenseItem: '', pricePerOne: '', unit: '', quantity: '' },
+    { expenseItem: '', pricePerOne: '', unit: '', quantity: '' },
 ];
 
 export const TABLE_INPUT_STYLES = {

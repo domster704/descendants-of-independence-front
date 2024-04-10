@@ -5,7 +5,8 @@
     padding: 0 9px;
 }
 
-.text_fields div:last-child div:first-child {
+.text_fields div:last-child div:first-child,
+.text_fields div:last-child div:last-child {
     height: initial;
 }
 
@@ -29,4 +30,20 @@
     flex-direction: column;
     gap: 10px;
     grid-area: 4 / 1 / span 2 / span 1;
+}
+
+@media screen and (max-width: 776px) {
+    .text_fields {
+        grid-template-columns: 1fr !important;
+    }
+
+    .residential_address {
+        grid-area: 6 / 1 / span 2 / span 1;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .date_of_birth_text_fields {
+        flex-wrap: wrap;
+    }
 }
