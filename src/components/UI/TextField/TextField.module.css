@@ -1,8 +1,10 @@
 .text_field {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 6px;
     flex: 1 1 auto;
+    height: 100%;
 }
 
 .text_field label {

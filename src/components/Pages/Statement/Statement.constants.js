@@ -75,26 +75,44 @@ export const INITIAL_STATE = {
 };
 
 export const PROJECT_DESCRIPTION_INITIAL_STATE = {
-    shortDescription: null,
-    targetAudience: null,
-    projectTasks: null,
-    projectMission: null,
-    projectJustification: null,
-    implementationTimeline: null,
-    projectObjectivesAndSuccessCriteria: null,
-    projectDeliverables: null,
-    projectStakeholders: null,
-    preliminaryCostForecasts: null,
-    projectConstraintsAndRisks: null,
-    projectImplementationGeography: null,
+    shortDescription: '',
+    targetAudience: '',
+    projectTasks: '',
+    projectMission: '',
+    projectJustification: '',
+    implementationTimeline: '',
+    projectObjectivesAndSuccessCriteria: '',
+    projectDeliverables: '',
+    projectStakeholders: '',
+    preliminaryCostForecasts: '',
+    projectConstraintsAndRisks: '',
+    projectImplementationGeography: '',
 };
 
-export const COST_ESTIMATE_INITIAL_STATE = [
-    { number: '1', expenseItem: 'Канат', pricePerOne: '2000', unit: 'M', quantity: '100', summary: '200000' },
-    { number: '2', expenseItem: 'Мяч', pricePerOne: '4000', unit: 'M', quantity: '100', summary: '400000' },
-    { number: '1', expenseItem: 'Канат', pricePerOne: '3000', unit: 'M', quantity: '100', summary: '300000' },
+export const UNIT_OPTIONS = [
+    { value: 'unit-01', label: 'М' },
+    { value: 'unit-02', label: 'СМ' },
+    { value: 'unit-03', label: 'ММ' },
+    { value: 'unit-04', label: 'КГ' },
+    { value: 'unit-05', label: 'Г' },
+    { value: 'unit-06', label: 'Т' },
+    { value: 'unit-07', label: 'Л' },
+    { value: 'unit-08', label: 'МЛ' },
 ];
+
+export const COST_ESTIMATE_INITIAL_STATE = [
+    { number: '1', expenseItem: '', pricePerOne: '', unit: '', quantity: '' },
+];
+
+export const TABLE_INPUT_STYLES = {
+    border: 'none',
+    borderRadius: '0',
+    width: '100%',
+    height: '100%',
+    margin: '0 auto',
+    background: 'none',
+};
 
 export const MAX_MEGABYTES = 50;
 
-export const getRegularOrErrorDropZoneBorderUrl = (isRed) => `data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23${isRed ? 'F51616FF' : '00000080'}' stroke-width='3' stroke-dasharray='5' stroke-dashoffset='2' stroke-linecap='round'/%3e%3c/svg%3e`;
+export const getRegularOrErrorDropZoneBorderUrl = (isError) => `data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23${isError ? 'F51616FF' : '00000080'}' stroke-width='3' stroke-dasharray='6' stroke-dashoffset='2' stroke-linecap='round'/%3e%3c/svg%3e`;

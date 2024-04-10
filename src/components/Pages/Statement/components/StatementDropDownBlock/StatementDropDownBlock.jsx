@@ -1,10 +1,11 @@
-import React from 'react';
-import { COST_ESTIMATE_INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE } from '../Statement.constants';
-import TextField from '../../../UI/TextField/TextField';
-import chevronDown from '../../../../assets/img/chevron-down.svg';
-import trash from '../../../../assets/img/trash.svg';
-import plus from '../../../../assets/img/plus.svg';
-import * as styles from '../Statement.module.css';
+import React, { useState } from 'react';
+import { TABLE_INPUT_STYLES, UNIT_OPTIONS } from '../../Statement.constants';
+import TextField from '../../../../UI/TextField/TextField';
+import chevronDown from '../../../../../assets/img/chevron-down.svg';
+import trash from '../../../../../assets/img/trash.svg';
+import plus from '../../../../../assets/img/plus.svg';
+import * as styles from './StatementDropDownBlock.module.css';
+import * as statement_main_fields_styles from '../StatementMainFields/StatementMainField.module.css';
 
 const StatementDropDownBlock = ({
                                     projectDescription,
@@ -13,25 +14,41 @@ const StatementDropDownBlock = ({
                                     costEstimate,
                                     setCostEstimate
                                 }) => {
+    const [isProjectDescriptionOpen, setIsProjectDescriptionOpen] = useState(false);
+    const [isCostEstimateOpen, setIsCostEstimateOpen] = useState(false);
+
+    const changeTableValue = (e, index) => {
+        const { name, value } = e.target;
+
+        setCostEstimate(prevState => prevState.map((item, i) => {
+            if (index === i) {
+                return {
+                    ...item,
+                    [name]: value,
+                };
+            }
+            return item;
+        }));
+    };
+
     return (
         <div className={styles.drop_down_block_wrapper}>
             <div>
                 <div
                     className={styles.drop_down_block}
-                    onClick={() =>
-                        setProjectDescription(projectDescription ? null : PROJECT_DESCRIPTION_INITIAL_STATE)
-                    }
+                    onClick={() => setIsProjectDescriptionOpen(!isProjectDescriptionOpen)}
                 >
                     <h2>Описание проекта</h2>
                     <img
                         src={chevronDown}
-                        style={{ rotate: projectDescription ? '180deg' : 'none' }}
+                        style={{ rotate: isProjectDescriptionOpen ? '180deg' : 'none' }}
                         alt="chevron-up-img"
                     />
                 </div>
 
-                {projectDescription &&
-                    <div className={[styles.text_fields, styles.drop_down_block_text_fields].join(' ')}>
+                {isProjectDescriptionOpen &&
+                    <div
+                        className={[statement_main_fields_styles.text_fields, styles.drop_down_block_text_fields].join(' ')}>
                         <div className={styles.flex_column}>
                             <TextField
                                 type="textarea"
@@ -40,6 +57,7 @@ const StatementDropDownBlock = ({
                                 placeholder="Опишите ваш проект"
                                 value={projectDescription.shortDescription}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -47,6 +65,7 @@ const StatementDropDownBlock = ({
                                 label="Задачи проекта"
                                 value={projectDescription.projectTasks}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -54,6 +73,7 @@ const StatementDropDownBlock = ({
                                 label="Сроки реализации проекта"
                                 value={projectDescription.implementationTimeline}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -61,6 +81,7 @@ const StatementDropDownBlock = ({
                                 label="Продукт проекта"
                                 value={projectDescription.projectDeliverables}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -68,6 +89,7 @@ const StatementDropDownBlock = ({
                                 label="Предварительные прогнозы по стоимости реализации проекта"
                                 value={projectDescription.preliminaryCostForecasts}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -76,6 +98,7 @@ const StatementDropDownBlock = ({
                                 label="География реализации проекта (область, города республиканского значения, столица)"
                                 value={projectDescription.projectImplementationGeography}
                                 onChange={changeValue}
+                                required
                             />
                         </div>
 
@@ -85,6 +108,7 @@ const StatementDropDownBlock = ({
                                 label="Целевая аудитория"
                                 value={projectDescription.targetAudience}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -92,6 +116,7 @@ const StatementDropDownBlock = ({
                                 label="Миссия проекта"
                                 value={projectDescription.projectMission}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -99,6 +124,7 @@ const StatementDropDownBlock = ({
                                 label="Обоснование проекта"
                                 value={projectDescription.projectJustification}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -106,6 +132,7 @@ const StatementDropDownBlock = ({
                                 label="Целевые показатели и критерии оценки успеха проекта"
                                 value={projectDescription.projectObjectivesAndSuccessCriteria}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -113,6 +140,7 @@ const StatementDropDownBlock = ({
                                 label="Заинтересованые стороны проекта"
                                 value={projectDescription.projectStakeholders}
                                 onChange={changeValue}
+                                required
                             />
 
                             <TextField
@@ -120,6 +148,7 @@ const StatementDropDownBlock = ({
                                 label="Ограничения (риски) проекта"
                                 value={projectDescription.projectConstraintsAndRisks}
                                 onChange={changeValue}
+                                required
                             />
                         </div>
                     </div>
@@ -128,18 +157,17 @@ const StatementDropDownBlock = ({
 
             <div
                 className={styles.drop_down_block}
-                onClick={() =>
-                    setCostEstimate(costEstimate ? null : COST_ESTIMATE_INITIAL_STATE)}
+                onClick={() => setIsCostEstimateOpen(!isCostEstimateOpen)}
             >
                 <h2>Смета расходов</h2>
                 <img
                     src={chevronDown}
-                    style={{ rotate: costEstimate ? '180deg' : 'none' }}
+                    style={{ rotate: isCostEstimateOpen ? '180deg' : 'none' }}
                     alt="chevron-up-img"
                 />
             </div>
 
-            {costEstimate &&
+            {isCostEstimateOpen &&
                 <div className={styles.drop_down_block_cost_estimate}>
                     <div className={styles.drop_down_block_cost_estimate_header}>
                         <span>№</span>
@@ -154,20 +182,72 @@ const StatementDropDownBlock = ({
                         {costEstimate.map((item, index) => (
                             <div key={`${item.number}-${index}`}>
                                 <div className={styles.drop_down_block_cost_estimate_table_item}>
-                                    <span>{item.number}</span>
-                                    <span>{item.expenseItem}</span>
-                                    <span>{item.pricePerOne}</span>
-                                    <span>{item.unit} <img src={chevronDown} alt="chevron-img"/></span>
-                                    <span>{item.quantity}</span>
-                                    <span>{parseInt(item.summary).toLocaleString('ru-RU')} тг</span>
+                                    <span>
+                                        {item.number}
+                                    </span>
+                                    <span>
+                                        <TextField
+                                            type="text"
+                                            name="expenseItem"
+                                            value={item.expenseItem}
+                                            onChange={(e) => changeTableValue(e, index)}
+                                            placeholder="Название"
+                                            required
+                                            inputStyles={{ ...TABLE_INPUT_STYLES, paddingLeft: 20 }}
+                                            className={styles.drop_down_block_cost_estimate_table_item_field}
+                                        />
+                                    </span>
+                                    <span>
+                                        <TextField
+                                            name="pricePerOne"
+                                            value={item.pricePerOne}
+                                            onChange={(e) => changeTableValue(e, index)}
+                                            type="number"
+                                            placeholder="0"
+                                            required
+                                            inputStyles={{ ...TABLE_INPUT_STYLES, textAlign: 'center' }}
+                                            className={styles.drop_down_block_cost_estimate_table_item_field}
+                                        />
+                                    </span>
+                                    <span>
+                                        <TextField
+                                            name="unit"
+                                            type="select"
+                                            options={UNIT_OPTIONS}
+                                            currentOption={item.unit}
+                                            onChange={(e) => changeTableValue(e, index)}
+                                            placeholder="М"
+                                            required
+                                            inputStyles={{ ...TABLE_INPUT_STYLES, padding: '0 7px 0 15px', }}
+                                            className={styles.drop_down_block_cost_estimate_table_item_field}
+                                        />
+                                    </span>
+                                    <span>
+                                        <TextField
+                                            name="quantity"
+                                            value={item.quantity}
+                                            onChange={(e) => changeTableValue(e, index)}
+                                            type="number"
+                                            placeholder="0"
+                                            required
+                                            inputStyles={{ ...TABLE_INPUT_STYLES, textAlign: 'center' }}
+                                            className={styles.drop_down_block_cost_estimate_table_item_field}
+                                        />
+                                    </span>
+                                    <span>
+                                        {parseInt(item.pricePerOne * item.quantity).toLocaleString('ru-RU')} тг
+                                    </span>
                                 </div>
-                                <img
-                                    src={trash}
-                                    className={styles.drop_down_block_cost_estimate_table_item_img}
-                                    onClick={() =>
-                                        setCostEstimate(prevState => prevState.filter((_, i) => i !== index))}
-                                    alt="trash-img"
-                                />
+                                {
+                                    index > 0 &&
+                                    <img
+                                        src={trash}
+                                        className={styles.drop_down_block_cost_estimate_table_item_img}
+                                        onClick={() =>
+                                            setCostEstimate(prevState => prevState.filter((_, i) => i !== index))}
+                                        alt="trash-img"
+                                    />
+                                }
                             </div>
                         ))}
                         <div className={styles.drop_down_block_cost_estimate_table_result}>
@@ -176,14 +256,29 @@ const StatementDropDownBlock = ({
                                         {
                                             costEstimate
                                                 .reduce((acc, item) =>
-                                                    acc + parseInt(item.summary), 0)
+                                                    acc + parseInt((item.pricePerOne * item.quantity) || 0), 0)
                                                 .toLocaleString('ru-RU')
                                         } тг
                                     </span>
                         </div>
                     </div>
 
-                    <button type="button" className={styles.drop_down_block_cost_estimate_plus}>
+                    <button
+                        type="button"
+                        className={styles.drop_down_block_cost_estimate_plus}
+                        onClick={() =>
+                            setCostEstimate(prevState => [...prevState,
+                                {
+                                    number: prevState.length + 1,
+                                    expenseItem: '',
+                                    pricePerOne: '',
+                                    unit: '',
+                                    quantity: '',
+                                    summary: ''
+                                },
+                            ])
+                        }
+                    >
                         <img src={plus} alt="plus-img"/>
                     </button>
 

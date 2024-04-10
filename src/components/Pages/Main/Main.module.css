@@ -13,7 +13,6 @@
 }
 
 .mainSection {
-  padding: 70px 120px 63px 120px;
   background-color: white;
 }
 
@@ -22,9 +21,14 @@
   font-weight: 700;
   line-height: 54px;
   margin-bottom: 23px;
+  padding-top: 70px;
 }
 
-.mainSection span {
+.main_text {
+  padding-bottom: 63px;
+}
+
+.mainSection a {
   color: #1661f5;
   font-size: 18px;
   font-weight: 700;
@@ -46,8 +50,19 @@
   gap: 16px;
 }
 
+.infoTopBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.infoBottomBg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 .carth {
-  margin: 70px 120px 0px 120px;
   background: #ebeff6;
   border-radius: 20px;
   padding: 20px 20px 30px 20px;
@@ -55,7 +70,8 @@
 
 .carth_flex {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  gap: 2px;
 }
 
 .carth_info {
@@ -283,10 +299,6 @@
 }
 
 @media screen and (max-width: 1150px) {
-  .mainSection {
-    padding: 40px 27px 52px 27px;
-  }
-
   .carth {
     margin: 80px 35px 80px 35px;
     background: #ebeff6;
@@ -317,6 +329,18 @@
 }
 
 @media screen and (max-width: 850px) {
+  .main_logo {
+    border-radius: 0;
+  }
+
+  .main_title {
+    padding-top: 40px;
+  }
+
+  .main_text {
+    padding-bottom: 52px;
+  }
+
   .btn_flex,
   .button_group {
     display: flex;

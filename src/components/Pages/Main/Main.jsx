@@ -11,14 +11,11 @@ const Main = () => {
     <div className={style.main}>
       <h1 className={style.hidden}>Main</h1>
       <img className={style.main_logo} src={mainLogo} alt="main logo" />
-      <GrandInfo />
+      <div style={{ position: "relative" }}>
+        <GrandInfo />
+      </div>
       <Carth />
       <ChatBot />
-      <Link to="/test">Test Page</Link>
-      <br />
-      <Link to="/archive">Archive Page</Link>
-      <br />
-      <Link to="/statement">Statement Page</Link>
     </div>
   );
 };

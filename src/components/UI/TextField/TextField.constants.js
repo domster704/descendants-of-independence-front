@@ -10,6 +10,10 @@ export const SELECT_STYLES = (inputStyles) => ({
         background: state.hasValue ? '#1661F51A' : '',
         ...inputStyles
     }),
+    container: (baseStyles) => ({
+        ...baseStyles,
+        height: '100%',
+    }),
     placeholder: (baseStyles) => ({
         ...baseStyles,
         color: 'var(--black-30)'
@@ -35,7 +39,7 @@ export const SELECT_STYLES = (inputStyles) => ({
     }),
     indicatorSeparator: (baseStyles) => ({
         ...baseStyles,
-        display: 'none'
+        display: 'none !important'
     }),
     valueContainer: (baseStyles) => ({
         ...baseStyles,
