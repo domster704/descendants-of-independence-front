@@ -54,40 +54,39 @@ export const PROJECT_DIRECTION_OPTIONS = [
 ];
 
 export const INITIAL_STATE = {
-    fullName: 'a',
+    fullName: '',
     dateOfBirth: {
         day: '',
-        // day: DAY_OPTIONS[0],
-        month: MONTH_OPTIONS[0],
-        year: YEAR_OPTIONS[0],
+        month: '',
+        year: '',
     },
-    number: '99',
-    email: 'amanturmomunjanov12580@gmail.com',
-    education: EDUCATION_OPTIONS[0],
+    number: '',
+    email: '',
+    education: '',
     academicDegree: null,
     address: {
-        region: REGION_OPTIONS[0],
-        city: 'sdsd',
-        street: 'sdsd',
+        region: '',
+        city: '',
+        street: '',
     },
     currentActivity: null,
-    projectDirection: PROJECT_DIRECTION_OPTIONS[0],
+    projectDirection: '',
     files: [],
 };
 
 export const PROJECT_DESCRIPTION_INITIAL_STATE = {
-    shortDescription: 'sdsd',
-    targetAudience: 'wew',
-    projectTasks: 'wewe',
-    projectMission: 'ewew',
-    projectJustification: 'ew',
-    implementationTimeline: 'we',
-    projectObjectivesAndSuccessCriteria: 'ewe',
-    projectDeliverables: 'ewew',
-    projectStakeholders: 'ew',
-    preliminaryCostForecasts: 'eww',
-    projectConstraintsAndRisks: 'ewe',
-    projectImplementationGeography: 'wew',
+    shortDescription: '',
+    targetAudience: '',
+    projectTasks: '',
+    projectMission: '',
+    projectJustification: '',
+    implementationTimeline: '',
+    projectObjectivesAndSuccessCriteria: '',
+    projectDeliverables: '',
+    projectStakeholders: '',
+    preliminaryCostForecasts: '',
+    projectConstraintsAndRisks: '',
+    projectImplementationGeography: '',
 };
 
 export const UNIT_OPTIONS = [
