@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SELECT_STYLES } from './TextField.constants';
 import Select from 'react-select';
 import * as styles from './TextField.module.css';
+import { setIsFormError } from '../../../store/envSlice';
 
 const TextField = ({
                        type,
@@ -52,7 +53,7 @@ const TextField = ({
                                 }
                             })
                         }
-                        onFocus={() => setIsError(false)}
+                        onFocus={() => setIsError(false) + dispatch(setIsFormError(false))}
                         styles={SELECT_STYLES((() => {
                             const obj = { ...inputStyles };
 
@@ -74,7 +75,7 @@ const TextField = ({
                             value={value}
                             placeholder={placeholder}
                             onChange={onChange}
-                            onFocus={() => setIsError(false)}
+                            onFocus={() => setIsError(false) + dispatch(setIsFormError(false))}
                         />
                         :
                         <input
@@ -86,7 +87,7 @@ const TextField = ({
                             value={value ?? ''}
                             placeholder={placeholder}
                             onChange={onChange}
-                            onFocus={() => setIsError(false)}
+                            onFocus={() => setIsError(false) + dispatch(setIsFormError(false))}
                             onWheel={(e) => e.target.blur()}
                         />
             }
