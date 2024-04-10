@@ -65,11 +65,18 @@
     }
 
     .form {
-        padding-bottom: 126px !important;
+        padding-bottom: 226px !important;
     }
 
     .submit_button {
         right: 50% !important;
         transform: translateX(50%);
+        bottom: 156px;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .submit_button {
+        width: 80%;
     }
 }
