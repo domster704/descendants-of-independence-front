@@ -32,13 +32,17 @@ const PLUS_BUTTON = <svg width="34" height="34" viewBox="0 0 34 34" fill="none" 
 const WinnerYearCard = ({year, onClick, not_expand = false, active = false}) => {
     const {t} = useTranslation("archive")
 
-    const [isPlus, setIsPlus] = React.useState(true);
+    const [isPlus, setIsPlus] = React.useState(!active);
 
     const onClickSVG = (event) => {
         setIsPlus(!isPlus);
+        console.log(year)
         onClick(event);
     };
 
+    React.useEffect(() => {
+        setIsPlus(!active);
+    }, [active]);
 
     return (
         <div className={styles.card}>
