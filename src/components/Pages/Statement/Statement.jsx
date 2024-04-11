@@ -7,8 +7,11 @@ import StatementDropdownBlock from './components/StatementDropdownBlock/Statemen
 import StatementDropzone from './components/StatementDropzone/StatementDropzone';
 import StatementMainFields from './components/StatementMainFields/StatementMainFields';
 import * as styles from './Statement.module.css';
+import { useTranslation } from 'react-i18next';
 
 const Statement = () => {
+    const { t } = useTranslation('statement');
+
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -80,8 +83,8 @@ const Statement = () => {
     return (
         <div className={styles.statement}>
             <div className={styles.title}>
-                <h1>ЗАЯВКА</h1>
-                <p>для участия в конкурсе</p>
+                <h1>{t('title')}</h1>
+                <p>{t('title_description')}</p>
             </div>
 
             <form onSubmit={sendData} className={styles.form}>
@@ -103,7 +106,7 @@ const Statement = () => {
                     setState={setState}
                 />
 
-                <button className={styles.submit_button}>Подать заявку</button>
+                <button className={styles.submit_button}>{t('submit_button')}</button>
             </form>
         </div>
     );

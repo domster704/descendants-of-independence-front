@@ -9,21 +9,24 @@ import {
     YEAR_OPTIONS
 } from '../../Statement.constants';
 import * as styles from './StatementMainField.module.css';
+import { useTranslation } from 'react-i18next';
 
 const StatementMainFields = ({ state, changeValue, className }) => {
+    const { t } = useTranslation('statement');
+
     return (
         <div className={[styles.text_fields, className].join(' ')}>
             <TextField
                 name="fullName"
-                label="Ф.И.О"
-                placeholder="Фамилия, Имя, Отчество (при наличии)"
+                label={t('fullName')}
+                placeholder={t('fullName_placeholder')}
                 value={state.fullName}
                 onChange={changeValue}
                 required
             />
 
             <div className={styles.date_of_birth}>
-                <p>Дата рождения</p>
+                <p>{t('birth_date')}</p>
 
                 <div className={styles.date_of_birth_text_fields}>
                     <TextField
@@ -61,8 +64,8 @@ const StatementMainFields = ({ state, changeValue, className }) => {
             <TextField
                 type="number"
                 name="phone"
-                label="Номер телефона"
-                placeholder="моб./раб. номер телефона"
+                label={t('phone')}
+                placeholder={t('phone_placeholder')}
                 value={state.phone}
                 onChange={changeValue}
                 required
@@ -71,7 +74,7 @@ const StatementMainFields = ({ state, changeValue, className }) => {
             <TextField
                 type="email"
                 name="email"
-                label="Эл. почта"
+                label={t('email')}
                 placeholder="example@gmail.com"
                 value={state.email}
                 onChange={changeValue}
@@ -81,8 +84,8 @@ const StatementMainFields = ({ state, changeValue, className }) => {
             <TextField
                 type="select"
                 name="education"
-                label="Образование"
-                placeholder="Выберите образование..."
+                label={t('education')}
+                placeholder={t('education_placeholder')}
                 options={EDUCATION_OPTIONS}
                 currentOption={state.education}
                 onChange={changeValue}
@@ -91,8 +94,8 @@ const StatementMainFields = ({ state, changeValue, className }) => {
 
             <TextField
                 name="academicDegree"
-                label="Учёная степень, учёное звание"
-                placeholder="Не обязательно*"
+                label={t('academic_degree')}
+                placeholder={t('academic_degree_placeholder')}
                 value={state.academicDegree}
                 onChange={changeValue}
             />
@@ -101,8 +104,8 @@ const StatementMainFields = ({ state, changeValue, className }) => {
                 <TextField
                     type="select"
                     name="address[region]"
-                    label="Адрес проживания"
-                    placeholder="Выберите область..."
+                    label={t('address')}
+                    placeholder={t('region_placeholder')}
                     options={REGION_OPTIONS}
                     currentOption={state.address.region}
                     onChange={changeValue}
@@ -110,14 +113,14 @@ const StatementMainFields = ({ state, changeValue, className }) => {
                 />
                 <TextField
                     name="address[city]"
-                    placeholder="Город"
+                    placeholder={t('city_placeholder')}
                     value={state.address.city}
                     onChange={changeValue}
                     required
                 />
                 <TextField
                     name="address[street]"
-                    placeholder="Улица / квартира"
+                    placeholder={t('street_placeholder')}
                     value={state.address.street}
                     onChange={changeValue}
                     required
@@ -127,8 +130,8 @@ const StatementMainFields = ({ state, changeValue, className }) => {
             <div>
                 <TextField
                     name="currentActivity"
-                    label="Текущая деятельность"
-                    placeholder="Не обязательно*"
+                    label={t('current_activity')}
+                    placeholder={t('current_activity_placeholder')}
                     value={state.currentActivity}
                     onChange={changeValue}
                     inputStyles={{ marginBottom: 26 }}
@@ -137,8 +140,8 @@ const StatementMainFields = ({ state, changeValue, className }) => {
                 <TextField
                     type="select"
                     name="projectDirection"
-                    label="Направление проекта"
-                    placeholder="Выберите направление..."
+                    label={t('project_direction')}
+                    placeholder={t('project_direction_placeholder')}
                     options={PROJECT_DIRECTION_OPTIONS}
                     currentOption={state.projectDirection}
                     onChange={changeValue}

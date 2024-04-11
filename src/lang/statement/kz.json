@@ -1,1 +1,65 @@
-{}
+{
+  "title": "ӨТІНІШ",
+  "title_description": "байқауға қатысу үшін",
+  "submit_button": "Өтініш беру",
+
+  "fullName": "Аты-жөні",
+  "birth_date": "Туған күні",
+  "phone": "Телефон нөмірі",
+  "email": "Эл. пошта",
+  "education": "Білім",
+  "academic_degree": "Ғылыми дәреже, ғылыми атақ",
+  "address": "Тұратын мекен-жайы",
+  "current_activity": "Қазіргі қызмет",
+  "project_direction": "Жоба бағыты",
+
+  "fullName_placeholder": "Тегі, Аты, Әкесінің аты (бар болса)",
+  "phone_placeholder": "ұялы/жұмыс телефонының нөмірі",
+  "education_placeholder": "Білімді таңдаңыз...",
+  "region_placeholder": "Облысты таңдаңыз...",
+  "city_placeholder": "Қала",
+  "street_placeholder": "Көше / пәтер",
+  "academic_degree_placeholder": "Қажет емес*",
+  "current_activity_placeholder": "Қажет емес*",
+  "project_direction_placeholder": "Бағытты таңдаңыз...",
+
+  "project_description": "Жоба сипаттамасы",
+  "short_description": "Жобаның қысқаша сипаттамасы",
+  "target_audience": "Мақсатты аудитория",
+  "project_mission": "Жобаның миссиясы",
+  "project_justification": "Жобаны негіздеу",
+  "project_tasks": "Жобаның міндеттері",
+  "project_objectives_and_success_criteria": "Жобаның мақсаттары мен жетістік критерийлері",
+  "implementation_timeline": "Жобаны іске асыру мерзімдері",
+  "project_stakeholders": "Жобаның мүдделі тараптары",
+  "project_deliverables": "Жоба өнімі",
+  "project_constraints_and_risks": "Жобаның шектеулері (тәуекелдері)",
+  "preliminary_cost_forecasts": "Жобаны іске асырудың алдын ала шығын болжамдары",
+  "project_implementation_geography": "Жобаны іске асыру географиясы (аймақ, республикалық маңызы бар қалалар, астана)",
+
+  "short_description_placeholder": "Жобаңызды сипаттаңыз",
+
+  "cost_estimate": "Шығындар сметасы",
+
+  "expense_item": "Шығын бабы",
+  "price_per_one": "Біреуі үшін баға",
+  "unit": "Өлшем бірлігі",
+  "quantity": "Саны",
+  "total": "Жалпы сомасы",
+
+  "expense_item_placeholder": "Атауы",
+  "result": "Жалпы",
+
+  "note": "Ескерту",
+  "note_description": "Грант қаражатын мақсатты пайдалану үшін грант алушыға еңбекақы қарастырылмайды",
+
+  "drop_zone_title": "Файлды жүктеңіз",
+  "drop_zone_description": "Файлдарды жүктеу үшін оларды сүйреңіз немесе басыңыз",
+  "drop_zone_button": "Жүктеу",
+
+  "drop_zone_info": "Жүктелді",
+  "drop_zone_info_end": "-ден 2-ге дейін",
+  "drop_zone_info_list_one": "Тұлғаны анықтау құжаты/туу туралы куәлік алдыңғы және артқы жағы бір файлда.",
+  "drop_zone_info_list_two": "Файлдардың максималды көлемі 50 МБ / видео 1 мин дейін",
+  "drop_zone_info_list_three": "Презентация 10 слайдтан аспауы керек"
+}

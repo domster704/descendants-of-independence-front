@@ -6,6 +6,7 @@ import trash from '../../../../../assets/img/trash.svg';
 import plus from '../../../../../assets/img/plus.svg';
 import * as styles from './StatementDropdownBlock.module.css';
 import * as statement_main_fields_styles from '../StatementMainFields/StatementMainField.module.css';
+import { useTranslation } from 'react-i18next';
 
 const StatementDropdownBlock = ({
                                     projectDescription,
@@ -14,6 +15,8 @@ const StatementDropdownBlock = ({
                                     costEstimate,
                                     setCostEstimate
                                 }) => {
+    const { t } = useTranslation('statement');
+
     const [isProjectDescriptionOpen, setIsProjectDescriptionOpen] = useState(false);
     const [isCostEstimateOpen, setIsCostEstimateOpen] = useState(false);
 
@@ -38,7 +41,7 @@ const StatementDropdownBlock = ({
                     className={styles.drop_down_block}
                     onClick={() => setIsProjectDescriptionOpen(!isProjectDescriptionOpen)}
                 >
-                    <h2>Описание проекта</h2>
+                    <h2>{t('project_description')}</h2>
                     <img
                         src={chevronDown}
                         style={{ rotate: isProjectDescriptionOpen ? '180deg' : 'none' }}
@@ -53,8 +56,8 @@ const StatementDropdownBlock = ({
                             <TextField
                                 type="textarea"
                                 name="shortDescription"
-                                label="Краткое описание проекта"
-                                placeholder="Опишите ваш проект"
+                                label={t("short_description")}
+                                placeholder={t('short_description_placeholder')}
                                 value={projectDescription.shortDescription}
                                 onChange={changeValue}
                                 required
@@ -62,7 +65,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectTasks"
-                                label="Задачи проекта"
+                                label={t("project_tasks")}
                                 value={projectDescription.projectTasks}
                                 onChange={changeValue}
                                 required
@@ -70,7 +73,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="implementationTimeline"
-                                label="Сроки реализации проекта"
+                                label={t("implementation_timeline")}
                                 value={projectDescription.implementationTimeline}
                                 onChange={changeValue}
                                 required
@@ -78,7 +81,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectDeliverables"
-                                label="Продукт проекта"
+                                label={t("project_deliverables")}
                                 value={projectDescription.projectDeliverables}
                                 onChange={changeValue}
                                 required
@@ -86,7 +89,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="preliminaryCostForecasts"
-                                label="Предварительные прогнозы по стоимости реализации проекта"
+                                label={t("preliminary_cost_forecasts")}
                                 value={projectDescription.preliminaryCostForecasts}
                                 onChange={changeValue}
                                 required
@@ -95,7 +98,7 @@ const StatementDropdownBlock = ({
                             <TextField
                                 type="textarea"
                                 name="projectImplementationGeography"
-                                label="География реализации проекта (область, города республиканского значения, столица)"
+                                label={t("project_implementation_geography")}
                                 value={projectDescription.projectImplementationGeography}
                                 onChange={changeValue}
                                 required
@@ -105,7 +108,7 @@ const StatementDropdownBlock = ({
                         <div className={styles.flex_column}>
                             <TextField
                                 name="targetAudience"
-                                label="Целевая аудитория"
+                                label={t("target_audience")}
                                 value={projectDescription.targetAudience}
                                 onChange={changeValue}
                                 required
@@ -113,7 +116,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectMission"
-                                label="Миссия проекта"
+                                label={t("project_mission")}
                                 value={projectDescription.projectMission}
                                 onChange={changeValue}
                                 required
@@ -121,7 +124,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectJustification"
-                                label="Обоснование проекта"
+                                label={t("project_justification")}
                                 value={projectDescription.projectJustification}
                                 onChange={changeValue}
                                 required
@@ -129,7 +132,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectObjectivesAndSuccessCriteria"
-                                label="Целевые показатели и критерии оценки успеха проекта"
+                                label={t("project_objectives_and_success_criteria")}
                                 value={projectDescription.projectObjectivesAndSuccessCriteria}
                                 onChange={changeValue}
                                 required
@@ -137,7 +140,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectStakeholders"
-                                label="Заинтересованые стороны проекта"
+                                label={t("project_stakeholders")}
                                 value={projectDescription.projectStakeholders}
                                 onChange={changeValue}
                                 required
@@ -145,7 +148,7 @@ const StatementDropdownBlock = ({
 
                             <TextField
                                 name="projectConstraintsAndRisks"
-                                label="Ограничения (риски) проекта"
+                                label={t("project_constraints_and_risks")}
                                 value={projectDescription.projectConstraintsAndRisks}
                                 onChange={changeValue}
                                 required
@@ -159,7 +162,7 @@ const StatementDropdownBlock = ({
                 className={styles.drop_down_block}
                 onClick={() => setIsCostEstimateOpen(!isCostEstimateOpen)}
             >
-                <h2>Смета расходов</h2>
+                <h2>{t('cost_estimate')}</h2>
                 <img
                     src={chevronDown}
                     style={{ rotate: isCostEstimateOpen ? '180deg' : 'none' }}
@@ -171,11 +174,11 @@ const StatementDropdownBlock = ({
                 <div className={styles.drop_down_block_cost_estimate}>
                     <div className={styles.drop_down_block_cost_estimate_header}>
                         <span>№</span>
-                        <span>Статья расходов</span>
-                        <span>Цена за ед.</span>
-                        <span>Единица измерения</span>
-                        <span>Кол-во</span>
-                        <span>Сумма</span>
+                        <span>{t('expense_item')}</span>
+                        <span>{t('price_per_one')}</span>
+                        <span>{t('unit')}</span>
+                        <span>{t('quantity')}</span>
+                        <span>{t('total')}</span>
                     </div>
 
                     <div className={styles.drop_down_block_cost_estimate_table}>
@@ -191,7 +194,7 @@ const StatementDropdownBlock = ({
                                             name="expenseItem"
                                             value={item.expenseItem}
                                             onChange={(e) => changeTableValue(e, index)}
-                                            placeholder="Название"
+                                            placeholder={t('expense_item_placeholder')}
                                             required
                                             inputStyles={{ ...TABLE_INPUT_STYLES, paddingLeft: 20 }}
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
@@ -251,7 +254,7 @@ const StatementDropdownBlock = ({
                             </div>
                         ))}
                         <div className={styles.drop_down_block_cost_estimate_table_result}>
-                            <span>Итого</span>
+                            <span>{t('result')}</span>
                             <span>
                                         {
                                             costEstimate
@@ -283,9 +286,8 @@ const StatementDropdownBlock = ({
                     </button>
 
                     <div className={styles.drop_down_block_cost_estimate_note}>
-                        <h2>Примечание</h2>
-                        <p>Для целевого использования средств гранта грантополучателю не предусматривается
-                            заработная плата</p>
+                        <h2>{t('note')}</h2>
+                        <p>{t('note_description')}</p>
                     </div>
                 </div>
             }

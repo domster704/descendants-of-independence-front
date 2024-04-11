@@ -1,1 +1,65 @@
-{}
+{
+  "title": "ЗАЯВКА",
+  "title_description": "для участия в конкурсе",
+  "submit_button": "Подать заявку",
+
+  "fullName": "Ф.И.О",
+  "birth_date": "Дата рождения",
+  "phone": "Номер телефона",
+  "email": "Эл. почта",
+  "education": "Образование",
+  "academic_degree": "Учёная степень, учёное звание",
+  "address": "Адрес проживания",
+  "current_activity": "Текущая деятельность",
+  "project_direction": "Направление проекта",
+
+  "fullName_placeholder": "Фамилия, Имя, Отчество (при наличии)",
+  "phone_placeholder": "моб./раб. номер телефона",
+  "education_placeholder": "Выберите образование...",
+  "region_placeholder": "Выберите область...",
+  "city_placeholder": "Город",
+  "street_placeholder": "Улица / квартира",
+  "academic_degree_placeholder": "Не обязательно*",
+  "current_activity_placeholder": "Не обязательно*",
+  "project_direction_placeholder": "Выберите направление...",
+
+  "project_description": "Описание проекта",
+  "short_description": "Краткое описание проекта",
+  "target_audience": "Целевая аудитория",
+  "project_mission": "Миссия проекта",
+  "project_justification": "Обоснование проекта",
+  "project_tasks": "Задачи проекта",
+  "project_objectives_and_success_criteria": "Целевые показатели и критерии оценки успеха проекта",
+  "implementation_timeline": "Сроки реализации проекта",
+  "project_stakeholders": "Заинтересованые стороны проекта",
+  "project_deliverables": "Продукт проекта",
+  "project_constraints_and_risks": "Ограничения (риски) проекта",
+  "preliminary_cost_forecasts": "Предварительные прогнозы по стоимости реализации проекта",
+  "project_implementation_geography": "География реализации проекта (область, города республиканского значения, столица)",
+
+  "short_description_placeholder": "Опишите ваш проект",
+
+  "cost_estimate": "Смета расходов",
+
+  "expense_item": "Статья расходов",
+  "price_per_one": "Цена за ед.",
+  "unit": "Единица измерения",
+  "quantity": "Кол-во",
+  "total": "Сумма",
+
+  "expense_item_placeholder": "Название",
+  "result": "Итого",
+
+  "note": "Примечание",
+  "note_description": "Для целевого использования средств гранта грантополучателю не предусматривается заработная плата",
+
+  "drop_zone_title": "Загрузите файл",
+  "drop_zone_description": "Перетащите файлы для загрузки или щелкните",
+  "drop_zone_button": "Загрузить",
+
+  "drop_zone_info": "Загружено",
+  "drop_zone_info_end": " из 2",
+  "drop_zone_info_list_one": "Уд.личности/свд.о рожд. лецевая и обратная сторона одним файлом.",
+  "drop_zone_info_list_two": "Максимальный размер файлов 50 МБ / видео до 1 мин",
+  "drop_zone_info_list_three": "Презентация не более 10 слайдов"
+}

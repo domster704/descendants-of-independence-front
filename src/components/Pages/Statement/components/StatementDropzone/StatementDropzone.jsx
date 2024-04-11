@@ -7,8 +7,11 @@ import cloud from '../../../../../assets/img/cloud.svg';
 import trash from '../../../../../assets/img/trash.svg';
 import * as styles from './StatementDropzone.module.css';
 import * as statement_styles from '../../Statement.module.css';
+import { useTranslation } from 'react-i18next';
 
 const StatementDropzone = ({ state, setState }) => {
+    const { t } = useTranslation('statement');
+
     const dispatch = useDispatch();
     const { isFormError } = useSelector(state => state.env);
 
@@ -53,14 +56,14 @@ const StatementDropzone = ({ state, setState }) => {
                             {isDragOver && <div className={styles.drop_zone_over}></div>}
                             <input {...getInputProps()} />
                             <div className={styles.drop_zone_content}>
-                                <h2>Загрузите файл</h2>
+                                <h2>{t('drop_zone_title')}</h2>
                                 <img src={cloud} alt="cloud-img"/>
-                                <p>Перетащите файлы для загрузки или щелкните</p>
+                                <p>{t('drop_zone_description')}</p>
                                 <button
                                     type="button"
                                     className={[statement_styles.upload_file_button, styles.upload_file_button].join(' ')}
                                 >
-                                    Загрузить
+                                    {t('drop_zone_button')}
                                 </button>
 
                                 <div className={styles.files} onClick={(e) => e.stopPropagation()}>
@@ -90,7 +93,7 @@ const StatementDropzone = ({ state, setState }) => {
 
             <div className={styles.files_description}>
                 <div className={styles.files_info}>
-                    <p>Загружено: <span>{state.files.length} из 2</span></p>
+                    <p>{t('drop_zone_info')}: <span>{state.files.length}{t('drop_zone_info_end')}</span></p>
                     <div className={styles.size_indicator_wrapper}>
                         <p>{filesMegabytes} МБ</p>
                         <div className={styles.size_indicator}>
@@ -105,9 +108,9 @@ const StatementDropzone = ({ state, setState }) => {
                 </div>
 
                 <ul className={styles.files_info_list}>
-                    <li>Уд.личности/свд.о рожд. лецевая и обратная сторона одним файлом.</li>
-                    <li>Максимальный размер файлов <b>{MAX_MEGABYTES} МБ</b> / видео до <b>1 мин</b></li>
-                    <li>Презентация не более <strong>10 слайдов</strong></li>
+                    <li>{t('drop_zone_info_list_one')}</li>
+                    <li>{t('drop_zone_info_list_two')}</li>
+                    <li>{t('drop_zone_info_list_three')}</li>
                 </ul>
             </div>
         </div>
