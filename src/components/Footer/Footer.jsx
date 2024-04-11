@@ -6,22 +6,6 @@ import telegramm from "./img/Group 770845.png";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const navigationLinks = [
-  { label: "О гранте", url: "/" },
-  { label: "Архив", url: "/archive" },
-  { label: "Документы", url: "#" },
-  { label: "О конкурсе", url: "/about" },
-  { label: "Подать заявку", url: "/statement" },
-  { label: "Узнать статус", url: "#" },
-];
-
-const helpLinks = [
-  { label: "Как подать заявку?", url: "#" },
-  { label: "Как узнать итог?", url: "#" },
-  { label: "Основные правила проекта", url: "#" },
-  { label: "Информация о МКИ РК", url: "#" },
-];
-
 const Footer = () => {
   const { t } = useTranslation("footer");
   const [navTogle, setNavTogle] = useState(false);
@@ -29,6 +13,8 @@ const Footer = () => {
   const togle = (value, setter) => {
     setter(!value);
   };
+  const navigationLinks = t("navigationLinks", { returnObjects: true });
+  const helpLinks = t("helpLinks", { returnObjects: true });
   return (
     <div className={style.footer}>
       <h1 className={style.hidden}>Footer</h1>
@@ -37,12 +23,12 @@ const Footer = () => {
         <div className={style.footer_top}>
           <div className={style.footer_left}>
             <nav style={{ width: "100%" }}>
-              <h2 className={style.footer_title}>Навигация</h2>
+              <h2 className={style.footer_title}>{t("navigation")}</h2>
               <button
                 className={style.mobile}
                 onClick={() => togle(navTogle, setNavTogle)}
               >
-                Навигация
+                {t("navigation")}
                 <svg
                   className={navTogle ? null : style.rotate}
                   width="14"
@@ -64,18 +50,20 @@ const Footer = () => {
               >
                 {navigationLinks.map((link, index) => (
                   <li key={index}>
-                    <Link to={link.url}>{link.label}</Link>
+                    <Link to={link.url} download={link.fileName}>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </nav>
             <div className={style.custom_color}>
-              <h3 className={style.footer_title}>{t("help_nav")}</h3>
+              <h3 className={style.footer_title}>{t("help")}</h3>
               <button
                 className={style.mobile}
                 onClick={() => togle(helperTogle, setHelperTogle)}
               >
-                Помощь
+                {t("help")}
                 <svg
                   className={helperTogle ? null : style.rotate}
                   width="14"
@@ -106,17 +94,15 @@ const Footer = () => {
           <div className={style.footer_telegram}>
             <img src={telegramm} alt="Telegram" />
             <a href="#" className={style.telegram_link}>
-              перейти в телеграм
+              {t("go_to_telegram")}
             </a>
           </div>
         </div>
         <div className={style.footer_bottom}>
-          <p className={style.desctop_text}>
-            Тәуелсіздік ұрпақтары 2023, все права защищены.
-          </p>
-          <p className={style.mobile_text}>© 2023, Все права защищены</p>
+          <p className={style.desctop_text}>{t("independence_parks_2023")}</p>
+          <p className={style.mobile_text}>{t("mobile_privacy")}</p>
           <a className={style.footer_polisy} href="#">
-            Политика конфиденциальности.
+            {t("privacy_policy")}
           </a>
         </div>
       </Wrapper>

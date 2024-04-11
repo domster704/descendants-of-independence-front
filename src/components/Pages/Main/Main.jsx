@@ -2,7 +2,6 @@ import React from "react";
 import Carth from "./MainComponents/Carth";
 import GrandInfo from "./MainComponents/GrantInfo";
 import mainLogo from "./img/image 28.jpg";
-import { Link } from "react-router-dom";
 import * as style from "./Main.module.css";
 import ChatBot from "../../ChatBot/ChatBot";
 

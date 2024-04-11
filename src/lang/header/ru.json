@@ -1,1 +1,26 @@
-{}
+{
+  "navigationLinks": [
+    {
+      "label": "О гранте",
+      "url": "/"
+    },
+    {
+      "label": "Архив",
+      "url": "archive"
+    },
+    {
+      "label": "Документы",
+      "url": "assets/Правилаru.pdf",
+      "fileName": "Ru.pdf"
+    }
+  ],
+  "concurse": "Конкурс",
+  "linkModal": [
+    { "href": "/about", "text": "О конкурсе" },
+    { "href": "/statement", "text": "Подать заявку" },
+    { "href": "/status", "text": "Узнать статус" },
+    { "href": "#", "text": "Список победителей" }
+  ],
+  "concurse_status": "Узнать статус",
+  "concurse_send": "Отправить заявку"
+}

@@ -1,1 +1,26 @@
-{}
+{
+  "navigationLinks": [
+    {
+      "label": "Грант туралы",
+      "url": "/"
+    },
+    {
+      "label": "Мұрағат",
+      "url": "archive"
+    },
+    {
+      "label": "Құжаттама",
+      "url": "assets/Правилаru.pdf",
+      "fileName": "Ru.pdf"
+    }
+  ],
+  "concurse": "Конкурс",
+  "linkModal": [
+    { "href": "/about", "text": "Жарыс туралы" },
+    { "href": "/statement", "text": "Тапсырыс беру" },
+    { "href": "/status", "text": "Күйін біліңіз" },
+    { "href": "#", "text": "Жеңімпаздар тізімі" }
+  ],
+  "concurse_status": "Күйін біліңіз",
+  "concurse_send": "Тапсырыс беру"
+}

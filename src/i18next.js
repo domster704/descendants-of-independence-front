@@ -37,11 +37,10 @@ i18n.use(initReactI18next).init({
     },
   },
   fallbackLng: "ru",
-  debug: true,
+  debug: false,
   interpolation: {
     escapeValue: false,
   },
-  returnObject: true,
 });
 
 export default i18n;

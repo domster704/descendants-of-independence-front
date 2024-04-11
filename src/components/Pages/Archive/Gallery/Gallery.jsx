@@ -11,29 +11,32 @@ import gallery3 from "./img/gallery3.png";
 import * as constants from "./Gallery.constants";
 import TextField from "../../../UI/TextField/TextField";
 
+
+import { useTranslation } from "react-i18next";
 import {useSelector} from "react-redux";
 
 const Gallery = () => {
+  const { t } = useTranslation("archive");
     let galleryListRef = React.useRef(null);
 
     let [galleryList, setGalleryList] = React.useState([{
         img: gallery1,
-        description: "Глава государства принял участие в церемонии вручения грантов «Тәуелсіздік ұрпақтары»",
+        description: t('gallery1'),
     }, {
         img: gallery2,
-        description: "Награждение победителей гранта 2021 года"
+        description: t('gallery2')
     }, {
         img: gallery3,
-        description: "Брифинг. О начале конкурса на присуждение гранта «Тәуелсіздік ұрпақтары»"
+        description: t('gallery3')
     }, {
         img: gallery4,
-        description: "Награждение победителей гранта 2022 года"
+        description: t('gallery4')
     }, {
         img: gallery4,
-        description: "Награждение победителей гранта 2022 года"
+        description: t('gallery4')
     }, {
         img: gallery4,
-        description: "Награждение победителей гранта 2022 года"
+        description: t('gallery4')
     }]);
 
     let galleryOptions = useSelector(state => state.gallery);

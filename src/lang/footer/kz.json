@@ -1,3 +1,32 @@
 {
-  "help_nav": "Комек"
+  "navigation": "Навигация",
+  "navigationLinks": [
+    {
+      "label": "Грант туралы",
+      "url": "/"
+    },
+    {
+      "label": "Мұрағат",
+      "url": "archive"
+    },
+    {
+      "label": "Құжаттама",
+      "url": "assets/Правилаkz.pdf",
+      "fileName": "Kz.pdf"
+    },
+    { "label": "Конкурс туралы", "url": "/about" },
+    { "label": "Тапсырыс беру", "url": "/statement" },
+    { "label": "Мәртебесін біліңіз", "url": "/status" }
+  ],
+  "help": "Көмек",
+  "helpLinks": [
+    { "label": "Қалай өтініш беруге болады?", "url": "/about" },
+    { "label": "Нәтижені қалай білуге ​​болады?", "url": "/status" },
+    { "label": "Жобаның негізгі ережелері", "url": "/about" },
+    { "label": "ҚР МКИ туралы ақпарат", "url": "#" }
+  ],
+  "independence_parks_2023": "Тәуелсіздік Ұрпақтары 2023, барлық құқықтар қорғалған",
+  "go_to_telegram": "телеграмға өту",
+  "privacy_policy": "Құпиялылық саясаты.",
+  "mobile_privacy": "© 2023, Барлық құқықтар қорғалған"
 }

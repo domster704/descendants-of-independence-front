@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import * as style from "../Main.module.css";
 import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
-
-const buttonText = {
-  culture:
-    "«Культура» – для реализации проектов, направленных на популяризацию культурного наследия Казахстана, продвижение народных культурных традиций и искусства.",
-  sciens:
-    "«Наука» – для реализации новых научных проектов и исследований в приоритетных секторах науки",
-  business:
-    "«Бизнес» – для реализации новых бизнес-идей в приоритетных секторах экономики;",
-  informationTechnology:
-    "«Информационные технологии» – для реализации и разработки новых ITрешений и проектов, в том числе начинающих стартап-проектов;",
-  media:
-    "«Медиа» – для реализации новых медиа-проектов, в том числе проектов по созданию познавательного, полезного, интересного контента для молодежи.",
-};
+import { useTranslation } from "react-i18next";
 
 const Carth = () => {
-  const [initialText, setText] = useState(buttonText.culture);
+  const { t } = useTranslation("main");
+  const buttonText = {
+    culture: t("culture"),
+    sciens: t("sciens"),
+    business: t("business"),
+    informationTechnology: t("informationTechnology"),
+    media: t("media"),
+  };
   const [activeButton, setActiveButton] = useState("Культура");
+  const [initialText, setText] = useState(buttonText.culture);
 
   const handleButtonClick = (newText, buttonTitle) => {
     setText(newText);
@@ -28,16 +24,14 @@ const Carth = () => {
       <section className={style.carth}>
         <div className={style.carth_flex}>
           <div className={style.carth_info}>
-            <h3 className={style.carth_title}>Сумма гранта:</h3>
+            <h3 className={style.carth_title}>{t("grant_sum")}</h3>
             <div>
               <span className={style.custom_btn}>3 000 000тг</span>
-              <p className={style.carth_info_text}>
-                Используется для реализации проекта.
-              </p>
+              <p className={style.carth_info_text}>{t("grant_text")}</p>
             </div>
           </div>
           <div className={style.carth_info}>
-            <h3 className={style.carth_title}>Направления гранта:</h3>
+            <h3 className={style.carth_title}>{t("grant_grant")}</h3>
             <div className={style.button_group}>
               <button
                 className={
@@ -47,7 +41,7 @@ const Carth = () => {
                 }
                 onClick={() => handleButtonClick(buttonText.sciens, "Наука")}
               >
-                Наука
+                {t("grant_btn_sciens")}
               </button>
               <button
                 className={
@@ -59,7 +53,7 @@ const Carth = () => {
                   handleButtonClick(buttonText.culture, "Культура")
                 }
               >
-                Культура
+                {t("grant_btn_culture")}
               </button>
               <button
                 className={
@@ -69,7 +63,7 @@ const Carth = () => {
                 }
                 onClick={() => handleButtonClick(buttonText.business, "Бизнес")}
               >
-                Бизнес
+                {t("grant_btn_bisiness")}
               </button>
               <div className={style.btn_flex}>
                 <button
@@ -85,7 +79,7 @@ const Carth = () => {
                     )
                   }
                 >
-                  Информационные технологии
+                  {t("grant_btn_information")}
                 </button>
                 <button
                   className={
@@ -95,7 +89,7 @@ const Carth = () => {
                   }
                   onClick={() => handleButtonClick(buttonText.media, "Медиа")}
                 >
-                  Медиа
+                  {t("grant_btn_media")}
                 </button>
               </div>
               <p className={`${style.carth_text} ${style.text_custom}`}>
@@ -104,11 +98,8 @@ const Carth = () => {
             </div>
           </div>
           <div className={style.carth_info}>
-            <h3 className={style.carth_title}>Реализация и мониторинг:</h3>
-            <p className={style.custom_bg}>
-              Срок использования и мониторинг за целевым использованием гранта -
-              1 календарный год.
-            </p>
+            <h3 className={style.carth_title}>{t("grant_lastCarth_title")}</h3>
+            <p className={style.custom_bg}>{t("grant_lastCarth_text")}</p>
           </div>
         </div>
         <p className={style.carth_text}>{initialText}</p>

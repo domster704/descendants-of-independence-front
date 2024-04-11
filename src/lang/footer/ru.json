@@ -1,3 +1,32 @@
 {
-  "help_nav": "Помощь"
+  "navigation": "Навигация",
+  "navigationLinks": [
+    {
+      "label": "О гранте",
+      "url": "/"
+    },
+    {
+      "label": "Архив",
+      "url": "archive"
+    },
+    {
+      "label": "Документы",
+      "url": "assets/Правилаru.pdf",
+      "fileName": "Ru.pdf"
+    },
+    { "label": "О конкурсе", "url": "/about" },
+    { "label": "Подать заявку", "url": "/statement" },
+    { "label": "Узнать статус", "url": "/status" }
+  ],
+  "help": "Помощь",
+  "helpLinks": [
+    { "label": "Как подать заявку?", "url": "/about" },
+    { "label": "Как узнать итог?", "url": "/status" },
+    { "label": "Основные правила проекта", "url": "/about" },
+    { "label": "Информация о МКИ РК", "url": "#" }
+  ],
+  "independence_parks_2023": "Тәуелсіздік ұрпақтары 2023, все права защищены",
+  "go_to_telegram": "Перейти в телеграм",
+  "privacy_policy": "Политика конфиденциальности",
+  "mobile_privacy": "© 2023, Все права защищены"
 }
