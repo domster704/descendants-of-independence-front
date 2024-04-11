@@ -1,0 +1,23 @@
+.tabs {
+  max-width: 210px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+  padding: 15px 40px;
+  border: none;
+  background: white;
+  text-align: center;
+  min-height: 70px;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs_container {
+  display: flex;
+  align-items: center;
+  background-color: black;
+}
+
+.tabs.active {
+  border-bottom: 2px solid rgba(22, 97, 245, 1);
+}
