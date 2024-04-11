@@ -9,9 +9,7 @@ const WinnerCardFiltered = () => {
     const {t} = useTranslation('archive')
     let winnerState = useSelector(state => state.winner);
 
-    let winnerCards = Object.keys(winnerState.winnerCards).map(year => {
-        return winnerState.winnerCards[year][winnerState.filter.active]
-    }).flat(2);
+    let winnerCards = winnerState.winnerCards[winnerState.filter.year][winnerState.filter.active];
 
     let [currentWinnerIndex, setCurrentWinnerIndex] = React.useState(0);
 
