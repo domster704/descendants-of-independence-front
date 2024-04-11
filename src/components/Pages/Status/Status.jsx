@@ -30,8 +30,9 @@ const Status = () => {
                 <p>Введите индивидуальный номер вашей заявки</p>
                 <StatusInputID/>
                 {
-                    statusStore.tickets[statusStore.ticketId] &&
-                    <StatusStepContainer ticket={statusStore.tickets[statusStore.ticketId]}/>
+                    statusStore.tickets[statusStore.ticketId] ?
+                        <StatusStepContainer ticket={statusStore.tickets[statusStore.ticketId]}/>
+                        : statusStore.ticketId !== null ? <p>Ничего не найдено</p> : null
                 }
             </div>
         </Wrapper>
