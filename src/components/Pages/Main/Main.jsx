@@ -1,7 +1,7 @@
 import React from "react";
 import Carth from "./MainComponents/Carth";
 import GrandInfo from "./MainComponents/GrantInfo";
-import mainLogo from "./img/image 28.jpg";
+import mainLogo from "./img/KZ1_9633_2.jpg";
 import * as style from "./Main.module.css";
 import ChatBot from "../../ChatBot/ChatBot";
 

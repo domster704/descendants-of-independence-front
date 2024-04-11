@@ -1,7 +1,5 @@
 import React from "react";
 import * as style from "../Main.module.css";
-import infoTopBg from "../img/Vector.jpg";
-import infoBottomBg from "../img/vector2.jpg";
 import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -10,8 +8,6 @@ const GrandInfo = () => {
   const { t } = useTranslation("main");
   return (
     <section className={style.mainSection}>
-      <img className={style.infoTopBg} src={infoTopBg} />
-      <img className={style.infoBottomBg} src={infoBottomBg} />
       <Wrapper>
         <h2 className={style.main_title}>{t("grant_info")}</h2>
         <div className={style.section_wrapper}>
