@@ -6,8 +6,11 @@ import StatusStepContainer from "./StatusStepContainer/StatusStepContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { setTicketId } from '../../../store/statusSlice';
+import { useTranslation } from "react-i18next";
+
 
 const Status = () => {
+    const {t} = useTranslation('status')
     const dispatch = useDispatch();
     let statusStore = useSelector(state => state.status);
 
@@ -26,13 +29,13 @@ const Status = () => {
     return (
         <Wrapper>
             <div className={styles.status}>
-                <h1>Узнать статус</h1>
-                <p>Введите индивидуальный номер вашей заявки</p>
+                <h1>{ t("heading")}</h1>
+                <p>{ t("description")}</p>
                 <StatusInputID/>
                 {
                     statusStore.tickets[statusStore.ticketId] ?
                         <StatusStepContainer ticket={statusStore.tickets[statusStore.ticketId]}/>
-                        : statusStore.ticketId !== null ? <p>Ничего не найдено</p> : null
+                        : statusStore.ticketId !== null ? <p>{ t("noResultsMessage")}</p> : null
                 }
             </div>
         </Wrapper>
