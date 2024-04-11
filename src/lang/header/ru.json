@@ -19,7 +19,7 @@
     { "href": "/about", "text": "О конкурсе" },
     { "href": "/statement", "text": "Подать заявку" },
     { "href": "/status", "text": "Узнать статус" },
-    { "href": "#", "text": "Список победителей" }
+    { "href": "/archive/winner_list", "text": "Список победителей" }
   ],
   "concurse_status": "Узнать статус",
   "concurse_send": "Отправить заявку"
