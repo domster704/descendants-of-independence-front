@@ -19,7 +19,7 @@
     { "href": "/about", "text": "Жарыс туралы" },
     { "href": "/statement", "text": "Тапсырыс беру" },
     { "href": "/status", "text": "Күйін біліңіз" },
-    { "href": "#", "text": "Жеңімпаздар тізімі" }
+    { "href": "/archive/winner_list", "text": "Жеңімпаздар тізімі" }
   ],
   "concurse_status": "Күйін біліңіз",
   "concurse_send": "Тапсырыс беру"
