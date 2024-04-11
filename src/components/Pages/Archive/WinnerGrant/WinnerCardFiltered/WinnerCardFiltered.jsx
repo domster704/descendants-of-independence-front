@@ -2,9 +2,11 @@ import React from 'react';
 
 import * as styles from './WinnerCardFiltered.module.css';
 import ArrowButton from "../../../../UI/ArrowButton/ArrowButton";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 const WinnerCardFiltered = () => {
+    const {t} = useTranslation('archive')
     let winnerState = useSelector(state => state.winner);
 
     let winnerCards = Object.keys(winnerState.winnerCards).map(year => {
@@ -30,19 +32,19 @@ const WinnerCardFiltered = () => {
                     <p><b>Ф.И.О.:</b></p>
                     <p>{winnerCards[currentWinnerIndex]?.name}</p>
 
-                    <p><b>Возраст:</b></p>
+                    <p><b>{t('age')}:</b></p>
                     <p>{winnerCards[currentWinnerIndex]?.age}</p>
 
-                    <p><b>Регион:</b></p>
+                    <p><b>{t('city')}:</b></p>
                     <p>{winnerCards[currentWinnerIndex]?.region}</p>
 
-                    <p><b>Проект:</b></p>
+                    <p><b>{t('project')}:</b></p>
                     <p>{winnerCards[currentWinnerIndex]?.project}</p>
 
-                    <p><b>Цель:</b></p>
+                    <p><b>{t('target')}:</b></p>
                     <p>{winnerCards[currentWinnerIndex]?.purpose}</p>
 
-                    <p><b>Статус проекта:</b></p>
+                    <p><b>{t('project_status')}:</b></p>
                     <p><a>{winnerCards[currentWinnerIndex]?.status}</a></p>
                 </div>
                 <div className={styles.right}>

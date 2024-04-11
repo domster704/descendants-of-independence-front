@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as style from "../Main.module.css";
 import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
 import { useTranslation } from "react-i18next";
 
 const Carth = () => {
-  const { t } = useTranslation("main");
+  const { t , i18n} = useTranslation("main");
+  const culture = t("culture");
+  const sciens = t("sciens")
+  const business = t("business")
+  const informationTechnology = t("informationTechnology")
+  const media = t("media")
+
   const buttonText = {
-    culture: t("culture"),
-    sciens: t("sciens"),
-    business: t("business"),
-    informationTechnology: t("informationTechnology"),
-    media: t("media"),
+    culture,
+    sciens,
+    business,
+    informationTechnology,
+    media,
   };
+
   const [activeButton, setActiveButton] = useState("Культура");
   const [initialText, setText] = useState(buttonText.culture);
+  useEffect(() => {
+    setText(buttonText.culture)  
+  },[t])
 
   const handleButtonClick = (newText, buttonTitle) => {
     setText(newText);

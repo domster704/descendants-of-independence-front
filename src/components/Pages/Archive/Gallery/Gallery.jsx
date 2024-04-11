@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as styles from './Gallery.module.css';
 import Wrapper from "../../../UI/Wrapper/Wrapper";
 import GalleryElement from "./GalleryElement/GalleryElement";
@@ -39,6 +39,28 @@ const Gallery = () => {
         description: t('gallery4')
     }]);
 
+    useEffect(() => {
+        setGalleryList([{
+            img: gallery1,
+            description: t('gallery1'),
+        }, {
+            img: gallery2,
+            description: t('gallery2')
+        }, {
+            img: gallery3,
+            description: t('gallery3')
+        }, {
+            img: gallery4,
+            description: t('gallery4')
+        }, {
+            img: gallery4,
+            description: t('gallery4')
+        }, {
+            img: gallery4,
+            description: t('gallery4')
+        }])
+    }, [t])
+
     let galleryOptions = useSelector(state => state.gallery);
     let dropdownTextField = <TextField type="select"
                                        name="gallery"
@@ -53,7 +75,7 @@ const Gallery = () => {
             <Wrapper>
                 <div className={styles.dropdown_list_mobile}>{dropdownTextField}</div>
                 <div className={styles.header_mobile}>
-                    <h1>Галерея</h1>
+                    <h1>{ t('gallery')}</h1>
                     <div className={styles.gallery_list_arrows}>
                         <ArrowButton size="large"
                                      onClick={() => {
