@@ -1,0 +1,44 @@
+.ticket_header_table {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket_header_table > div > p:last-child{
+    text-align: right;
+}
+
+.layout_with_points {
+    grid-template-columns: repeat(5, 1fr) 2fr;
+}
+
+.out_block,
+.in_block {
+    --padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 2fr;
+    padding: var(--padding);
+}
+
+.in_block {
+    border-radius: 12px 12px 0 0;
+    background: var(--white);
+    padding-bottom: calc(var(--padding) + 32px);
+}
+
+.ticketCard {
+    border-radius: 0 0 12px 12px;
+    background: var(--white);
+    padding: 0 20px 32px 20px;
+}
+
+.refused {
+    color: var(--red);
+}
+
+.accepted {
+    color: var(--green);
+}
+
+.modification {
+    color: var(--yellow);
+}

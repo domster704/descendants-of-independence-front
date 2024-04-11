@@ -1,0 +1,18 @@
+.status {
+    margin: 70px 0 100px 0;
+}
+
+.status h1 {
+    font-weight: 500;
+    font-size: 48px;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.status h1 + p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--black);
+    margin-bottom: 60px;
+}

@@ -14,7 +14,7 @@ const link = [
 const linkModal = [
   { href: "/about", text: "О конкурсе" },
   { href: "/statement", text: "Подать заявку" },
-  { href: "#", text: "Узнать статус" },
+  { href: "/status", text: "Узнать статус" },
   { href: "#", text: "Список победителей" },
 ];
 
