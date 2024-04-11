@@ -23,7 +23,6 @@ const WinnerYearCardList = ({
                             }) => {
     let dispatch = useDispatch();
     let filterYear = useSelector(state => state.winner.filter.year);
-
     return (
         <div className={`${styles.list} ${is_max_width && styles.max}`}>
             {

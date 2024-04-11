@@ -29,31 +29,36 @@ const PLUS_BUTTON = <svg width="34" height="34" viewBox="0 0 34 34" fill="none" 
  * @returns {Element}
  * @constructor
  */
-const WinnerYearCard = ({year, onClick, not_expand = false, active = false}) => {
-    const {t} = useTranslation("archive")
+const WinnerYearCard = ({
+                            year,
+                            onClick,
+                            not_expand = false,
+                            active = false
+                        }) => {
 
-    const [isPlus, setIsPlus] = React.useState(!active);
+    const {t} = useTranslation("archive");
+
+    const [isClose, setIsClose] = React.useState(true);
 
     const onClickSVG = (event) => {
-        setIsPlus(!isPlus);
+        setIsClose(!isClose);
         onClick(event);
     };
 
-    React.useEffect(() => {
-        setIsPlus(!active);
-    }, [active]);
-
+    // React.useEffect(() => {
+    //     setIsClose(!active);
+    // }, [active]);
     return (
         <div className={styles.card}>
             <div className={styles.card_row}>
                 <p>{t('winners')} {year} { t('year')}</p>
                 <button className={styles.button}
                         onClick={onClickSVG}>
-                    {(!active || !not_expand && isPlus) ? PLUS_BUTTON : MINUS_BUTTON}
+                    {(!not_expand && isClose || not_expand && !active) ? PLUS_BUTTON : MINUS_BUTTON}
                 </button>
             </div>
             {
-                !not_expand && !isPlus && <WinnerYearList year={year}/>
+                !not_expand && !isClose && <WinnerYearList year={year}/>
             }
         </div>
     );

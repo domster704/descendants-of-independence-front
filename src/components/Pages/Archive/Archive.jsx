@@ -11,7 +11,7 @@ const WINNER_LIST_PATH = "/archive/winner_list";
 const Archive = () => {
     const YEARS_ON_PAGE = 3;
     let winnerStore = useSelector(state => state.winner);
-    let years = Object.keys(winnerStore.winnerCards).reverse();
+    let years = Object.keys(winnerStore.winnerCards).map(year => parseInt(year)).reverse();
 
     return (
         <>
