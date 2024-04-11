@@ -60,7 +60,7 @@ export const INITIAL_STATE = {
         month: '',
         year: '',
     },
-    number: '',
+    phone: '',
     email: '',
     education: '',
     academicDegree: null,

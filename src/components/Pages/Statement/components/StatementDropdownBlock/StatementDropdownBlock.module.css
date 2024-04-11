@@ -35,6 +35,8 @@
 
 .drop_down_block_cost_estimate {
     padding: calc(40px - 14px) 56px 0 20px;
+    width: 780px;
+    margin: 0 auto;
 }
 
 .drop_down_block_cost_estimate_header {

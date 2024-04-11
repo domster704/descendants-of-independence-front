@@ -66,7 +66,11 @@ const StatementDropzone = ({ state, setState }) => {
                                 <div className={styles.files} onClick={(e) => e.stopPropagation()}>
                                     {state.files.map((file, index) =>
                                         <div key={`file-${index + 1}`}>
-                                            <p>{file.name.substring(0, 26) + '....' + file.name.substring(file.name.length - 4)}</p>
+                                            <p>{
+                                                file.name.length > 25 ?
+                                                    file.name.substring(0, 26) + '...' + file.name.substring(file.name.length - 4)
+                                                    : file.name
+                                            }</p>
                                             <img
                                                 src={trash}
                                                 onClick={() => setState(prevState => ({

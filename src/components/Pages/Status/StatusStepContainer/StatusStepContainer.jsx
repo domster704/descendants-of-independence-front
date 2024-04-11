@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import * as styles from './StatusStepContainer.module.css'
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import StatusStepForm from '../StatusStepForm/StatusStepForm';
+import StatusStepConfirm from '../StatusStepConfirm/StatusStepConfirm';
 
-const StatusStepContainer = ({ticket}) => {
+const StatusStepContainer = ({ ticket }) => {
     let statusStore = useSelector(state => state.status);
+
+    const [isConfirmStatement, setIsConfirmStatement] = useState(false);
 
     const STATUS_COLOR_CLASSNAME = {
         'Отказано': styles.refused,
@@ -34,9 +38,32 @@ const StatusStepContainer = ({ticket}) => {
             </div>
 
             {/*ТУТ ПИСАТЬ НОВЫЕ ЭТАПЫ*/}
-            <div className={styles.ticketCard}>
-                <p>Проект не соответсвует требованиям конкурса.</p>
-            </div>
+            {
+                ticket.status !== 'Принято' &&
+                <div className={styles.ticketCard}>
+                    {
+                        ticket.status === 'Отказано' ?
+                            <div className={styles.ticketCard_cause}>
+                                <h4>Причина:</h4>
+                                <p>Проект не соответсвует требованиям конкурса.</p>
+                            </div> : ticket.status === 'Отправлено на доработку' ?
+                                <div>
+                                    {isConfirmStatement ?
+                                        <>
+                                            <div>
+                                                <h4>Комментарий администратора</h4>
+                                                <p>{ticket.admin_comment.message}</p>
+                                            </div>
+                                            <StatusStepForm/>
+                                        </>
+                                        :
+                                        <StatusStepConfirm ticket={ticket} setIsConfirmStatement={setIsConfirmStatement}/>
+                                    }
+                                </div>
+                                : null
+                    }
+                </div>
+            }
         </div>
     );
 }

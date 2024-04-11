@@ -10,9 +10,9 @@ import {
 } from '../../Statement.constants';
 import * as styles from './StatementMainField.module.css';
 
-const StatementMainFields = ({ state, changeValue }) => {
+const StatementMainFields = ({ state, changeValue, className }) => {
     return (
-        <div className={styles.text_fields}>
+        <div className={[styles.text_fields, className].join(' ')}>
             <TextField
                 name="fullName"
                 label="Ф.И.О"
@@ -60,10 +60,10 @@ const StatementMainFields = ({ state, changeValue }) => {
 
             <TextField
                 type="number"
-                name="number"
+                name="phone"
                 label="Номер телефона"
                 placeholder="моб./раб. номер телефона"
-                value={state.number}
+                value={state.phone}
                 onChange={changeValue}
                 required
             />

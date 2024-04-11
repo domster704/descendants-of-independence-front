@@ -19,16 +19,51 @@
     padding: var(--padding);
 }
 
+.out_block {
+    color: var(--black-50);
+}
+
 .in_block {
     border-radius: 12px 12px 0 0;
     background: var(--white);
-    padding-bottom: calc(var(--padding) + 32px);
+}
+
+.in_block p:nth-child(3) {
+    color: var(--black-50);
 }
 
 .ticketCard {
     border-radius: 0 0 12px 12px;
     background: var(--white);
-    padding: 0 20px 32px 20px;
+    padding: 11px 20px 32px 20px;
+}
+
+.ticketCard_cause {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.ticketCard_confirm {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.ticketCard_confirm_error {
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+    color: var(--red);
+    font-size: 14px;
+}
+
+.ticketCard_confirm_button {
+    position: static;
+    padding: 14px 40px;
+    margin: 0;
+    margin-left: 140px;
 }
 
 .refused {
