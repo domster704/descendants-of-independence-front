@@ -11,17 +11,19 @@ const StatusInputID = () => {
     let dispatch = useDispatch();
     let statusTicketId = useSelector(state => state.status.ticketId);
 
-    const onClick = () => {
+    const onClick = (e) => {
+        e.preventDefault();
+
         const ticketId = parseInt(inputTicketIdRef.current?.value || 0);
         dispatch(setTicketId(ticketId));
         navigate('/status/' + ticketId);
     }
 
     return (
-        <form className={styles.input_block}>
+        <form onSubmit={onClick} className={styles.input_block}>
             <div className={styles.input_container}>
                 <input ref={inputTicketIdRef} placeholder="Номер заявки"/>
-                <button onClick={onClick}>Найти</button>
+                <button>Найти</button>
             </div>
         </form>
     );
