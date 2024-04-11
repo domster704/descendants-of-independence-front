@@ -36,7 +36,6 @@ const WinnerYearCard = ({year, onClick, not_expand = false, active = false}) => 
 
     const onClickSVG = (event) => {
         setIsPlus(!isPlus);
-        console.log(year)
         onClick(event);
     };
 
