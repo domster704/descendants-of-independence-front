@@ -7,7 +7,6 @@ import Statement from "./components/Pages/Statement/Statement";
 import Archive from "./components/Pages/Archive/Archive";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Header2 from "./components/Admin/Header/Header";
 
 import background from "./assets/img/top_background.png";
 import * as styles from "./App.module.css";
@@ -33,7 +32,6 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/success" element={<Success />} />
           <Route path="/status/*" element={<Status />} />
-          <Route path="/stat" element={<Header2 />} />
         </Routes>
         <Footer />
       </div>
