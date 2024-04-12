@@ -276,12 +276,10 @@ const StatementDropdownBlock = ({
                         onClick={() =>
                             setCostEstimate(prevState => [...prevState,
                                 {
-                                    number: prevState.length + 1,
                                     expenseItem: '',
                                     pricePerOne: '',
                                     unit: '',
                                     quantity: '',
-                                    summary: ''
                                 },
                             ])
                         }

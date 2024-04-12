@@ -55,6 +55,10 @@
   margin-top: 14px;
 }
 
+.success_btn:hover {
+  color: var(--white);
+}
+
 @media screen and (max-width: 960px) {
   .hidden {
     display: block;
