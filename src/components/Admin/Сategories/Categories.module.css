@@ -1,0 +1,33 @@
+.categories_title {
+  padding-top: 74px;
+  margin-bottom: 59px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44.1px;
+}
+
+.list_item {
+  width: 351px;
+  height: 110px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+.carth_link {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.4px;
+}
