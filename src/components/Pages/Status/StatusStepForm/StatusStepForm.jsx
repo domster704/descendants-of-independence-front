@@ -68,7 +68,7 @@ const StatusStepForm = () => {
     };
 
     return (
-        <form onSubmit={sendData} className={[stylesStatement.form, styles.form].join(' ')}>
+        <form onSubmit={sendData} className={[stylesStatement.form, styles.form, stylesStatement.edit_form].join(' ')}>
             <StatementMainFields
                 state={state}
                 changeValue={changeValue}

@@ -16,7 +16,7 @@ const StatusStepContainer = ({ ticket }) => {
     }
 
     return (
-        <div>
+        <div className={styles.status_step_container}>
             <div className={`${styles.ticket_header_table}`}>
                 <div className={`${styles.out_block} ${ticket.points && styles.layout_with_points}`}>
                     <p>Номер заявки</p>

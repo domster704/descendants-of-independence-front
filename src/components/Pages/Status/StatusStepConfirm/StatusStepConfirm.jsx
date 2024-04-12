@@ -48,44 +48,42 @@ const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
     };
 
     return (
-        <div>
-            <form onSubmit={confirmStatement} className={styles.ticketCard_confirm}>
-                <TextField
-                    type="number"
-                    name="phone"
-                    label="Номер телефона"
-                    value={state.phone}
-                    onChange={changeValue}
-                    required
-                />
-                <TextField
-                    type="email"
-                    name="email"
-                    label="Адрес эл. почты"
-                    value={state.email}
-                    onChange={changeValue}
-                    required
-                />
+        <form onSubmit={confirmStatement} className={styles.ticketCard_confirm}>
+            <TextField
+                type="number"
+                name="phone"
+                label="Номер телефона"
+                value={state.phone}
+                onChange={changeValue}
+                required
+            />
+            <TextField
+                type="email"
+                name="email"
+                label="Адрес эл. почты"
+                value={state.email}
+                onChange={changeValue}
+                required
+            />
 
-                {
-                    isError &&
-                    <div className={styles.ticketCard_confirm_error}>
-                        Неверный номер телефона или почта!
-                    </div>
-                }
+            {
+                isError &&
+                <div className={styles.ticketCard_confirm_error}>
+                    Неверный номер телефона или почта!
+                </div>
+            }
 
-                <button
-                    className={[stylesStatement.submit_button, styles.ticketCard_confirm_button].join(' ')}
-                >
-                    Дополнить заявку
-                </button>
-            </form>
+            <button
+                className={[stylesStatement.submit_button, styles.ticketCard_confirm_button].join(' ')}
+            >
+                Дополнить заявку
+            </button>
 
             <div>
                 <h4>Причина</h4>
                 <p>{ticket.admin_comment.message}</p>
             </div>
-        </div>
+        </form>
     );
 };
 

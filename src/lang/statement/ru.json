@@ -60,6 +60,6 @@
   "drop_zone_info": "Загружено",
   "drop_zone_info_end": " из 2",
   "drop_zone_info_list_one": "Уд.личности/свд.о рожд. лецевая и обратная сторона одним файлом.",
-  "drop_zone_info_list_two": "Максимальный размер файлов 50 МБ / видео до 1 мин",
-  "drop_zone_info_list_three": "Презентация не более 10 слайдов"
+  "drop_zone_info_list_two": "Максимальный размер файлов <b>50 МБ</b> / видео до <b>1 мин</b>",
+  "drop_zone_info_list_three": "Презентация не более <strong>10 слайдов</strong>"
 }

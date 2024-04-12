@@ -34,9 +34,11 @@
 }
 
 .drop_down_block_cost_estimate {
-    padding: calc(40px - 14px) 56px 0 20px;
-    width: 780px;
-    margin: 0 auto;
+    margin: calc(40px - 14px) 56px 0 20px;
+}
+
+.drop_down_block_cost_estimate_table_scroll_wrapper {
+    width: 704px;
 }
 
 .drop_down_block_cost_estimate_header {
@@ -163,7 +165,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 50% 0;
+    margin: 20px auto 0;
 }
 
 .drop_down_block_cost_estimate_plus img {
@@ -198,8 +200,17 @@
     border: 1px solid #2683FF !important;
 }
 
-@media screen and (max-width: 776px) {
+@media screen and (max-width: 840px) {
     .drop_down_block h2 {
         font-size: 16px;
+    }
+
+    .drop_down_block_cost_estimate {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .drop_down_block_cost_estimate_table_wrapper {
+        overflow-x: scroll;
     }
 }

@@ -54,6 +54,10 @@
         width: 100vw !important;
     }
 
+    .edit_form {
+        width: 100% !important;
+    }
+
     .submit_button {
         margin: 0 auto;
     }

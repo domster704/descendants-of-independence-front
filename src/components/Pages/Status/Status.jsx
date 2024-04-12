@@ -27,7 +27,7 @@ const Status = () => {
     }, [params, dispatch]);
 
     return (
-        <Wrapper>
+        <Wrapper className={styles.status_wrapper}>
             <div className={styles.status}>
                 <h1>{ t("heading")}</h1>
                 <p>{ t("description")}</p>

@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.ticket_header_table > div > p:last-child{
+.ticket_header_table > div > p:last-child {
     text-align: right;
 }
 
@@ -17,6 +17,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr) 2fr;
     padding: var(--padding);
+    white-space: nowrap;
 }
 
 .out_block {
@@ -45,8 +46,9 @@
 }
 
 .ticketCard_confirm {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: end;
     gap: 40px;
     margin-bottom: 30px;
 }
@@ -76,4 +78,44 @@
 
 .modification {
     color: var(--yellow);
+}
+
+@media screen and (max-width: 1251px) {
+    .ticketCard_confirm_button {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 997px) {
+    .status_step_container {
+        padding: 0 20px;
+    }
+
+    .ticket_header_table {
+        font-size: 12px;
+    }
+
+    .ticketCard_confirm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ticketCard_confirm_button {
+        grid-area: 2 / 2 / span 1 / span 1;
+        margin-left: 0;
+        transform: none;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .ticketCard_confirm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .ticketCard_confirm div,
+    .ticketCard_confirm_button {
+        width: 100%;
+    }
 }

@@ -172,23 +172,25 @@ const StatementDropdownBlock = ({
 
             {isCostEstimateOpen &&
                 <div className={styles.drop_down_block_cost_estimate}>
-                    <div className={styles.drop_down_block_cost_estimate_header}>
-                        <span>№</span>
-                        <span>{t('expense_item')}</span>
-                        <span>{t('price_per_one')}</span>
-                        <span>{t('unit')}</span>
-                        <span>{t('quantity')}</span>
-                        <span>{t('total')}</span>
-                    </div>
+                    <div className={styles.drop_down_block_cost_estimate_table_wrapper}>
+                        <div className={styles.drop_down_block_cost_estimate_table_scroll_wrapper}>
+                            <div className={styles.drop_down_block_cost_estimate_header}>
+                                <span>№</span>
+                                <span>{t('expense_item')}</span>
+                                <span>{t('price_per_one')}</span>
+                                <span>{t('unit')}</span>
+                                <span>{t('quantity')}</span>
+                                <span>{t('total')}</span>
+                            </div>
 
-                    <div className={styles.drop_down_block_cost_estimate_table}>
-                        {costEstimate.map((item, index) => (
-                            <div key={`${item.number}-${index}`}>
-                                <div className={styles.drop_down_block_cost_estimate_table_item}>
+                            <div className={styles.drop_down_block_cost_estimate_table}>
+                                {costEstimate.map((item, index) => (
+                                    <div key={`${item.number}-${index}`}>
+                                        <div className={styles.drop_down_block_cost_estimate_table_item}>
                                     <span>
                                         {index + 1}
                                     </span>
-                                    <span>
+                                            <span>
                                         <TextField
                                             type="text"
                                             name="expenseItem"
@@ -200,7 +202,7 @@ const StatementDropdownBlock = ({
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
                                         />
                                     </span>
-                                    <span>
+                                            <span>
                                         <TextField
                                             name="pricePerOne"
                                             value={item.pricePerOne}
@@ -212,7 +214,7 @@ const StatementDropdownBlock = ({
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
                                         />
                                     </span>
-                                    <span>
+                                            <span>
                                         <TextField
                                             name="unit"
                                             type="select"
@@ -225,7 +227,7 @@ const StatementDropdownBlock = ({
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
                                         />
                                     </span>
-                                    <span>
+                                            <span>
                                         <TextField
                                             name="quantity"
                                             value={item.quantity}
@@ -237,25 +239,25 @@ const StatementDropdownBlock = ({
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
                                         />
                                     </span>
-                                    <span>
+                                            <span>
                                         {parseInt(item.pricePerOne * item.quantity).toLocaleString('ru-RU')} тг
                                     </span>
-                                </div>
-                                {
-                                    index > 0 &&
-                                    <img
-                                        src={trash}
-                                        className={styles.drop_down_block_cost_estimate_table_item_img}
-                                        onClick={() =>
-                                            setCostEstimate(prevState => prevState.filter((_, i) => i !== index))}
-                                        alt="trash-img"
-                                    />
-                                }
-                            </div>
-                        ))}
-                        <div className={styles.drop_down_block_cost_estimate_table_result}>
-                            <span>{t('result')}</span>
-                            <span>
+                                        </div>
+                                        {
+                                            index > 0 &&
+                                            <img
+                                                src={trash}
+                                                className={styles.drop_down_block_cost_estimate_table_item_img}
+                                                onClick={() =>
+                                                    setCostEstimate(prevState => prevState.filter((_, i) => i !== index))}
+                                                alt="trash-img"
+                                            />
+                                        }
+                                    </div>
+                                ))}
+                                <div className={styles.drop_down_block_cost_estimate_table_result}>
+                                    <span>{t('result')}</span>
+                                    <span>
                                         {
                                             costEstimate
                                                 .reduce((acc, item) =>
@@ -263,6 +265,8 @@ const StatementDropdownBlock = ({
                                                 .toLocaleString('ru-RU')
                                         } тг
                                     </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

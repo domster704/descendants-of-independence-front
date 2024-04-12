@@ -146,6 +146,7 @@ const StatementMainFields = ({ state, changeValue, className }) => {
                     currentOption={state.projectDirection}
                     onChange={changeValue}
                     required
+                    inputStyles={{ backgroundColor: '#1661F51A' }}
                 />
             </div>
         </div>

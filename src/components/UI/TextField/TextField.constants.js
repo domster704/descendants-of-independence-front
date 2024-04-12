@@ -7,7 +7,6 @@ export const SELECT_STYLES = (inputStyles) => ({
         padding: '0 14px',
         borderRadius: 10,
         borderColor: 'rgba(0, 0, 0, 0.3)',
-        background: state.hasValue ? '#1661F51A' : '',
         ...inputStyles
     }),
     container: (baseStyles) => ({

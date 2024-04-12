@@ -109,8 +109,8 @@ const StatementDropzone = ({ state, setState }) => {
 
                 <ul className={styles.files_info_list}>
                     <li>{t('drop_zone_info_list_one')}</li>
-                    <li>{t('drop_zone_info_list_two')}</li>
-                    <li>{t('drop_zone_info_list_three')}</li>
+                    <li dangerouslySetInnerHTML={{ __html: t('drop_zone_info_list_two') }}/>
+                    <li dangerouslySetInnerHTML={{ __html: t('drop_zone_info_list_three') }}/>
                 </ul>
             </div>
         </div>

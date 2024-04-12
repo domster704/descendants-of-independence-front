@@ -16,3 +16,9 @@
     color: var(--black);
     margin-bottom: 60px;
 }
+
+@media screen and (max-width: 840px) {
+    .status_wrapper {
+        margin: 0;
+    }
+}
