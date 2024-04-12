@@ -47,7 +47,7 @@ const WinnerCardFiltered = () => {
                     <p><a>{winnerCards[currentWinnerIndex]?.status || '-'}</a></p>
                 </div>
                 <div className={styles.right}>
-                    <img className={styles.winner_card_img} src={winnerCards[currentWinnerIndex]?.image || default_img} alt=""/>
+                    <img loading="lazy" className={styles.winner_card_img} src={winnerCards[currentWinnerIndex]?.image || default_img} alt=""/>
                     <div className={styles.arrows}>
                         <ArrowButton onClick={arrowLeftOnClick}/>
                         <ArrowButton direction="right"

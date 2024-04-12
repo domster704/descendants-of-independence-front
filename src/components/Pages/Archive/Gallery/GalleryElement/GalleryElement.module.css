@@ -4,6 +4,7 @@
     border-radius: 10px;
     padding: 10px;
     background: var(--white);
+    cursor: pointer;
 }
 
 .element p {
@@ -12,4 +13,10 @@
     font-size: 16px;
     line-height: 150%;
     color: var(--black);
+}
+
+.element img {
+    border-radius: 5px;
+    width: 255px;
+    height: 160px;
 }

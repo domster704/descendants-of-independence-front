@@ -19,32 +19,33 @@ const Gallery = () => {
     const { t } = useTranslation('archive');
 
     const dispatch = useDispatch();
+    const galleryStore = useSelector(state => state.gallery);
 
     const galleryListRef = React.useRef(null);
 
-    const [galleryList, setGalleryList] = React.useState([]);
-
-    useEffect(() => {
-        setGalleryList([{
-            img: gallery1,
-            description: t('gallery1'),
-        }, {
-            img: gallery2,
-            description: t('gallery2'),
-        }, {
-            img: gallery3,
-            description: t('gallery3'),
-        }, {
-            img: gallery4,
-            description: t('gallery4'),
-        }, {
-            img: gallery4,
-            description: t('gallery4'),
-        }, {
-            img: gallery4,
-            description: t('gallery4'),
-        }])
-    }, [t])
+    // const [galleryList, setGalleryList] = React.useState([]);
+    //
+    // useEffect(() => {
+    //     setGalleryList([{
+    //         img: gallery1,
+    //         description: t('gallery1'),
+    //     }, {
+    //         img: gallery2,
+    //         description: t('gallery2'),
+    //     }, {
+    //         img: gallery3,
+    //         description: t('gallery3'),
+    //     }, {
+    //         img: gallery4,
+    //         description: t('gallery4'),
+    //     }, {
+    //         img: gallery4,
+    //         description: t('gallery4'),
+    //     }, {
+    //         img: gallery4,
+    //         description: t('gallery4'),
+    //     }])
+    // }, [t])
 
     const galleryOptions = useSelector(state => state.gallery);
 
@@ -56,6 +57,8 @@ const Gallery = () => {
                    onChange={(e) => dispatch(setCurrentOption(e.target.value))}
         />
     );
+
+    console.log()
 
     return (
         <div className={styles.gallery}>
@@ -85,12 +88,17 @@ const Gallery = () => {
                 <div className={styles.gallery_list_block}>
                     <div ref={galleryListRef} className={styles.gallery_list}>
                         {
-                            galleryList.map((item, index) => {
+                            galleryStore.galleryList.map((item, index) => {
+                                if (galleryOptions.currentOption.value !== 'all' && galleryOptions.currentOption.value !== item.type) {
+                                    return null;
+                                }
                                 return (
                                     <GalleryElement
                                         key={index}
+                                        type={item.type}
                                         img={item.img}
                                         description={item.description}
+                                        link={item?.link}
                                     />
                                 )
                             })
