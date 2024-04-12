@@ -6,7 +6,7 @@ import {
     MONTH_OPTIONS,
     PROJECT_DIRECTION_OPTIONS,
     REGION_OPTIONS,
-    YEAR_OPTIONS
+    YEAR_OPTIONS,
 } from '../../Statement.constants';
 import * as styles from './StatementMainField.module.css';
 import { useTranslation } from 'react-i18next';

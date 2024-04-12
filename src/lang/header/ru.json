@@ -10,7 +10,8 @@
     },
     {
       "label": "Документы",
-      "url": "assets/Правилаru.pdf",
+      "url": "pdf/rules-ru.pdf",
+      "target": "_blank",
       "fileName": "Ru.pdf"
     }
   ],

@@ -1,43 +1,29 @@
 import React, { useEffect } from 'react';
 import * as styles from './Gallery.module.css';
-import Wrapper from "../../../UI/Wrapper/Wrapper";
-import GalleryElement from "./GalleryElement/GalleryElement";
-import ArrowButton from "../../../UI/ArrowButton/ArrowButton";
+import Wrapper from '../../../UI/Wrapper/Wrapper';
+import GalleryElement from './GalleryElement/GalleryElement';
+import ArrowButton from '../../../UI/ArrowButton/ArrowButton';
 
-import gallery1 from "./img/gallery1.png";
-import gallery4 from "./img/gallery4.png";
-import gallery2 from "./img/gallery2.png";
-import gallery3 from "./img/gallery3.png";
-import * as constants from "./Gallery.constants";
-import TextField from "../../../UI/TextField/TextField";
+import gallery1 from './img/gallery1.png';
+import gallery4 from './img/gallery4.png';
+import gallery2 from './img/gallery2.png';
+import gallery3 from './img/gallery3.png';
+import * as constants from './Gallery.constants';
+import TextField from '../../../UI/TextField/TextField';
 
 
-import { useTranslation } from "react-i18next";
-import {useSelector} from "react-redux";
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentOption } from '../../../../store/gallerySlice';
 
 const Gallery = () => {
-  const { t } = useTranslation("archive");
-    let galleryListRef = React.useRef(null);
+    const { t } = useTranslation('archive');
 
-    let [galleryList, setGalleryList] = React.useState([{
-        img: gallery1,
-        description: t('gallery1'),
-    }, {
-        img: gallery2,
-        description: t('gallery2')
-    }, {
-        img: gallery3,
-        description: t('gallery3')
-    }, {
-        img: gallery4,
-        description: t('gallery4')
-    }, {
-        img: gallery4,
-        description: t('gallery4')
-    }, {
-        img: gallery4,
-        description: t('gallery4')
-    }]);
+    const dispatch = useDispatch();
+
+    const galleryListRef = React.useRef(null);
+
+    const [galleryList, setGalleryList] = React.useState([]);
 
     useEffect(() => {
         setGalleryList([{
@@ -45,43 +31,45 @@ const Gallery = () => {
             description: t('gallery1'),
         }, {
             img: gallery2,
-            description: t('gallery2')
+            description: t('gallery2'),
         }, {
             img: gallery3,
-            description: t('gallery3')
+            description: t('gallery3'),
         }, {
             img: gallery4,
-            description: t('gallery4')
+            description: t('gallery4'),
         }, {
             img: gallery4,
-            description: t('gallery4')
+            description: t('gallery4'),
         }, {
             img: gallery4,
-            description: t('gallery4')
+            description: t('gallery4'),
         }])
     }, [t])
 
-    let galleryOptions = useSelector(state => state.gallery);
-    let dropdownTextField = <TextField type="select"
-                                       name="gallery"
-                                       options={galleryOptions.dropdownOptions}
-                                       currentOption={galleryOptions.default.label}
-    onChange={(event) => {
-        console.log(event.target.value);
-    }}/>
+    const galleryOptions = useSelector(state => state.gallery);
+
+    const dropdownTextField = (
+        <TextField type="select"
+                   name="gallery"
+                   options={galleryOptions.dropdownOptions}
+                   currentOption={galleryOptions.currentOption}
+                   onChange={(e) => dispatch(setCurrentOption(e.target.value))}
+        />
+    );
 
     return (
         <div className={styles.gallery}>
             <Wrapper>
                 <div className={styles.dropdown_list_mobile}>{dropdownTextField}</div>
                 <div className={styles.header_mobile}>
-                    <h1>{ t('gallery')}</h1>
+                    <h1>{t('gallery')}</h1>
                     <div className={styles.gallery_list_arrows}>
                         <ArrowButton size="large"
                                      onClick={() => {
                                          galleryListRef.current.scroll({
                                              left: galleryListRef.current.scrollLeft - constants.GALLERY_ELEMENT_WITH_GAP_WIDTH_PX,
-                                             behavior: "smooth"
+                                             behavior: 'smooth',
                                          });
                                      }}/>
                         <ArrowButton size="large"
@@ -89,7 +77,7 @@ const Gallery = () => {
                                      onClick={() => {
                                          galleryListRef.current.scroll({
                                              left: galleryListRef.current.scrollLeft + constants.GALLERY_ELEMENT_WITH_GAP_WIDTH_PX,
-                                             behavior: "smooth"
+                                             behavior: 'smooth',
                                          });
                                      }}/>
                     </div>
@@ -114,7 +102,7 @@ const Gallery = () => {
                                      onClick={() => {
                                          galleryListRef.current.scroll({
                                              left: galleryListRef.current.scrollLeft - constants.GALLERY_ELEMENT_WITH_GAP_WIDTH_PX,
-                                             behavior: "smooth"
+                                             behavior: 'smooth',
                                          });
                                      }}/>
                         <ArrowButton size="large"
@@ -122,7 +110,7 @@ const Gallery = () => {
                                      onClick={() => {
                                          galleryListRef.current.scroll({
                                              left: galleryListRef.current.scrollLeft + constants.GALLERY_ELEMENT_WITH_GAP_WIDTH_PX,
-                                             behavior: "smooth"
+                                             behavior: 'smooth',
                                          });
                                      }}/>
                     </div>

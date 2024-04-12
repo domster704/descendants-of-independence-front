@@ -10,13 +10,14 @@
     },
     {
       "label": "Құжаттама",
-      "url": "assets/Правилаru.pdf",
+      "url": "pdf/rules-kz.pdf",
+      "target": "_blank",
       "fileName": "Ru.pdf"
     }
   ],
   "concurse": "Конкурс",
   "linkModal": [
-    { "href": "/about", "text": "Жарыс туралы" },
+    { "href": "/about", "text": "Конкурс туралы" },
     { "href": "/statement", "text": "Тапсырыс беру" },
     { "href": "/status", "text": "Күйін біліңіз" },
     { "href": "/archive/winner_list", "text": "Жеңімпаздар тізімі" }
