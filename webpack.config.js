@@ -8,7 +8,12 @@ module.exports = {
     mode: "development",
     output: {
         path: path.resolve(__dirname, "build"),
-        filename: "main.bundle.js"
+        filename: "main.bundle.js",
+        clean: {
+            keep(asset) {
+                return 'index.html' || 'pdf/';
+            }
+        }
     },
     module: {
         rules: [
