@@ -11,7 +11,7 @@ const GalleryElement = ({img, description}) => {
 
     return (
         <a ref={elementRef} href="#" className={styles.element}>
-            <img src={img} alt=""/>
+            <img loading="lazy" src={img} alt=""/>
             <p>{description}</p>
         </a>
     );

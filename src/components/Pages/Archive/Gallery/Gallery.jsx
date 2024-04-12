@@ -11,7 +11,6 @@ import gallery3 from './img/gallery3.png';
 import * as constants from './Gallery.constants';
 import TextField from '../../../UI/TextField/TextField';
 
-
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentOption } from '../../../../store/gallerySlice';

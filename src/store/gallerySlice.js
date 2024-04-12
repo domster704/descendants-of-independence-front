@@ -3,10 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     dropdownOptions: [
         { value: 'news', label: 'Новости' },
-        { value: 'gallery-report', label: 'Фотоотчет' },
+        { value: 'photo', label: 'Фотоотчет' },
         { value: 'all', label: 'Всё' },
     ],
     currentOption: { value: 'all', label: 'Всё' },
+    galleryList: [{
+        type: 'news',
+        description: '',
+        img: null
+    }]
 }
 
 const gallerySlice = createSlice({

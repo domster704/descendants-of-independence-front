@@ -7,6 +7,7 @@ let initialState = {
     filter: {
         active: "science",
         year: 2021,
+        page: 1,
         filterCategory: {
             science: {children: 'Наука'},
             culture: {children: 'Культура'},
