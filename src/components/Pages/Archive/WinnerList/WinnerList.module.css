@@ -1,5 +1,7 @@
 .winner_list {
 	margin: 110px 0 100px 0;
+	display: flex;
+	flex-direction: column;
 }
 
 .winner_list h1 {
@@ -7,4 +9,12 @@
 	font-size: 48px;
 	color: var(--dark-blue);
 	margin-bottom: 43px;
+}
+
+.back {
+	align-self: end;
+	margin-top: 32px;
+	padding: 3px 24px;
+	background: linear-gradient(45deg, #0055fc 0%, #508bff 100%);
+	border-radius: 100px;
 }
