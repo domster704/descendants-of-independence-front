@@ -21,3 +21,10 @@
 .tabs.active {
   border-bottom: 2px solid rgba(22, 97, 245, 1);
 }
+
+.select_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
