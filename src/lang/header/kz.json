@@ -15,7 +15,7 @@
       "fileName": "Ru.pdf"
     }
   ],
-  "concurse": "Конкурс",
+  "concurse": "Конкурс туралы",
   "linkModal": [
     { "href": "/about", "text": "Конкурс туралы" },
     { "href": "/statement", "text": "Тапсырыс беру" },
