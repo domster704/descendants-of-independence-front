@@ -35,7 +35,7 @@ const Carth = () => {
         <div className={style.carth_flex}>
           <div className={style.carth_info}>
             <h3 className={style.carth_title}>{t("grant_sum")}</h3>
-            <span className={style.custom_btn}>3 000 000тг</span>
+            <span className={style.custom_btn}>3 000 000 тг</span>
             <div>
               <p className={style.carth_info_text}>{t("grant_text")}</p>
             </div>
