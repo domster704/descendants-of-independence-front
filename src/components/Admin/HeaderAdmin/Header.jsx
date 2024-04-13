@@ -12,7 +12,7 @@ const link = [
   { label: "Отправленные на доработку", url: "#" },
 ];
 
-const Header = () => {
+const HeaderAdmin = () => {
   const [isActive, setIsActive] = useState(false);
   const [mobileMenu, openMenu] = useState(false);
 
@@ -94,4 +94,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderAdmin;

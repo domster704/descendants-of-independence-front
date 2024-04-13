@@ -11,15 +11,12 @@ const WinnerYearList = ({year}) => {
 
     return (
         <div className={styles.table}>
-            {/*<thead>*/}
             <WinnerYearListRow data={{
                 name: 'ФИО',
                 project: 'Название проекта',
                 region: 'Регион',
                 status: 'Статус проект'
             }} isHeader={true} category='Направление'/>
-            {/*</thead>*/}
-            {/*<tbody>*/}
             {
                 Object.keys(yearList).map((key, index) => {
                     return yearList[key].map((el, index) => {
@@ -27,7 +24,6 @@ const WinnerYearList = ({year}) => {
                     })
                 })
             }
-            {/*</tbody>*/}
         </div>
     );
 }
