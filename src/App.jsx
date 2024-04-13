@@ -1,5 +1,4 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 import {HashRouter, Route, Routes, useLocation} from 'react-router-dom';
 import TestPage from './components/Pages/TestPage/TestPage';
 import Main from './components/Pages/Main/Main';
@@ -27,7 +26,7 @@ const ClientSide =
             <Routes>
                 <Route exact path="/" element={<Main/>}/>
                 <Route exact path="/test" element={<TestPage/>}/>
-                <Route exact path="/archive" element={<Archive/>}/>
+                <Route exact path="/archive/*" element={<Archive/>}/>
                 <Route exact path="/statement" element={<Statement/>}/>
                 <Route exact path="/about" element={<About/>}/>
                 <Route exact path="/success" element={<Success/>}/>
@@ -49,7 +48,7 @@ const AdminSide = () => {
         <div className={styles.admin_background}>
             <HeaderAdmin/>
             <Routes>
-                <Route exact path="/" element={<Login/>}/>
+                <Route exact path="" element={<Login/>}/>
                 {
                     isLogin && <Route exact path="/step-one" element={<StepOne/>}/>
                 }
@@ -58,13 +57,12 @@ const AdminSide = () => {
     );
 }
 
-
 const App = () => {
     return (
         <HashRouter>
             <Routes>
-                <Route exact path="/" element={ClientSide}/>
-                <Route exact path="/admin/*" element={<AdminSide/>}/>
+                <Route path="/*" element={ClientSide}/>
+                <Route path="/admin/*" element={<AdminSide/>}/>
             </Routes>
         </HashRouter>
 

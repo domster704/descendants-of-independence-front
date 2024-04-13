@@ -17,7 +17,7 @@ const Archive = () => {
         <>
             <Wrapper>
                 <Routes>
-                    <Route exact path="/" element={<WinnerGrant years={years}
+                    <Route exact path="/*" element={<WinnerGrant years={years}
                                                                 YEARS_ON_PAGE={YEARS_ON_PAGE}
                                                                 winner_list_path={WINNER_LIST_PATH}/>}/>
                     <Route exact path="/winner_list/" element={<WinnerList years={years}
