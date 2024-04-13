@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter, Route, Routes, useLocation} from 'react-router-dom';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import TestPage from './components/Pages/TestPage/TestPage';
 import Main from './components/Pages/Main/Main';
 import Statement from './components/Pages/Statement/Statement';
@@ -13,57 +13,28 @@ import About from './components/Pages/AboutTheCompetition/About';
 import Success from './components/Pages/Success/Success';
 import Status from './components/Pages/Status/Status';
 import ChatBot from './components/ChatBot/ChatBot';
-import HeaderAdmin from "./components/Admin/HeaderAdmin/Header";
-import Login from "./components/Admin/Login/Login";
-import StepOne from "./components/Admin/Pages/StepOne/StepOne";
-
-const ClientSide =
-    <div className={styles.background}
-         style={{backgroundImage: `url(${background})`}}
-    >
-        <Header/>
-        <main>
-            <Routes>
-                <Route exact path="/" element={<Main/>}/>
-                <Route exact path="/test" element={<TestPage/>}/>
-                <Route exact path="/archive/*" element={<Archive/>}/>
-                <Route exact path="/statement" element={<Statement/>}/>
-                <Route exact path="/about" element={<About/>}/>
-                <Route exact path="/success" element={<Success/>}/>
-                <Route exact path="/status/*" element={<Status/>}/>
-            </Routes>
-            <ChatBot/>
-        </main>
-        <Footer/>
-    </div>;
-
-
-const AdminSide = () => {
-    let [isLogin, setIsLogin] = React.useState(false);
-    let location = useLocation();
-    React.useEffect(() => {
-        setIsLogin(localStorage.getItem("formData") !== null);
-    }, [location.pathname])
-    return (
-        <div className={styles.admin_background}>
-            <HeaderAdmin/>
-            <Routes>
-                <Route exact path="" element={<Login/>}/>
-                {
-                    isLogin && <Route exact path="/step-one" element={<StepOne/>}/>
-                }
-            </Routes>
-        </div>
-    );
-}
 
 const App = () => {
     return (
         <HashRouter>
-            <Routes>
-                <Route path="/*" element={ClientSide}/>
-                <Route path="/admin/*" element={<AdminSide/>}/>
-            </Routes>
+            <div className={styles.background}
+                 style={{backgroundImage: `url(${background})`}}
+            >
+                <Header/>
+                <main>
+                    <Routes>
+                        <Route exact path="/" element={<Main/>}/>
+                        <Route exact path="/test" element={<TestPage/>}/>
+                        <Route exact path="/archive/*" element={<Archive/>}/>
+                        <Route exact path="/statement" element={<Statement/>}/>
+                        <Route exact path="/about" element={<About/>}/>
+                        <Route exact path="/success" element={<Success/>}/>
+                        <Route exact path="/status/*" element={<Status/>}/>
+                    </Routes>
+                    <ChatBot/>
+                </main>
+                <Footer/>
+            </div>
         </HashRouter>
 
     );
