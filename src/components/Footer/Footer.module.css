@@ -77,6 +77,12 @@ a:hover {
   height: 100%;
 }
 
+.telegram_wrapper {
+  width: 177px;
+  border-radius: 20px;
+  height: 177px;
+}
+
 .footer_bottom {
   display: flex;
   justify-content: space-between;
