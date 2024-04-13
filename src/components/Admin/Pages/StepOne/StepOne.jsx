@@ -1,11 +1,11 @@
 import React from 'react';
 import * as styles from './StepOne.module.css';
+import Tabs from "../../Tabs/Tabs";
 
 const StepOne = () => {
     return (
         <div className={styles.step}>
-            <h1>Step One</h1>
-            <p>This is the first step</p>
+            <Tabs/>
         </div>
     );
 }

@@ -27,7 +27,7 @@ const ClientSide =
             <Routes>
                 <Route exact path="/" element={<Main/>}/>
                 <Route exact path="/test" element={<TestPage/>}/>
-                <Route exact path="/archive/*" element={<Archive/>}/>
+                <Route exact path="/archive" element={<Archive/>}/>
                 <Route exact path="/statement" element={<Statement/>}/>
                 <Route exact path="/about" element={<About/>}/>
                 <Route exact path="/success" element={<Success/>}/>
@@ -63,8 +63,8 @@ const App = () => {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/" element={ClientSide}/>
-                <Route path="/admin/*" element={<AdminSide/>}/>
+                <Route exact path="/" element={ClientSide}/>
+                <Route exact path="/admin/*" element={<AdminSide/>}/>
             </Routes>
         </HashRouter>
 
