@@ -42,6 +42,7 @@ const Login = () => {
                 email,
                 password,
             };
+            localStorage.setItem("formData", JSON.stringify(formData));
             console.log(formData);
             navigate('/admin/step-one/');
         }

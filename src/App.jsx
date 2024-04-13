@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {HashRouter, Route, Routes} from 'react-router-dom';
+import {HashRouter, Route, Routes, useLocation} from 'react-router-dom';
 import TestPage from './components/Pages/TestPage/TestPage';
 import Main from './components/Pages/Main/Main';
 import Statement from './components/Pages/Statement/Statement';
@@ -39,24 +39,32 @@ const ClientSide =
     </div>;
 
 
-const AdminSide =
-    <div>
-        <HeaderAdmin/>
-        <Routes>
-            <Route exact path="/" element={<Login/>}/>
-            <Route exact path="/step-one" element={<StepOne/>}/>
-        </Routes>
-    </div>;
+const AdminSide = () => {
+    let [isLogin, setIsLogin] = React.useState(false);
+    let location = useLocation();
+    React.useEffect(() => {
+        setIsLogin(localStorage.getItem("formData") !== null);
+    }, [location.pathname])
+    return (
+        <div className={styles.admin_background}>
+            <HeaderAdmin/>
+            <Routes>
+                <Route exact path="/" element={<Login/>}/>
+                {
+                    isLogin && <Route exact path="/step-one" element={<StepOne/>}/>
+                }
+            </Routes>
+        </div>
+    );
+}
+
 
 const App = () => {
-    let env = useSelector((state) => state.env);
-
-
     return (
         <HashRouter>
             <Routes>
                 <Route path="/" element={ClientSide}/>
-                <Route path="/admin/*" element={AdminSide}/>
+                <Route path="/admin/*" element={<AdminSide/>}/>
             </Routes>
         </HashRouter>
 
