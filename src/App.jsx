@@ -1,6 +1,5 @@
 import React from 'react';
 import {HashRouter, Route, Routes} from 'react-router-dom';
-import TestPage from './components/Pages/TestPage/TestPage';
 import Main from './components/Pages/Main/Main';
 import Statement from './components/Pages/Statement/Statement';
 import Archive from './components/Pages/Archive/Archive';
@@ -24,7 +23,6 @@ const App = () => {
                 <main>
                     <Routes>
                         <Route exact path="/" element={<Main/>}/>
-                        <Route exact path="/test" element={<TestPage/>}/>
                         <Route exact path="/archive/*" element={<Archive/>}/>
                         <Route exact path="/statement" element={<Statement/>}/>
                         <Route exact path="/about" element={<About/>}/>
