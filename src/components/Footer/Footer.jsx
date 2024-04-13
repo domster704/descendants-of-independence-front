@@ -50,9 +50,17 @@ const Footer = () => {
                             >
                                 {navigationLinks.map((link, index) => (
                                     <li key={index}>
-                                        <Link to={link.url} download={link.fileName}>
-                                            {link.label}
-                                        </Link>
+                                        {
+                                            link.target ?
+                                                <a
+                                                    href={link.url}
+                                                    target={link.target}
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    {link.label}
+                                                </a>
+                                                : <Link to={link.url}>{link.label}</Link>
+                                        }
                                     </li>
                                 ))}
                             </ul>

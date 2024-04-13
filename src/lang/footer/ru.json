@@ -12,7 +12,7 @@
     {
       "label": "Документы",
       "url": "/pdf/rules-ru.pdf",
-      "fileName": "Ru.pdf"
+      "target": "_blank"
     },
     { "label": "О конкурсе", "url": "/about" },
     { "label": "Подать заявку", "url": "/statement" },

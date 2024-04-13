@@ -11,8 +11,7 @@
     {
       "label": "Документы",
       "url": "/pdf/rules-ru.pdf",
-      "target": "_blank",
-      "fileName": "Ru.pdf"
+      "target": "_blank"
     }
   ],
   "concurse": "Конкурс",
