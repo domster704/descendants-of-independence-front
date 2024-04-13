@@ -1,81 +1,80 @@
 .login_wrapper {
-  width: 100%;
-  height: 100vh;
-  background: rgba(223, 223, 223, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(237, 237, 237, 0.8);
-  border-radius: 30px;
-  gap: 11px;
-  padding: 11px 123px 40px 123px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(237, 237, 237, 0.8);
+	border-radius: 30px;
+	gap: 11px;
+	padding: 11px 123px 40px 123px;
 }
 
 .img {
-  width: 230px;
-  height: 109px;
+	width: 230px;
+	height: 109px;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .input {
-  width: 333px;
-  height: 52px;
-  padding: 17px 16px 16px 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  background-color: transparent;
-  margin-top: 25px;
+	width: 333px;
+	height: 52px;
+	padding: 17px 16px 16px 20px;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background-color: transparent;
+	margin-top: 25px;
 }
 
 .btn {
-  margin-top: 40px;
-  width: 205px;
-  height: 52px;
-  color: white;
-  padding: 15px 65px 15px 64px;
-  border-radius: 30px;
-  background: var(--Dark-Blue, rgba(11, 10, 46, 1));
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 21.83px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
+	margin-top: 40px;
+	width: 205px;
+	height: 52px;
+	color: white;
+	padding: 15px 65px 15px 64px;
+	border-radius: 30px;
+	background: var(--dark-blue, rgba(11, 10, 46, 1));
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 22px;
+	display: flex;
+	gap: 12px;
+	align-items: center;
 }
 
 .password_wrapper {
-  position: relative;
+	position: relative;
 }
 
 .password_icon {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	border: none;
+	background-color: inherit;
+	cursor: pointer;
 }
 
 .error {
-  border-color: red;
+	border-color: red;
 }
 
 .error_message {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
 }
