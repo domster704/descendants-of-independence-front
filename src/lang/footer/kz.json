@@ -11,7 +11,8 @@
     },
     {
       "label": "Құжаттама",
-      "url": "assets/Правилаkz.pdf",
+      "url": "/pdf/rules-kz.pdf",
+      "target": "_blank",
       "fileName": "Kz.pdf"
     },
     { "label": "Конкурс туралы", "url": "/about" },

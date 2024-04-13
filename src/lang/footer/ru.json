@@ -11,8 +11,8 @@
     },
     {
       "label": "Документы",
-      "url": "assets/Правилаru.pdf",
-      "fileName": "Ru.pdf"
+      "url": "/pdf/rules-ru.pdf",
+      "target": "_blank"
     },
     { "label": "О конкурсе", "url": "/about" },
     { "label": "Подать заявку", "url": "/statement" },
