@@ -16,6 +16,7 @@ import Status from './components/Pages/Status/Status';
 import ChatBot from './components/ChatBot/ChatBot';
 import HeaderAdmin from "./components/Admin/HeaderAdmin/Header";
 import Login from "./components/Admin/Login/Login";
+import StepOne from "./components/Admin/Pages/StepOne/StepOne";
 
 const ClientSide =
     <div className={styles.background}
@@ -24,13 +25,13 @@ const ClientSide =
         <Header/>
         <main>
             <Routes>
-                <Route path="/" element={<Main/>}/>
-                <Route path="/test" element={<TestPage/>}/>
-                <Route path="/archive/*" element={<Archive/>}/>
-                <Route path="/statement" element={<Statement/>}/>
-                <Route path="/about" element={<About/>}/>
-                <Route path="/success" element={<Success/>}/>
-                <Route path="/status/*" element={<Status/>}/>
+                <Route exact path="/" element={<Main/>}/>
+                <Route exact path="/test" element={<TestPage/>}/>
+                <Route exact path="/archive/*" element={<Archive/>}/>
+                <Route exact path="/statement" element={<Statement/>}/>
+                <Route exact path="/about" element={<About/>}/>
+                <Route exact path="/success" element={<Success/>}/>
+                <Route exact path="/status/*" element={<Status/>}/>
             </Routes>
             <ChatBot/>
         </main>
@@ -42,7 +43,8 @@ const AdminSide =
     <div>
         <HeaderAdmin/>
         <Routes>
-            <Route path="/" element={<Login/>}/>
+            <Route exact path="/" element={<Login/>}/>
+            <Route exact path="/step-one" element={<StepOne/>}/>
         </Routes>
     </div>;
 
