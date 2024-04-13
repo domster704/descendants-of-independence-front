@@ -1,21 +1,3 @@
-@font-face {
-  font-family: "Gilroy Regular";
-  font-weight: 400;
-  src: url("./assets/fonts/gilroy-regular.ttf");
-}
-
-@font-face {
-  font-family: "Gilroy Medium";
-  font-weight: 500;
-  src: url("./assets/fonts/gilroy-medium.ttf");
-}
-
-@font-face {
-  font-family: "Gilroy Bold";
-  font-weight: 700;
-  src: url("./assets/fonts/gilroy-bold.ttf");
-}
-
 * {
   position: relative;
   box-sizing: border-box;
