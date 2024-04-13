@@ -4,12 +4,12 @@ import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
 import { useTranslation } from "react-i18next";
 
 const Carth = () => {
-  const { t , i18n} = useTranslation("main");
+  const { t, i18n } = useTranslation("main");
   const culture = t("culture");
-  const sciens = t("sciens")
-  const business = t("business")
-  const informationTechnology = t("informationTechnology")
-  const media = t("media")
+  const sciens = t("sciens");
+  const business = t("business");
+  const informationTechnology = t("informationTechnology");
+  const media = t("media");
 
   const buttonText = {
     culture,
@@ -22,8 +22,8 @@ const Carth = () => {
   const [activeButton, setActiveButton] = useState("Культура");
   const [initialText, setText] = useState(buttonText.culture);
   useEffect(() => {
-    setText(buttonText.culture)  
-  },[t])
+    setText(buttonText.culture);
+  }, [t]);
 
   const handleButtonClick = (newText, buttonTitle) => {
     setText(newText);
@@ -35,8 +35,8 @@ const Carth = () => {
         <div className={style.carth_flex}>
           <div className={style.carth_info}>
             <h3 className={style.carth_title}>{t("grant_sum")}</h3>
+            <span className={style.custom_btn}>3 000 000тг</span>
             <div>
-              <span className={style.custom_btn}>3 000 000тг</span>
               <p className={style.carth_info_text}>{t("grant_text")}</p>
             </div>
           </div>

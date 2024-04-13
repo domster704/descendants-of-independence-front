@@ -93,7 +93,10 @@ const Footer = () => {
           </div>
           <div className={style.footer_telegram}>
             <img src={telegramm} alt="Telegram" />
-            <a href="#" className={style.telegram_link}>
+            <a
+              href="https://t.me/TauelsizdikUrpaktary_bot"
+              className={style.telegram_link}
+            >
               {t("go_to_telegram")}
             </a>
           </div>
