@@ -10,12 +10,14 @@ import * as ruAboutTranslations from "./lang/about/ru.json";
 import * as ruArchiveTranslations from "./lang/archive/ru.json";
 import * as ruStatementTranslations from "./lang/statement/ru.json";
 import * as ruSuccessTranslations from "./lang/success/ru.json";
-import * as ruStatusTranslations from './lang/status/ru.json'
+import * as ruStatusTranslations from "./lang/status/ru.json";
 import * as kzAboutTranslations from "./lang/about/kz.json";
 import * as kzArchiveTranslations from "./lang/archive/kz.json";
 import * as kzStatementTranslations from "./lang/statement/kz.json";
 import * as kzSuccessTranslations from "./lang/success/kz.json";
-import * as kzStatusTranslations from './lang/status/kz.json'
+import * as kzStatusTranslations from "./lang/status/kz.json";
+import * as ruChatTranslatios from "./lang/chat/ru.json";
+import * as kzChatTranslatios from "./lang/chat/kz.json";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -27,7 +29,8 @@ i18n.use(initReactI18next).init({
       archive: ruArchiveTranslations,
       statement: ruStatementTranslations,
       success: ruSuccessTranslations,
-      status: ruStatusTranslations
+      status: ruStatusTranslations,
+      chat: ruChatTranslatios,
     },
     kz: {
       header: kzHeaderTranslations,
@@ -37,7 +40,8 @@ i18n.use(initReactI18next).init({
       archive: kzArchiveTranslations,
       statement: kzStatementTranslations,
       success: kzSuccessTranslations,
-      status: kzStatusTranslations
+      status: kzStatusTranslations,
+      chat: kzChatTranslatios,
     },
   },
   fallbackLng: "ru",

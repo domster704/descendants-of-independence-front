@@ -11,7 +11,6 @@ const About = () => {
         <AboutTop />
         <AboutBottom />
       </Wrapper>
-      <ChatBot />
     </section>
   );
 };
