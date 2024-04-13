@@ -15,39 +15,36 @@ import Success from './components/Pages/Success/Success';
 import Status from './components/Pages/Status/Status';
 import ChatBot from './components/ChatBot/ChatBot';
 import HeaderAdmin from "./components/Admin/HeaderAdmin/Header";
+import Login from "./components/Admin/Login/Login";
 
-const ClientSide = () => {
-    return (
-        <div className={styles.background}
-             style={{backgroundImage: `url(${background})`}}
-        >
-            <Header/>
-            <main>
-                <Routes>
-                    <Route path="/" element={<Main/>}/>
-                    <Route path="/test" element={<TestPage/>}/>
-                    <Route path="/archive/*" element={<Archive/>}/>
-                    <Route path="/statement" element={<Statement/>}/>
-                    <Route path="/about" element={<About/>}/>
-                    <Route path="/success" element={<Success/>}/>
-                    <Route path="/status/*" element={<Status/>}/>
-                </Routes>
-
-                <ChatBot/>
-            </main>
-            <Footer/>
-        </div>
-    );
-}
+const ClientSide =
+    <div className={styles.background}
+         style={{backgroundImage: `url(${background})`}}
+    >
+        <Header/>
+        <main>
+            <Routes>
+                <Route path="/" element={<Main/>}/>
+                <Route path="/test" element={<TestPage/>}/>
+                <Route path="/archive/*" element={<Archive/>}/>
+                <Route path="/statement" element={<Statement/>}/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/success" element={<Success/>}/>
+                <Route path="/status/*" element={<Status/>}/>
+            </Routes>
+            <ChatBot/>
+        </main>
+        <Footer/>
+    </div>;
 
 
-const AdminSide = () => {
-    return (
-        <div>
-            <HeaderAdmin/>
-        </div>
-    );
-}
+const AdminSide =
+    <div>
+        <HeaderAdmin/>
+        <Routes>
+            <Route path="/" element={<Login/>}/>
+        </Routes>
+    </div>;
 
 const App = () => {
     let env = useSelector((state) => state.env);
@@ -56,8 +53,8 @@ const App = () => {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/" element={<ClientSide/>}/>
-                <Route path="/admin" element={<AdminSide/>}/>
+                <Route path="/" element={ClientSide}/>
+                <Route path="/admin/*" element={AdminSide}/>
             </Routes>
         </HashRouter>
 
