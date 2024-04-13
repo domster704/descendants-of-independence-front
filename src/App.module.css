@@ -6,3 +6,7 @@
 
     background: var(--background);
 }
+
+.admin_background {
+    background: rgba(223, 223, 223, 1);
+}
