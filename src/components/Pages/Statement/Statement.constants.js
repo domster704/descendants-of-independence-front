@@ -5,7 +5,7 @@ const fillDateOfBirthOptions = (length, type) => Array
             .padStart(2, '0');
 
         return {
-            value: type + '-' + formattedIndex, label: formattedIndex
+            value: type + '-' + formattedIndex, label: formattedIndex,
         };
     });
 
