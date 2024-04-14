@@ -30,8 +30,8 @@
 }
 
 .left p:nth-child(odd) {
-    max-width: 58px;
-    width: 58px;
+    max-width: 90px;
+    width: 90px;
 }
 
 .winner_card_img {
