@@ -1,19 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 import winner_img from "../assets/img/archiveWinnerImg/winner.png";
 import { images as winnerImages } from "../winnerImgImports";
+import i18n from "../i18next";
+
+let getArchiveTranslationRu = (key, lng) => {
+  return i18n.t(`archive:${key}`, { lng: `${lng}` });
+};
 
 // imgIndex - индекс изображения в массиве winnerImages[year][category]
 let initialState = {
+  lang: "ru",
   filter: {
     active: "science",
     year: 2021,
     page: 1,
     filterCategory: {
-      science: { children: "Наука" },
-      culture: { children: "Культура" },
-      it: { children: "Информационные технологии" },
-      business: { children: "Бизнес" },
-      media: { children: "Медиа" },
+      science: { children: getArchiveTranslationRu("sienc", "ru") },
+      culture: { children: getArchiveTranslationRu("culture", "ru") },
+      it: {
+        children: getArchiveTranslationRu("information_technology", "ru"),
+      },
+      business: { children: getArchiveTranslationRu("business", "ru") },
+      media: { children: getArchiveTranslationRu("media", "ru") },
     },
   },
   winnerCards: {
@@ -695,6 +703,16 @@ let initialState = {
   },
 };
 
+const updateFilterCategory = (lang) => {
+  return {
+    science: { children: getArchiveTranslationRu("sienc", lang) },
+    culture: { children: getArchiveTranslationRu("culture", lang) },
+    it: { children: getArchiveTranslationRu("information_technology", lang) },
+    business: { children: getArchiveTranslationRu("business", lang) },
+    media: { children: getArchiveTranslationRu("media", lang) },
+  };
+};
+
 Object.keys(initialState.winnerCards).forEach((year) => {
   if (!Object.keys(winnerImages).includes(year)) {
     return;
@@ -735,8 +753,13 @@ const winnerSlice = createSlice({
     setFilterYear(state, action) {
       state.filter.year = action.payload;
     },
+    setLanguage: (state, { payload }) => {
+      state.lang = payload;
+      state.filter.filterCategory = updateFilterCategory(payload); // Обновляем filterCategory
+    },
   },
 });
 
-export const { setFilterCategoryActive, setFilterYear } = winnerSlice.actions;
+export const { setFilterCategoryActive, setFilterYear, setLanguage } =
+  winnerSlice.actions;
 export default winnerSlice.reducer;

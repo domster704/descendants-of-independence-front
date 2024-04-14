@@ -22,7 +22,6 @@ const Gallery = () => {
   const dispatch = useDispatch();
   const galleryStore = useSelector((state) => state.gallery);
   const local = localStorage.getItem("lang");
-  console.log(local);
   const galleryListRef = React.useRef(null);
   useEffect(() => {
     dispatch(setLanguage(local));

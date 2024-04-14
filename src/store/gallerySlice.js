@@ -12,7 +12,6 @@ import news_3 from "../assets/img/gallery/news_3.webp";
 
 import i18n from "../i18next";
 
-const lng = localStorage.getItem("lang");
 let getArchiveTranslationRu = (key, lng) => {
   return i18n.t(`archive:${key}`, { lng: `${lng}` });
 };
