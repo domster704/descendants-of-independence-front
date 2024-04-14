@@ -62,13 +62,14 @@
 
 .about_bottom {
   padding: 70px 0px 0px 0px;
+  margin-bottom: 100px;
 }
 
-@media screen and (max-width: 1160px){
+@media screen and (max-width: 1160px) {
   .carth_wrapper {
     gap: 5px;
   }
-  
+
   .about_carth {
     min-height: 370px;
   }

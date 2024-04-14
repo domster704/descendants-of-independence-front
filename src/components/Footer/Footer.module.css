@@ -68,6 +68,7 @@ a:hover {
   text-align: left;
   padding: 2px 33px;
   border-radius: 10px;
+  text-wrap: nowrap;
 }
 
 .foterBg {

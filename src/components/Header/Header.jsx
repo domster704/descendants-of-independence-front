@@ -161,6 +161,15 @@ const Header = () => {
                 );
               })}
               <li className={style.list_item}>
+                <a
+                  className={style.concurse}
+                  href="/pdf/rules-ru.pdf"
+                  target="_blank"
+                >
+                  {t("link")}
+                </a>
+              </li>
+              <li className={style.list_item}>
                 <button className={style.concurse} onClick={togleMore}>
                   {t("concurse")}
                   <span>
@@ -184,10 +193,10 @@ const Header = () => {
                     accordion ? "" : style.hidden
                   }`}
                 >
-                  <Link to="#" className={style.concurse}>
+                  <Link to="/status" className={style.concurse}>
                     {t("concurse_status")}
                   </Link>
-                  <Link to="#" className={style.concurse}>
+                  <Link to="/statement" className={style.concurse}>
                     {t("concurse_send")}
                   </Link>
                 </div>

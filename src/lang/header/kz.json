@@ -7,13 +7,9 @@
     {
       "label": "Мұрағат",
       "url": "archive"
-    },
-    {
-      "label": "Құжаттама",
-      "url": "/pdf/rules-kz.pdf",
-      "target": "_blank"
     }
   ],
+  "link": "Құжаттама",
   "concurse": "Конкурс туралы",
   "linkModal": [
     { "href": "/about", "text": "Конкурс туралы" },
