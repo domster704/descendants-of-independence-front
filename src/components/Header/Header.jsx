@@ -65,19 +65,24 @@ const Header = () => {
               return (
                 <li key={index}>
                   {item.target ? (
-                    <a
-                      href={item.url}
+                    <Link
+                      to={item.url}
                       target={item.target}
                       rel="noopener noreferrer"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   ) : (
                     <Link to={item.url}>{item.label}</Link>
                   )}
                 </li>
               );
             })}
+            <li>
+              <a href="/pdf/rules-ru.pdf" target="_blank">
+                {t("link")}
+              </a>
+            </li>
             <li className={style.accordion_relative}>
               <button className={style.accordion__btn} onClick={togleMore}>
                 {t("concurse")}{" "}
