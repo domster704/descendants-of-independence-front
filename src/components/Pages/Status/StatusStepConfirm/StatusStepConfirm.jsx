@@ -35,7 +35,7 @@ const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
                 dispatch(setIsFormError(true));
             }
 
-            if (state[key] !== ticket.statement[key]) {
+            if (state[key] !== ticket[key]) {
                 isValid = false;
             }
         });
@@ -81,7 +81,7 @@ const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
 
             <div>
                 <h4>Причина</h4>
-                <p>{ticket.admin_comment.message}</p>
+                <p>{ticket.comment}</p>
             </div>
         </form>
     );

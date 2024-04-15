@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setIsFormError } from '../../../store/envSlice';
-import { COST_ESTIMATE_INITIAL_STATE, INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE } from './Statement.constants';
+import {
+    COST_ESTIMATE_WITH_TEST_DATA,
+    PROJECT_DESCRIPTION_WITH_TEST_DATA,
+    STATE_WITH_TEST_DATA,
+} from './Statement.constants';
 import StatementDropdownBlock from './components/StatementDropdownBlock/StatementDropdownBlock';
 import StatementDropzone from './components/StatementDropzone/StatementDropzone';
 import StatementMainFields from './components/StatementMainFields/StatementMainFields';
 import * as styles from './Statement.module.css';
 import { useTranslation } from 'react-i18next';
+import { createApplication, fetchCategories } from '../../../store/applicationThunk';
 
 const Statement = () => {
     const { t } = useTranslation('statement');
@@ -16,11 +21,13 @@ const Statement = () => {
 
     const dispatch = useDispatch();
 
-    const [state, setState] = useState(INITIAL_STATE);
-    const [projectDescription, setProjectDescription] = useState(PROJECT_DESCRIPTION_INITIAL_STATE);
-    const [costEstimate, setCostEstimate] = useState(COST_ESTIMATE_INITIAL_STATE);
+    const [state, setState] = useState(STATE_WITH_TEST_DATA);
+    const [projectDescription, setProjectDescription] = useState(PROJECT_DESCRIPTION_WITH_TEST_DATA);
+    const [costEstimate, setCostEstimate] = useState(COST_ESTIMATE_WITH_TEST_DATA);
 
     useEffect(() => {
+        dispatch(fetchCategories());
+
         return () => {
             dispatch(setIsFormError(false));
         };
@@ -34,24 +41,15 @@ const Statement = () => {
             return;
         }
 
-        if (name.includes('[')) {
-            let parts = name.split('[');
-            let firstPart = parts[0];
-            let secondPart = parts[1].slice(0, -1);
-
-            setState((prevState) => ({ ...prevState, [firstPart]: { ...prevState[firstPart], [secondPart]: value } }));
-            return;
-        }
-
         setState((prevState) => ({ ...prevState, [name]: value }));
     };
 
-    const sendData = (e) => {
+    const sendData = async (e) => {
         e.preventDefault();
 
         const isStateValid = (obj) => {
             for (const key in obj) {
-                if (key === 'costEstimate') {
+                if (key === 'cost_estimate') {
                     return !Boolean(obj[key].find(item => !isStateValid(item)));
                 }
 
@@ -66,13 +64,15 @@ const Statement = () => {
             return true;
         };
 
-        if (!isStateValid({ ...state, ...projectDescription, costEstimate })) {
+        const resultState = { ...state, ...projectDescription, cost_estimate: costEstimate };
+
+        if (!isStateValid(resultState)) {
             dispatch(setIsFormError(true));
             return;
         }
 
         try {
-            // Request code...
+            await dispatch(createApplication(resultState)).unwrap();
         } catch (e) {
             // Error code...
         } finally {

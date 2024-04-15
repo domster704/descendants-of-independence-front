@@ -48,6 +48,7 @@ export const SELECT_STYLES = (inputStyles) => ({
         ...baseValue,
         minWidth: 20,
         fontSize: 16,
+        overflow: 'visible',
         color: '#000',
     })
 });

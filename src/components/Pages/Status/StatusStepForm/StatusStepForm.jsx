@@ -5,14 +5,16 @@ import StatementMainFields from '../../Statement/components/StatementMainFields/
 import StatementDropdownBlock from '../../Statement/components/StatementDropdownBlock/StatementDropdownBlock';
 import StatementDropzone from '../../Statement/components/StatementDropzone/StatementDropzone';
 import { setIsFormError } from '../../../../store/envSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { COST_ESTIMATE_WITH_TEST_DATA, STATE_WITH_TEST_DATA } from './StatusStepForm.constants';
 
 const StatusStepForm = () => {
     const dispatch = useDispatch();
 
-    const [state, setState] = useState(STATE_WITH_TEST_DATA);
-    const [costEstimate, setCostEstimate] = useState(COST_ESTIMATE_WITH_TEST_DATA);
+    const { ticket, cost_estimate } = useSelector(state => state.status);
+
+    const [state, setState] = useState(ticket);
+    const [costEstimate, setCostEstimate] = useState(cost_estimate);
 
     useEffect(() => {
         return () => {
@@ -40,7 +42,7 @@ const StatusStepForm = () => {
 
         const isStateValid = (obj) => {
             for (const key in obj) {
-                if (key === 'costEstimate') {
+                if (key === 'cost_estimate') {
                     return !Boolean(obj[key].find(item => !isStateValid(item)));
                 }
 

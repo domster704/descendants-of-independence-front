@@ -13,7 +13,7 @@ const StatementDropdownBlock = ({
                                     setProjectDescription,
                                     changeValue,
                                     costEstimate,
-                                    setCostEstimate
+                                    setCostEstimate,
                                 }) => {
     const { t } = useTranslation('statement');
 
@@ -45,7 +45,7 @@ const StatementDropdownBlock = ({
                     <img
                         src={chevronDown}
                         style={{ rotate: isProjectDescriptionOpen ? '180deg' : 'none' }}
-                        alt="chevron-up-img"
+                        alt='chevron-up-img'
                     />
                 </div>
 
@@ -54,52 +54,52 @@ const StatementDropdownBlock = ({
                         className={[statement_main_fields_styles.text_fields, styles.drop_down_block_text_fields].join(' ')}>
                         <div className={styles.flex_column}>
                             <TextField
-                                type="textarea"
-                                name="shortDescription"
-                                label={t("short_description")}
+                                type='textarea'
+                                name='short_description'
+                                label={t('short_description')}
                                 placeholder={t('short_description_placeholder')}
-                                value={projectDescription.shortDescription}
+                                value={projectDescription.short_description}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectTasks"
-                                label={t("project_tasks")}
-                                value={projectDescription.projectTasks}
+                                name='project_tasks'
+                                label={t('project_tasks')}
+                                value={projectDescription.project_tasks}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="implementationTimeline"
-                                label={t("implementation_timeline")}
-                                value={projectDescription.implementationTimeline}
+                                name='implementation_timeline'
+                                label={t('implementation_timeline')}
+                                value={projectDescription.implementation_timeline}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectDeliverables"
-                                label={t("project_deliverables")}
-                                value={projectDescription.projectDeliverables}
+                                name='project_deliverables'
+                                label={t('project_deliverables')}
+                                value={projectDescription.project_deliverables}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="preliminaryCostForecasts"
-                                label={t("preliminary_cost_forecasts")}
-                                value={projectDescription.preliminaryCostForecasts}
+                                name='preliminary_cost_forecasts'
+                                label={t('preliminary_cost_forecasts')}
+                                value={projectDescription.preliminary_cost_forecasts}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                type="textarea"
-                                name="projectImplementationGeography"
-                                label={t("project_implementation_geography")}
-                                value={projectDescription.projectImplementationGeography}
+                                type='textarea'
+                                name='project_implementation_geography'
+                                label={t('project_implementation_geography')}
+                                value={projectDescription.project_implementation_geography}
                                 onChange={changeValue}
                                 required
                             />
@@ -107,49 +107,49 @@ const StatementDropdownBlock = ({
 
                         <div className={styles.flex_column}>
                             <TextField
-                                name="targetAudience"
-                                label={t("target_audience")}
-                                value={projectDescription.targetAudience}
+                                name='target_audience'
+                                label={t('target_audience')}
+                                value={projectDescription.target_audience}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectMission"
-                                label={t("project_mission")}
-                                value={projectDescription.projectMission}
+                                name='project_mission'
+                                label={t('project_mission')}
+                                value={projectDescription.project_mission}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectJustification"
-                                label={t("project_justification")}
-                                value={projectDescription.projectJustification}
+                                name='project_justification'
+                                label={t('project_justification')}
+                                value={projectDescription.project_justification}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectObjectivesAndSuccessCriteria"
-                                label={t("project_objectives_and_success_criteria")}
-                                value={projectDescription.projectObjectivesAndSuccessCriteria}
+                                name='project_objectives_and_success_criteria'
+                                label={t('project_objectives_and_success_criteria')}
+                                value={projectDescription.project_objectives_and_success_criteria}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectStakeholders"
-                                label={t("project_stakeholders")}
-                                value={projectDescription.projectStakeholders}
+                                name='project_stakeholders'
+                                label={t('project_stakeholders')}
+                                value={projectDescription.project_stakeholders}
                                 onChange={changeValue}
                                 required
                             />
 
                             <TextField
-                                name="projectConstraintsAndRisks"
-                                label={t("project_constraints_and_risks")}
-                                value={projectDescription.projectConstraintsAndRisks}
+                                name='project_constraints_and_risks'
+                                label={t('project_constraints_and_risks')}
+                                value={projectDescription.project_constraints_and_risks}
                                 onChange={changeValue}
                                 required
                             />
@@ -166,7 +166,7 @@ const StatementDropdownBlock = ({
                 <img
                     src={chevronDown}
                     style={{ rotate: isCostEstimateOpen ? '180deg' : 'none' }}
-                    alt="chevron-up-img"
+                    alt='chevron-up-img'
                 />
             </div>
 
@@ -192,9 +192,9 @@ const StatementDropdownBlock = ({
                                     </span>
                                             <span>
                                         <TextField
-                                            type="text"
-                                            name="expenseItem"
-                                            value={item.expenseItem}
+                                            type='text'
+                                            name='expense_item'
+                                            value={item.expense_item}
                                             onChange={(e) => changeTableValue(e, index)}
                                             placeholder={t('expense_item_placeholder')}
                                             required
@@ -204,11 +204,11 @@ const StatementDropdownBlock = ({
                                     </span>
                                             <span>
                                         <TextField
-                                            name="pricePerOne"
-                                            value={item.pricePerOne}
+                                            name='price_per_one'
+                                            value={item.price_per_one}
                                             onChange={(e) => changeTableValue(e, index)}
-                                            type="number"
-                                            placeholder="0"
+                                            type='number'
+                                            placeholder='0'
                                             required
                                             inputStyles={{ ...TABLE_INPUT_STYLES, textAlign: 'center' }}
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
@@ -216,31 +216,31 @@ const StatementDropdownBlock = ({
                                     </span>
                                             <span>
                                         <TextField
-                                            name="unit"
-                                            type="select"
+                                            name='unit'
+                                            type='select'
                                             options={UNIT_OPTIONS}
                                             currentOption={item.unit}
                                             onChange={(e) => changeTableValue(e, index)}
-                                            placeholder="М"
+                                            placeholder='М'
                                             required
-                                            inputStyles={{ ...TABLE_INPUT_STYLES, padding: '0 7px 0 15px', }}
+                                            inputStyles={{ ...TABLE_INPUT_STYLES, padding: '0 7px 0 15px' }}
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
                                         />
                                     </span>
                                             <span>
                                         <TextField
-                                            name="quantity"
+                                            name='quantity'
                                             value={item.quantity}
                                             onChange={(e) => changeTableValue(e, index)}
-                                            type="number"
-                                            placeholder="0"
+                                            type='number'
+                                            placeholder='0'
                                             required
                                             inputStyles={{ ...TABLE_INPUT_STYLES, textAlign: 'center' }}
                                             className={styles.drop_down_block_cost_estimate_table_item_field}
                                         />
                                     </span>
                                             <span>
-                                        {parseInt(item.pricePerOne * item.quantity).toLocaleString('ru-RU')} тг
+                                        {parseInt(item.price_per_one * item.quantity).toLocaleString('ru-RU')} тг
                                     </span>
                                         </div>
                                         {
@@ -250,7 +250,7 @@ const StatementDropdownBlock = ({
                                                 className={styles.drop_down_block_cost_estimate_table_item_img}
                                                 onClick={() =>
                                                     setCostEstimate(prevState => prevState.filter((_, i) => i !== index))}
-                                                alt="trash-img"
+                                                alt='trash-img'
                                             />
                                         }
                                     </div>
@@ -261,7 +261,7 @@ const StatementDropdownBlock = ({
                                         {
                                             costEstimate
                                                 .reduce((acc, item) =>
-                                                    acc + parseInt((item.pricePerOne * item.quantity) || 0), 0)
+                                                    acc + parseInt((item.price_per_one * item.quantity) || 0), 0)
                                                 .toLocaleString('ru-RU')
                                         } тг
                                     </span>
@@ -271,20 +271,20 @@ const StatementDropdownBlock = ({
                     </div>
 
                     <button
-                        type="button"
+                        type='button'
                         className={styles.drop_down_block_cost_estimate_plus}
                         onClick={() =>
                             setCostEstimate(prevState => [...prevState,
                                 {
-                                    expenseItem: '',
-                                    pricePerOne: '',
+                                    expense_item: '',
+                                    price_per_one: '',
                                     unit: '',
                                     quantity: '',
                                 },
                             ])
                         }
                     >
-                        <img src={plus} alt="plus-img"/>
+                        <img src={plus} alt='plus-img' />
                     </button>
 
                     <div className={styles.drop_down_block_cost_estimate_note}>

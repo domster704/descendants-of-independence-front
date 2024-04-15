@@ -1,50 +1,11 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {
-    COST_ESTIMATE_WITH_TEST_DATA,
-    STATE_WITH_TEST_DATA
-} from '../components/Pages/Status/StatusStepForm/StatusStepForm.constants';
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchApplicationsById } from './applicationThunk';
+import { fetchStatuses } from './statusThunk';
 
 let initialState = {
     ticketId: null,
-    tickets: {
-        1: {
-            id: 1,
-            name: "Серик Асылжан",
-            date: '16.10.2023',
-            region: 'Астана',
-            status: 'Отправлено на доработку',
-            // Максимум - 10
-            points: null,
-            // Комментарий и какая-то информация от администратора для доработки заявки
-            admin_comment: {
-                message: 'Не правильно заполнено',
-            },
-            // Объект со всеми данными для формы
-            statement: STATE_WITH_TEST_DATA,
-            // Данные таблицы "Смета расходов"
-            costEstimate: COST_ESTIMATE_WITH_TEST_DATA,
-        },
-        2: {
-            id: 2,
-            name: "Серик Асылжан",
-            date: '16.10.2023',
-            region: 'Астана',
-            status: 'Принято',
-            points: null,
-            admin_comment: {
-            }
-        },
-        3: {
-            id: 3,
-            name: "Серик Асылжан",
-            date: '16.10.2023',
-            region: 'Астана',
-            status: 'Отказано',
-            points: null,
-            admin_comment: {
-            }
-        }
-    }
+    ticket: null,
+    cost_estimate: [],
 };
 
 const statusSlice = createSlice({
@@ -58,9 +19,22 @@ const statusSlice = createSlice({
          */
         setTicketId(state, action) {
             state.ticketId = action.payload;
-        }
-    }
+        },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(fetchApplicationsById.fulfilled, (state, { payload }) => {
+            state.ticket = payload.ticket;
+            state.cost_estimate = payload.cost_estimate;
+        });
+
+        builder.addCase(fetchStatuses.fulfilled, (state, { payload }) => {
+            if (state.ticket === null || typeof state.ticket.status === 'string') return;
+
+            const result = payload.find((status) => status.id === state.ticket.status);
+            state.ticket = { ...state.ticket, status: result.name };
+        });
+    },
 });
 
-export const {setTicketId} = statusSlice.actions;
+export const { setTicketId } = statusSlice.actions;
 export default statusSlice.reducer;
