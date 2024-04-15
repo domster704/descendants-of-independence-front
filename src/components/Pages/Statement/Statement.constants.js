@@ -113,3 +113,42 @@ export const TABLE_INPUT_STYLES = {
 export const MAX_MEGABYTES = 50;
 
 export const getRegularOrErrorDropZoneBorderUrl = (isError) => `data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23${isError ? 'F51616FF' : '00000080'}' stroke-width='3' stroke-dasharray='6' stroke-dashoffset='2' stroke-linecap='round'/%3e%3c/svg%3e`;
+
+// ToDo: Deleted
+
+export const STATE_WITH_TEST_DATA = {
+    full_name: 'John',
+    date_of_birth_day: DAY_OPTIONS[4],
+    date_of_birth_month: MONTH_OPTIONS[4],
+    date_of_birth_year: YEAR_OPTIONS[4],
+    phone: '12345678',
+    email: 'john@gmail.com',
+    education: EDUCATION_OPTIONS[1],
+    academic_degree: null,
+    address_region: REGION_OPTIONS[0],
+    address_city: 'Талгар',
+    address_street: 'Курчатова',
+    current_activity: null,
+    project_direction: { value: 1, label: 'Наука' },
+    files: [],
+};
+
+export const PROJECT_DESCRIPTION_WITH_TEST_DATA = {
+    short_description: 'test',
+    target_audience: 'test',
+    project_tasks: 'test',
+    project_mission: 'test',
+    project_justification: 'test',
+    implementation_timeline: 'test',
+    project_objectives_and_success_criteria: 'test',
+    project_deliverables: 'test',
+    project_stakeholders: 'test',
+    preliminary_cost_forecasts: 'test',
+    project_constraints_and_risks: 'test',
+    project_implementation_geography: 'test',
+};
+
+export const COST_ESTIMATE_WITH_TEST_DATA = [
+    { expense_item: 'Канат', price_per_one: 2000, unit: UNIT_OPTIONS[0], quantity: 10 },
+    { expense_item: 'Мяч', price_per_one: 3000, unit: UNIT_OPTIONS[2], quantity: 15 },
+];
