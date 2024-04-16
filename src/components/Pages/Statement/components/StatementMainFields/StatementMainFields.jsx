@@ -39,7 +39,7 @@ const StatementMainFields = ({ state, changeValue, className }) => {
             name="date_of_birth_day"
             placeholder="01"
             options={DAY_OPTIONS}
-            currentOption={DAY_OPTIONS.find(day => day.label === state.date_of_birth_day)}
+            currentOption={state.date_of_birth_day}
             onChange={changeValue}
             required
           />
@@ -67,7 +67,6 @@ const StatementMainFields = ({ state, changeValue, className }) => {
       </div>
 
       <TextField
-        type="number"
         name="phone"
         label={t("phone")}
         placeholder={t("phone_placeholder")}

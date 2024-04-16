@@ -22,6 +22,7 @@ const StatusStepContainer = ({ ticket }) => {
         'Отказано': styles.refused,
         'Принято': styles.accepted,
         'Отправлено на доработку': styles.modification,
+        'В ожидании действий': styles.pending,
     };
 
     return (
@@ -36,28 +37,27 @@ const StatusStepContainer = ({ ticket }) => {
                     {/*Статус*/}
                     <p></p>
                 </div>
-                <div className={`${styles.in_block} ${ticket.points && styles.layout_with_points}`}>
+                <div className={`${styles.in_block} ${ticket.point && styles.layout_with_points}`}>
                     <p>Заявка №{ticket.id}</p>
                     <p>{ticket.full_name}</p>
-                    <p>{ticket.datetime}</p>
-                    <p>{ticket.address_region}</p>
-                    {ticket.point && <p>{ticket.point}</p>}
+                    <p>{ticket.date}</p>
+                    <p>{ticket.address_region.label}</p>
+                    {ticket.point && <p>{ticket.point}/10 б.</p>}
                     <p className={STATUS_COLOR_CLASSNAME[ticket.status]}>{ticket.status}</p>
                 </div>
             </div>
 
-            {/*ТУТ ПИСАТЬ НОВЫЕ ЭТАПЫ*/}
             {
-                ticket.status !== 'Принято' &&
+                ticket.status !== 'Принято' && ticket.status !== 'В ожидании действий' &&
                 <div className={styles.ticketCard}>
                     {
                         ticket.status === 'Отказано' ?
                             <div className={styles.ticketCard_cause}>
                                 <h4>Причина:</h4>
-                                <p>Проект не соответсвует требованиям конкурса.</p>
+                                <p>{ticket.comment}</p>
                             </div> : ticket.status === 'Отправлено на доработку' ?
                                 <div>
-                                    {!isConfirmStatement ?
+                                    {isConfirmStatement ?
                                         <>
                                             <div>
                                                 <h4>Комментарий администратора</h4>

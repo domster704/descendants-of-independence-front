@@ -8,7 +8,7 @@
 }
 
 .layout_with_points {
-    grid-template-columns: repeat(5, 1fr) 2fr;
+    grid-template-columns: repeat(5, 1fr) 1fr !important;
 }
 
 .out_block,
@@ -78,6 +78,10 @@
 
 .modification {
     color: var(--yellow);
+}
+
+.pending {
+    color: var(--basic-blue);
 }
 
 @media screen and (max-width: 1251px) {

@@ -50,7 +50,6 @@ const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
     return (
         <form onSubmit={confirmStatement} className={styles.ticketCard_confirm}>
             <TextField
-                type="number"
                 name="phone"
                 label="Номер телефона"
                 value={state.phone}

@@ -16,7 +16,7 @@ const TextField = ({
                        options,
                        currentOption,
                        inputStyles,
-                       className
+                       className,
                    }) => {
     const dispatch = useDispatch();
     const { isFormError } = useSelector(state => state.env);
@@ -49,8 +49,8 @@ const TextField = ({
                             onChange({
                                 target: {
                                     name,
-                                    value: { value: newValue.value, label: newValue.label }
-                                }
+                                    value: { value: newValue.value, label: newValue.label },
+                                },
                             })
                         }
                         onFocus={() => setIsError(false) + dispatch(setIsFormError(false))}

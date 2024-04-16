@@ -65,6 +65,11 @@
     margin-top: 10px;
 }
 
+.files a {
+    text-decoration: underline;
+    text-decoration-color: var(--basic-blue);
+}
+
 .files p {
     color: var(--basic-blue);
     max-width: max-content;

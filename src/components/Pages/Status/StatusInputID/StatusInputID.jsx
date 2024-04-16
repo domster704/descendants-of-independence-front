@@ -1,32 +1,39 @@
-import React from "react";
-import * as styles from './StatusInputID.module.css'
-import { useDispatch, useSelector } from "react-redux";
-import { setTicketId } from "../../../../store/statusSlice";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import * as styles from './StatusInputID.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const StatusInputID = () => {
-    let inputTicketIdRef = React.useRef(null);
+    const params = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    let navigate = useNavigate();
-    let dispatch = useDispatch();
-    let statusTicketId = useSelector(state => state.status.ticketId);
+    const [id, setId] = useState('');
 
-    const onClick = (e) => {
+    useEffect(() => {
+        if (params['*']) {
+            setId(params['*']);
+        }
+    }, []);
+
+    const onSubmit = (e) => {
         e.preventDefault();
 
-        const ticketId = parseInt(inputTicketIdRef.current?.value || 0);
-        dispatch(setTicketId(ticketId));
-        navigate('/status/' + ticketId);
-    }
+        navigate(id);
+    };
 
     return (
-        <form onSubmit={onClick} className={styles.input_block}>
+        <form onSubmit={onSubmit} className={styles.input_block}>
             <div className={styles.input_container}>
-                <input ref={inputTicketIdRef} placeholder="Номер заявки"/>
+                <input
+                    value={id}
+                    onChange={(e) => setId(e.target.value)}
+                    placeholder='Номер заявки'
+                />
                 <button>Найти</button>
             </div>
         </form>
     );
-}
+};
 
 export default StatusInputID;

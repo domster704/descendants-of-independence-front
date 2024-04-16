@@ -3,20 +3,42 @@ import * as styles from './StatusStepForm.module.css';
 import * as stylesStatement from '../../Statement/Statement.module.css';
 import StatementMainFields from '../../Statement/components/StatementMainFields/StatementMainFields';
 import StatementDropdownBlock from '../../Statement/components/StatementDropdownBlock/StatementDropdownBlock';
-import StatementDropzone from '../../Statement/components/StatementDropzone/StatementDropzone';
 import { setIsFormError } from '../../../../store/envSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { COST_ESTIMATE_WITH_TEST_DATA, STATE_WITH_TEST_DATA } from './StatusStepForm.constants';
+import { editApplication, fetchCategories } from '../../../../store/applicationThunk';
+import { setTicket } from '../../../../store/statusSlice';
+import StatementDropzone from '../../Statement/components/StatementDropzone/StatementDropzone';
 
 const StatusStepForm = () => {
     const dispatch = useDispatch();
 
     const { ticket, cost_estimate } = useSelector(state => state.status);
+    const { categories } = useSelector(state => state.application);
 
     const [state, setState] = useState(ticket);
     const [costEstimate, setCostEstimate] = useState(cost_estimate);
 
     useEffect(() => {
+        if (ticket && ticket.category && categories.length) {
+            const result = {
+                ...ticket,
+                project_direction: categories.find(option => option.value === ticket.category),
+            };
+
+            delete result.category;
+
+            dispatch(setTicket(result));
+            setState(result);
+            setCostEstimate(cost_estimate);
+        } else if (ticket === null && !cost_estimate.length) {
+            setState(null);
+            setCostEstimate([]);
+        }
+    }, [dispatch, ticket, categories]);
+
+    useEffect(() => {
+        dispatch(fetchCategories());
+
         return () => {
             dispatch(setIsFormError(false));
         };
@@ -25,12 +47,9 @@ const StatusStepForm = () => {
     const changeValue = (e) => {
         const { name, value } = e.target;
 
-        if (name.includes('[')) {
-            let parts = name.split('[');
-            let firstPart = parts[0];
-            let secondPart = parts[1].slice(0, -1);
-
-            setState((prevState) => ({ ...prevState, [firstPart]: { ...prevState[firstPart], [secondPart]: value } }));
+        if (name === 'phone') {
+            if (value.length && (value !== '+' && isNaN(Number(value)) || Number(value) < 1)) return;
+            setState((prevState) => ({ ...prevState, [name]: value.trim() }));
             return;
         }
 
@@ -57,19 +76,21 @@ const StatusStepForm = () => {
             return true;
         };
 
-        if (!isStateValid({ ...state, costEstimate })) {
+        const result = { ...state, cost_estimate: costEstimate };
+
+        if (!isStateValid(result)) {
             dispatch(setIsFormError(true));
             return;
         }
 
         try {
-            // Request code...
+            dispatch(editApplication({ application: result, ticket }));
         } catch (e) {
             // Error code...
         }
     };
 
-    return (
+    return state && cost_estimate.length && (
         <form onSubmit={sendData} className={[stylesStatement.form, styles.form, stylesStatement.edit_form].join(' ')}>
             <StatementMainFields
                 state={state}
