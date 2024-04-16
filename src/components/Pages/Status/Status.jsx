@@ -5,7 +5,6 @@ import StatusInputID from './StatusInputID/StatusInputID';
 import StatusStepContainer from './StatusStepContainer/StatusStepContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { setTicketId } from '../../../store/statusSlice';
 import { useTranslation } from 'react-i18next';
 import { fetchApplicationsById } from '../../../store/applicationThunk';
 
@@ -19,16 +18,9 @@ const Status = () => {
 
     useEffect(() => {
         if (params['*']) {
-            dispatch(setTicketId(params['*']));
-            if (!statusStore.ticket) {
-                dispatch(fetchApplicationsById(params['*']));
-            }
+            dispatch(fetchApplicationsById(params['*']));
         }
-
-        return () => {
-            dispatch(setTicketId(null));
-        };
-    }, [params, dispatch]);
+    }, [dispatch, params['*']]);
 
     return (
         <Wrapper className={styles.status_wrapper}>
@@ -39,7 +31,7 @@ const Status = () => {
                 {
                     statusStore.ticket ?
                         <StatusStepContainer ticket={statusStore.ticket} />
-                        : statusStore.ticketId !== null ? <p>{t('noResultsMessage')}</p> : null
+                        : params['*'] && <p>{t('noResultsMessage')}</p>
                 }
             </div>
         </Wrapper>

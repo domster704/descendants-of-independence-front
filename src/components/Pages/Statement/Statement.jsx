@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setIsFormError } from '../../../store/envSlice';
-import {
-    COST_ESTIMATE_WITH_TEST_DATA,
-    PROJECT_DESCRIPTION_WITH_TEST_DATA,
-    STATE_WITH_TEST_DATA,
-} from './Statement.constants';
+import { COST_ESTIMATE_INITIAL_STATE, INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE } from './Statement.constants';
 import StatementDropdownBlock from './components/StatementDropdownBlock/StatementDropdownBlock';
 import StatementDropzone from './components/StatementDropzone/StatementDropzone';
 import StatementMainFields from './components/StatementMainFields/StatementMainFields';
@@ -21,9 +17,9 @@ const Statement = () => {
 
     const dispatch = useDispatch();
 
-    const [state, setState] = useState(STATE_WITH_TEST_DATA);
-    const [projectDescription, setProjectDescription] = useState(PROJECT_DESCRIPTION_WITH_TEST_DATA);
-    const [costEstimate, setCostEstimate] = useState(COST_ESTIMATE_WITH_TEST_DATA);
+    const [state, setState] = useState(INITIAL_STATE);
+    const [projectDescription, setProjectDescription] = useState(PROJECT_DESCRIPTION_INITIAL_STATE);
+    const [costEstimate, setCostEstimate] = useState(COST_ESTIMATE_INITIAL_STATE);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -35,6 +31,12 @@ const Statement = () => {
 
     const changeValue = (e) => {
         const { name, value } = e.target;
+
+        if (name === 'phone') {
+            if (value.length && (value !== '+' && isNaN(Number(value)) || Number(value) < 1)) return;
+            setState((prevState) => ({ ...prevState, [name]: value.trim() }));
+            return;
+        }
 
         if (projectDescription !== null && Object.keys(projectDescription).includes(name)) {
             setProjectDescription((prevState) => ({ ...prevState, [name]: value }));
