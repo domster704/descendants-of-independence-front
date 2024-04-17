@@ -8,5 +8,8 @@
 }
 
 .submit_button {
+    position: absolute;
+    right: 10px;
+    bottom: -40px;
     background-color: var(--dark-blue);
 }
