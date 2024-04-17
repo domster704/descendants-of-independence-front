@@ -30,7 +30,6 @@ export const fetchApplicationsById = createAsyncThunk(
     },
 );
 
-
 export const createApplication = createAsyncThunk(
     'application/create',
     async (application, { getState }) => {
