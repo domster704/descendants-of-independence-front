@@ -49,7 +49,7 @@ const StatementDropzone = ({ state, setState }) => {
                     {...getRootProps()}
                     className={styles.drop_zone}
                     style={{
-                        backgroundImage: `url("${getRegularOrErrorDropZoneBorderUrl(!state.files.length && isFormError)}")`,
+                        backgroundImage: `url("${getRegularOrErrorDropZoneBorderUrl(state.files.length < 2 && isFormError)}")`,
                     }}
                 >
                     {isDragOver && <div className={styles.drop_zone_over}></div>}

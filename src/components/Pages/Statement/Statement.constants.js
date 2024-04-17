@@ -46,44 +46,36 @@ export const REGION_OPTIONS = [
     { value: 'region-18', label: 'Улытауская область' },
 ];
 
-export const PROJECT_DIRECTION_OPTIONS = [
-    { value: 'project-direction-01', label: 'Информационные технологии' },
-    { value: 'project-direction-02', label: 'Культура' },
-    { value: 'project-direction-03', label: 'Бизнес' },
-    { value: 'project-direction-04', label: 'Наука' },
-    { value: 'project-direction-05', label: 'Медиа' },
-];
-
 export const INITIAL_STATE = {
-    full_name: 'ama',
-    date_of_birth_day: DAY_OPTIONS[0],
-    date_of_birth_month: MONTH_OPTIONS[0],
-    date_of_birth_year: YEAR_OPTIONS[0],
-    phone: '+996777371978',
-    email: 'amanturmomunjanov009@gmail.com',
-    education: EDUCATION_OPTIONS[0],
+    full_name: '',
+    date_of_birth_day: '',
+    date_of_birth_month: '',
+    date_of_birth_year: '',
+    phone: '',
+    email: '',
+    education: '',
     academic_degree: null,
-    address_region: REGION_OPTIONS[0],
-    address_city: 'ds',
-    address_street: 'dss',
+    address_region: '',
+    address_city: '',
+    address_street: '',
     current_activity: null,
-    project_direction: PROJECT_DIRECTION_OPTIONS[0],
+    project_direction: '',
     files: [],
 };
 
 export const PROJECT_DESCRIPTION_INITIAL_STATE = {
-    short_description: 'sds',
-    target_audience: 'sds',
-    project_tasks: 'sds',
-    project_mission: 'sds',
-    project_justification: 'sds',
-    implementation_timeline: 'sds',
-    project_objectives_and_success_criteria: 'sds',
-    project_deliverables: 'sds',
-    project_stakeholders: 'sds',
-    preliminary_cost_forecasts: 'sds',
-    project_constraints_and_risks: 'sds',
-    project_implementation_geography: 'sds',
+    short_description: '',
+    target_audience: '',
+    project_tasks: '',
+    project_mission: '',
+    project_justification: '',
+    implementation_timeline: '',
+    project_objectives_and_success_criteria: '',
+    project_deliverables: '',
+    project_stakeholders: '',
+    preliminary_cost_forecasts: '',
+    project_constraints_and_risks: '',
+    project_implementation_geography: '',
 };
 
 export const UNIT_OPTIONS = [
@@ -98,7 +90,7 @@ export const UNIT_OPTIONS = [
 ];
 
 export const COST_ESTIMATE_INITIAL_STATE = [
-    { expense_item: 'sds', price_per_one: '10', unit: UNIT_OPTIONS[0], quantity: '100' },
+    { expense_item: '', price_per_one: '', unit: '', quantity: '' },
 ];
 
 export const TABLE_INPUT_STYLES = {
@@ -113,42 +105,3 @@ export const TABLE_INPUT_STYLES = {
 export const MAX_MEGABYTES = 50;
 
 export const getRegularOrErrorDropZoneBorderUrl = (isError) => `data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23${isError ? 'F51616FF' : '00000080'}' stroke-width='3' stroke-dasharray='6' stroke-dashoffset='2' stroke-linecap='round'/%3e%3c/svg%3e`;
-
-// ToDo: Deleted
-
-export const STATE_WITH_TEST_DATA = {
-    full_name: 'John',
-    date_of_birth_day: DAY_OPTIONS[4],
-    date_of_birth_month: MONTH_OPTIONS[4],
-    date_of_birth_year: YEAR_OPTIONS[4],
-    phone: '12345678',
-    email: 'john@gmail.com',
-    education: EDUCATION_OPTIONS[1],
-    academic_degree: null,
-    address_region: REGION_OPTIONS[0],
-    address_city: 'Талгар',
-    address_street: 'Курчатова',
-    current_activity: null,
-    project_direction: { value: 1, label: 'Наука' },
-    files: [],
-};
-
-export const PROJECT_DESCRIPTION_WITH_TEST_DATA = {
-    short_description: 'test',
-    target_audience: 'test',
-    project_tasks: 'test',
-    project_mission: 'test',
-    project_justification: 'test',
-    implementation_timeline: 'test',
-    project_objectives_and_success_criteria: 'test',
-    project_deliverables: 'test',
-    project_stakeholders: 'test',
-    preliminary_cost_forecasts: 'test',
-    project_constraints_and_risks: 'test',
-    project_implementation_geography: 'test',
-};
-
-export const COST_ESTIMATE_WITH_TEST_DATA = [
-    { expense_item: 'Канат', price_per_one: 2000, unit: UNIT_OPTIONS[0], quantity: 10 },
-    { expense_item: 'Мяч', price_per_one: 3000, unit: UNIT_OPTIONS[2], quantity: 15 },
-];

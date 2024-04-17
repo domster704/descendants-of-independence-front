@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setIsFormError } from "../../../store/envSlice";
-import {
-    COST_ESTIMATE_INITIAL_STATE,
-    INITIAL_STATE,
-    PROJECT_DESCRIPTION_INITIAL_STATE,
-} from "./Statement.constants";
-import StatementDropdownBlock from "./components/StatementDropdownBlock/StatementDropdownBlock";
-import StatementDropzone from "./components/StatementDropzone/StatementDropzone";
-import StatementMainFields from "./components/StatementMainFields/StatementMainFields";
-import * as styles from "./Statement.module.css";
-import { useTranslation } from "react-i18next";
-import {
-    createApplication,
-    fetchCategories,
-} from "../../../store/applicationThunk";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setIsFormError } from '../../../store/envSlice';
+import { COST_ESTIMATE_INITIAL_STATE, INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE } from './Statement.constants';
+import StatementDropdownBlock from './components/StatementDropdownBlock/StatementDropdownBlock';
+import StatementDropzone from './components/StatementDropzone/StatementDropzone';
+import StatementMainFields from './components/StatementMainFields/StatementMainFields';
+import * as styles from './Statement.module.css';
+import { useTranslation } from 'react-i18next';
+import { createApplication, fetchCategories } from '../../../store/applicationThunk';
 
 const Statement = () => {
-    const { t } = useTranslation("statement");
+    const { t, i18n } = useTranslation('statement');
 
     const navigate = useNavigate();
 
@@ -26,10 +19,10 @@ const Statement = () => {
 
     const [state, setState] = useState(INITIAL_STATE);
     const [projectDescription, setProjectDescription] = useState(
-        PROJECT_DESCRIPTION_INITIAL_STATE
+        PROJECT_DESCRIPTION_INITIAL_STATE,
     );
     const [costEstimate, setCostEstimate] = useState(
-        COST_ESTIMATE_INITIAL_STATE
+        COST_ESTIMATE_INITIAL_STATE,
     );
 
     useEffect(() => {
@@ -43,10 +36,10 @@ const Statement = () => {
     const changeValue = (e) => {
         const { name, value } = e.target;
 
-        if (name === "phone") {
+        if (name === 'phone') {
             if (
                 value.length &&
-                ((value !== "+" && isNaN(Number(value))) || Number(value) < 1)
+                ((value !== '+' && isNaN(Number(value))) || Number(value) < 1)
             )
                 return;
             setState((prevState) => ({ ...prevState, [name]: value.trim() }));
@@ -72,24 +65,25 @@ const Statement = () => {
 
         const isStateValid = (obj) => {
             for (const key in obj) {
-                if (key === "cost_estimate") {
+                if (key === 'cost_estimate') {
                     return !Boolean(
-                        obj[key].find((item) => !isStateValid(item))
+                        obj[key].find((item) => !isStateValid(item)),
                     );
                 }
 
                 if (Array.isArray(obj[key])) {
+                    if (key === 'files' && obj[key].length < 2) return false;
                     if (obj[key].length === 0) return false;
                     else continue;
                 }
 
                 if (
-                    typeof obj[key] === "object" &&
+                    typeof obj[key] === 'object' &&
                     obj[key] !== null &&
                     !isStateValid(obj[key])
                 )
                     return false;
-                if (obj[key] === "") return false;
+                if (obj[key] === '') return false;
             }
             return true;
         };
@@ -106,20 +100,20 @@ const Statement = () => {
         }
 
         try {
-            await dispatch(createApplication(resultState)).unwrap();
+            await dispatch(createApplication({ application: resultState, lang: i18n.language })).unwrap();
         } catch (e) {
             // Error code...
         } finally {
-            navigate("/success");
+            navigate('/success');
         }
     };
 
     return (
         <div className={styles.statement}>
             <div className={styles.title}>
-                <p style={{ paddingBottom: "5px" }}>{t("cust_title")}</p>
-                <h1>{t("title")}</h1>
-                <p>{t("title_description")}</p>
+                <p style={{ paddingBottom: '5px' }}>{t('cust_title')}</p>
+                <h1>{t('title')}</h1>
+                <p>{t('title_description')}</p>
             </div>
 
             <form onSubmit={sendData} className={styles.form}>
@@ -136,7 +130,7 @@ const Statement = () => {
                 <StatementDropzone state={state} setState={setState} />
 
                 <button className={styles.submit_button}>
-                    {t("submit_button")}
+                    {t('submit_button')}
                 </button>
             </form>
         </div>

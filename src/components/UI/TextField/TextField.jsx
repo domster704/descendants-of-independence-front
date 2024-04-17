@@ -49,7 +49,7 @@ const TextField = ({
                             onChange({
                                 target: {
                                     name,
-                                    value: { value: newValue.value, label: newValue.label },
+                                    value: newValue,
                                 },
                             })
                         }

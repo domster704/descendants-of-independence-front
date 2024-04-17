@@ -4,6 +4,7 @@ import * as stylesStatement from '../../Statement/Statement.module.css';
 import TextField from '../../../UI/TextField/TextField';
 import { useDispatch } from 'react-redux';
 import { setIsFormError } from '../../../../store/envSlice';
+import { useParams } from 'react-router-dom';
 
 const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
     const dispatch = useDispatch();
@@ -13,8 +14,9 @@ const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
 
     useEffect(() => {
         return () => {
+            setState({ phone: '', email: '' });
             dispatch(setIsFormError(false));
-        }
+        };
     }, []);
 
     const changeValue = (e) => {
@@ -50,16 +52,16 @@ const StatusStepConfirm = ({ ticket, setIsConfirmStatement }) => {
     return (
         <form onSubmit={confirmStatement} className={styles.ticketCard_confirm}>
             <TextField
-                name="phone"
-                label="Номер телефона"
+                name='phone'
+                label='Номер телефона'
                 value={state.phone}
                 onChange={changeValue}
                 required
             />
             <TextField
-                type="email"
-                name="email"
-                label="Адрес эл. почты"
+                type='email'
+                name='email'
+                label='Адрес эл. почты'
                 value={state.email}
                 onChange={changeValue}
                 required

@@ -4,13 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import StatusStepForm from '../StatusStepForm/StatusStepForm';
 import StatusStepConfirm from '../StatusStepConfirm/StatusStepConfirm';
 import { fetchStatuses } from '../../../../store/statusThunk';
+import { useParams } from 'react-router-dom';
 
 const StatusStepContainer = ({ ticket }) => {
     const dispatch = useDispatch();
+    const params = useParams();
 
     let statusStore = useSelector(state => state.status);
 
     const [isConfirmStatement, setIsConfirmStatement] = useState(false);
+
+    useEffect(() => {
+        if (params['*']) {
+            setIsConfirmStatement(false);
+        }
+    }, [params]);
 
     useEffect(() => {
         if (ticket && typeof ticket.status === 'number') {
@@ -23,6 +31,7 @@ const StatusStepContainer = ({ ticket }) => {
         'Принято': styles.accepted,
         'Отправлено на доработку': styles.modification,
         'В ожидании действий': styles.pending,
+        'В ожидании оценивания': styles.mark,
     };
 
     return (
@@ -48,7 +57,9 @@ const StatusStepContainer = ({ ticket }) => {
             </div>
 
             {
-                ticket.status !== 'Принято' && ticket.status !== 'В ожидании действий' &&
+                ticket.status !== 'Принято'
+                && ticket.status !== 'В ожидании действий'
+                && ticket.status !== 'В ожидании оценивания' &&
                 <div className={styles.ticketCard}>
                     {
                         ticket.status === 'Отказано' ?

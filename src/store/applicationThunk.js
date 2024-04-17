@@ -6,7 +6,11 @@ export const fetchCategories = createAsyncThunk(
     'application/fetchCategories',
     async () => {
         const { data } = await axiosApi('categories');
-        return data.map(category => ({ value: category.id, label: category.name }));
+        return data.map(category => ({
+            value: category.id,
+            label: category.name,
+            label_kz: category.name_kz,
+        }));
     },
 );
 
@@ -32,7 +36,7 @@ export const fetchApplicationsById = createAsyncThunk(
 
 export const createApplication = createAsyncThunk(
     'application/create',
-    async (application, { getState }) => {
+    async ({ application, lang }, { getState }) => {
         try {
             const { date_of_birth_day, date_of_birth_month, date_of_birth_year } = application;
 
@@ -71,7 +75,7 @@ export const createApplication = createAsyncThunk(
                 }
             });
 
-            await axiosApi.post('applications', formData);
+            await axiosApi.post('applications?lang=' + lang, formData);
         } catch (e) {
             console.error(e);
         }
@@ -91,7 +95,7 @@ export const editApplication = createAsyncThunk(
                 date_of_birth: `${date_of_birth_year.label}-${date_of_birth_month.label}-${date_of_birth_day.label}`,
                 education: obj.education.label,
                 address_region: obj.address_region.label,
-                project_direction: obj.project_direction.value,
+                category: obj.project_direction.value,
                 files: obj.files.filter(file => typeof file !== 'string'),
                 files_path: obj.files.filter(file => typeof file === 'string'),
             };
@@ -99,6 +103,7 @@ export const editApplication = createAsyncThunk(
             delete formattedObj.date_of_birth_day;
             delete formattedObj.date_of_birth_month;
             delete formattedObj.date_of_birth_year;
+            delete formattedObj.project_direction;
 
             return formattedObj;
         };

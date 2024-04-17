@@ -5,12 +5,15 @@ import StatementMainFields from '../../Statement/components/StatementMainFields/
 import StatementDropdownBlock from '../../Statement/components/StatementDropdownBlock/StatementDropdownBlock';
 import { setIsFormError } from '../../../../store/envSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { editApplication, fetchCategories } from '../../../../store/applicationThunk';
+import { editApplication, fetchApplicationsById, fetchCategories } from '../../../../store/applicationThunk';
 import { setTicket } from '../../../../store/statusSlice';
 import StatementDropzone from '../../Statement/components/StatementDropzone/StatementDropzone';
+import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const StatusStepForm = () => {
     const dispatch = useDispatch();
+    const params = useParams();
 
     const { ticket, cost_estimate } = useSelector(state => state.status);
     const { categories } = useSelector(state => state.application);
@@ -56,7 +59,7 @@ const StatusStepForm = () => {
         setState((prevState) => ({ ...prevState, [name]: value }));
     };
 
-    const sendData = (e) => {
+    const sendData = async (e) => {
         e.preventDefault();
 
         const isStateValid = (obj) => {
@@ -66,6 +69,7 @@ const StatusStepForm = () => {
                 }
 
                 if (Array.isArray(obj[key])) {
+                    if (key === 'files' && obj[key].length < 2) return false;
                     if (obj[key].length === 0) return false;
                     else continue;
                 }
@@ -84,7 +88,10 @@ const StatusStepForm = () => {
         }
 
         try {
-            dispatch(editApplication({ application: result, ticket }));
+            await dispatch(editApplication({ application: { ...result, status: 1 }, ticket }));
+            if (params['*']) {
+                dispatch(fetchApplicationsById(params['*']));
+            }
         } catch (e) {
             // Error code...
         }
