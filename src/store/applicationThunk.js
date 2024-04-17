@@ -34,44 +34,48 @@ export const fetchApplicationsById = createAsyncThunk(
 export const createApplication = createAsyncThunk(
     'application/create',
     async (application, { getState }) => {
-        const { date_of_birth_day, date_of_birth_month, date_of_birth_year } = application;
+        try {
+            const { date_of_birth_day, date_of_birth_month, date_of_birth_year } = application;
 
-        const formattedApplication = {
-            ...application,
-            date_of_birth: `${date_of_birth_year.label}-${date_of_birth_month.label}-${date_of_birth_day.label}`,
-            education: application.education.label,
-            address_region: application.address_region.label,
-            project_direction: getState().application.categories
-                .find(category => category.label === application.project_direction.label)?.value,
-        };
+            const formattedApplication = {
+                ...application,
+                date_of_birth: `${date_of_birth_year.label}-${date_of_birth_month.label}-${date_of_birth_day.label}`,
+                education: application.education.label,
+                address_region: application.address_region.label,
+                project_direction: getState().application.categories
+                    .find(category => category.label === application.project_direction.label)?.value,
+            };
 
-        delete formattedApplication.date_of_birth_day;
-        delete formattedApplication.date_of_birth_month;
-        delete formattedApplication.date_of_birth_year;
+            delete formattedApplication.date_of_birth_day;
+            delete formattedApplication.date_of_birth_month;
+            delete formattedApplication.date_of_birth_year;
 
-        const formData = new FormData();
-        const keys = Object.keys(formattedApplication);
-        keys.forEach((key) => {
-            const value = formattedApplication[key];
+            const formData = new FormData();
+            const keys = Object.keys(formattedApplication);
+            keys.forEach((key) => {
+                const value = formattedApplication[key];
 
-            if (value !== null) {
-                if (key === 'cost_estimate') {
-                    formData.append(key, JSON.stringify(value));
-                } else if (Array.isArray(value)) {
-                    value.forEach((item) => {
-                        if (item instanceof File) {
-                            formData.append(key, item, item.name);
-                        } else {
-                            formData.append(key, JSON.stringify(item));
-                        }
-                    });
-                } else {
-                    formData.append(key, value);
+                if (value !== null) {
+                    if (key === 'cost_estimate') {
+                        formData.append(key, JSON.stringify(value));
+                    } else if (Array.isArray(value)) {
+                        value.forEach((item) => {
+                            if (item instanceof File) {
+                                formData.append(key, item, item.name);
+                            } else {
+                                formData.append(key, JSON.stringify(item));
+                            }
+                        });
+                    } else {
+                        formData.append(key, value);
+                    }
                 }
-            }
-        });
+            });
 
-        await axiosApi.post('applications', formData);
+            await axiosApi.post('applications', formData);
+        } catch (e) {
+            console.error(e);
+        }
     },
 );
 
