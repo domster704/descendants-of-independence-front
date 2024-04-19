@@ -5,12 +5,13 @@ import StatusStepForm from '../StatusStepForm/StatusStepForm';
 import StatusStepConfirm from '../StatusStepConfirm/StatusStepConfirm';
 import { fetchStatuses } from '../../../../store/statusThunk';
 import { useParams } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 const StatusStepContainer = ({ ticket }) => {
     const dispatch = useDispatch();
     const params = useParams();
 
-    let statusStore = useSelector(state => state.status);
+    const { t } = useTranslation("status");
 
     const [isConfirmStatement, setIsConfirmStatement] = useState(false);
 
@@ -38,11 +39,11 @@ const StatusStepContainer = ({ ticket }) => {
         <div className={styles.status_step_container}>
             <div className={`${styles.ticket_header_table}`}>
                 <div className={`${styles.out_block} ${ticket.points && styles.layout_with_points}`}>
-                    <p>Номер заявки</p>
-                    <p>ФИО</p>
-                    <p>Дата</p>
-                    <p>Регион</p>
-                    {ticket.points && <p>Кол-во б.</p>}
+                    <p>{t('headerNumber')}</p>
+                    <p>{t('headerName')}</p>
+                    <p>{t('headerDate')}</p>
+                    <p>{t('headerRegion')}</p>
+                    {ticket.points && <p>{t('headerPoints')}</p>}
                     {/*Статус*/}
                     <p></p>
                 </div>

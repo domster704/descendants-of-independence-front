@@ -1,6 +1,13 @@
 {
     "heading": "Мәртебесін білу",
     "description": "Өтінімнің жеке нөмірін енгізіңіз",
-    "noResultsMessage": "Ештеңе табылмады"
+    "noResultsMessage": "Ештеңе табылмады",
+    "findStatusButton": "Табу",
+    "findStatusPlaceholder": "Өтініш нөмірін енгізіңіз",
+    "headerNumber": "Өтінім нөмірі",
+    "headerName": "ТАӘ",
+    "headerDate": "Күні",
+    "headerRegion": "Аймақ",
+    "headerPoints": "Саны б."
 }
   

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import * as styles from './StatusInputID.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 const StatusInputID = () => {
     const params = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const { t } = useTranslation("status");
 
     const [id, setId] = useState('');
 
@@ -28,9 +29,9 @@ const StatusInputID = () => {
                 <input
                     value={id}
                     onChange={(e) => setId(e.target.value)}
-                    placeholder='Номер заявки'
+                    placeholder={t('findStatusPlaceholder')}
                 />
-                <button>Найти</button>
+                <button>{t('findStatusButton')}</button>
             </div>
         </form>
     );

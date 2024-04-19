@@ -1,6 +1,13 @@
 {
     "heading": "Узнать статус",
     "description": "Введите индивидуальный номер вашей заявки",
-    "noResultsMessage": "Ничего не найдено"
+    "noResultsMessage": "Ничего не найдено",
+    "findStatusButton": "Найти",
+    "findStatusPlaceholder": "Введите номер заявки",
+    "headerNumber": "Номер заявки",
+    "headerName": "ФИО",
+    "headerDate": "Дата",
+    "headerRegion": "Город",
+    "headerPoints": "Кол-во б."
 }
   
