@@ -1,5 +1,5 @@
 import React from 'react';
-import Carth from './MainComponents/Carth';
+import ProjectDirections from './MainComponents/ProjectDirections';
 import GrandInfo from './MainComponents/GrantInfo';
 import mainLogo from './img/KZ1_9633_2.webp';
 import * as style from './Main.module.css';
@@ -12,7 +12,7 @@ const Main = () => {
             <div style={{ position: 'relative' }}>
                 <GrandInfo/>
             </div>
-            <Carth/>
+            <ProjectDirections/>
         </div>
     );
 };

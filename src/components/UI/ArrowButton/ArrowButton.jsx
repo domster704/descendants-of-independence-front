@@ -8,7 +8,7 @@ import * as styles from './ArrowButton.module.css';
  * @param {Function} onClick - свой обработчик клика
  * @returns {JSX.Element}
  */
-const ArrowButton = ({direction = 'left', size='small', onClick}) => {
+const ArrowButton = ({direction = 'left', size = 'small', onClick}) => {
     return (
         <button className={`${styles.arrow} ${styles[direction]} ${styles[size]}`} onClick={onClick}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

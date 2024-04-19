@@ -12,10 +12,8 @@ const StatusInputID = () => {
     const [id, setId] = useState('');
 
     useEffect(() => {
-        if (params['*']) {
-            setId(params['*']);
-        }
-    }, []);
+        setId(params['*'] || '');
+    }, [params['*']]);
 
     const onSubmit = (e) => {
         e.preventDefault();

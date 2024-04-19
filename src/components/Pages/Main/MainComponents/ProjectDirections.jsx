@@ -3,17 +3,17 @@ import * as style from "../Main.module.css";
 import Wrapper from "../../../../components/UI/Wrapper/Wrapper";
 import { useTranslation } from "react-i18next";
 
-const Carth = () => {
+const ProjectDirections = () => {
   const { t, i18n } = useTranslation("main");
   const culture = t("culture");
-  const sciens = t("sciens");
+  const science = t("science");
   const business = t("business");
   const informationTechnology = t("informationTechnology");
   const media = t("media");
 
   const buttonText = {
     culture,
-    sciens,
+    science,
     business,
     informationTechnology,
     media,
@@ -49,9 +49,9 @@ const Carth = () => {
                     ? `${style.carth_btn} ${style.active_btn}`
                     : style.carth_btn
                 }
-                onClick={() => handleButtonClick(buttonText.sciens, "Наука")}
+                onClick={() => handleButtonClick(buttonText.science, "Наука")}
               >
-                {t("grant_btn_sciens")}
+                {t("grant_btn_science")}
               </button>
               <button
                 className={
@@ -73,7 +73,7 @@ const Carth = () => {
                 }
                 onClick={() => handleButtonClick(buttonText.business, "Бизнес")}
               >
-                {t("grant_btn_bisiness")}
+                {t("grant_btn_business")}
               </button>
               <div className={style.btn_flex}>
                 <button
@@ -108,8 +108,8 @@ const Carth = () => {
             </div>
           </div>
           <div className={style.carth_info}>
-            <h3 className={style.carth_title}>{t("grant_lastCarth_title")}</h3>
-            <p className={style.custom_bg}>{t("grant_lastCarth_text")}</p>
+            <h3 className={style.carth_title}>{t("grant_lastProjectDirection_title")}</h3>
+            <p className={style.custom_bg}>{t("grant_lastProjectDirection_text")}</p>
           </div>
         </div>
         <p className={style.carth_text}>{initialText}</p>
@@ -118,4 +118,4 @@ const Carth = () => {
   );
 };
 
-export default Carth;
+export default ProjectDirections;

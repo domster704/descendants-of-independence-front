@@ -1,13 +1,13 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, {Suspense, useEffect, useState} from 'react';
 import * as style from './Header.module.css';
 import Logo from './HeaderLogo';
 import ButtonMenu from './HeaderButtonMenu';
 import LanguageSwitcher from './HeaderLangButton';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import {Link} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 
 const Header = () => {
-    const { t, i18n } = useTranslation('header');
+    const {t, i18n} = useTranslation('header');
     const [isActive, setIsActive] = useState(false);
     const [accordion, setAccordion] = useState(false);
     const [mobileMenu, openMenu] = useState(false);
@@ -38,16 +38,16 @@ const Header = () => {
         changeLanguage('ru');
     };
 
-    const togleMore = () => {
+    const toggleMore = () => {
         setAccordion(!accordion);
     };
 
-    const togleBurger = () => {
+    const toggleBurger = () => {
         openMenu(!mobileMenu);
     };
 
-    const link = t('navigationLinks', { returnObjects: true });
-    const linkModal = t('linkModal', { returnObjects: true });
+    const link = t('navigationLinks', {returnObjects: true});
+    const linkModal = t('linkModal', {returnObjects: true});
     return (
         <Suspense fallback='Loading...'>
             <div className={`${style.header} ${style.accordion_relative}`}>
@@ -58,8 +58,8 @@ const Header = () => {
                 ></div>
                 <h1 className={style.hidden}>Header</h1>
                 <div className={style.mobile_flex}>
-                    <ButtonMenu style={style} onClick={togleBurger} />
-                    <Logo style={style} />
+                    <ButtonMenu style={style} onClick={toggleBurger}/>
+                    <Logo style={style}/>
                 </div>
                 <nav className={style.navbar}>
                     <ul className={`${style.list__type} ${style.flex}`}>
@@ -83,7 +83,7 @@ const Header = () => {
                         <li className={style.accordion_relative}>
                             <button
                                 className={style.accordion__btn}
-                                onClick={togleMore}
+                                onClick={toggleMore}
                             >
                                 {t('concurse')}{' '}
                                 <span className={style.arrow}>
@@ -113,7 +113,7 @@ const Header = () => {
                                     return (
                                         <li key={index}>
                                             <Link
-                                                onClick={togleMore}
+                                                onClick={toggleMore}
                                                 to={item.href}
                                             >
                                                 {item.text}
@@ -179,7 +179,7 @@ const Header = () => {
                                                     {item.label}
                                                 </a>
                                                 : <Link
-                                                    onClick={togleBurger}
+                                                    onClick={toggleBurger}
                                                     to={item.url}
                                                     className={style.concurse}
                                                 >
@@ -193,7 +193,7 @@ const Header = () => {
                             <li className={style.list_item}>
                                 <button
                                     className={style.concurse}
-                                    onClick={togleMore}
+                                    onClick={toggleMore}
                                 >
                                     {t('concurse')}
                                     <span>
@@ -221,7 +221,8 @@ const Header = () => {
                                 >
                                     <Link
                                         onClick={() => {
-                                            togleBurger(), togleMore();
+                                            toggleBurger();
+                                            toggleMore();
                                         }}
                                         to='/status'
                                         className={style.concurse}
@@ -229,7 +230,7 @@ const Header = () => {
                                         {t('concurse_status')}
                                     </Link>
                                     <Link
-                                        onClick={togleBurger}
+                                        onClick={toggleBurger}
                                         to='/statement'
                                         className={style.concurse}
                                     >

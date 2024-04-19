@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setIsFormError } from '../../../store/envSlice';
-import { COST_ESTIMATE_INITIAL_STATE, INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE } from './Statement.constants';
+import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {setIsFormError} from '../../../store/envSlice';
+import {COST_ESTIMATE_INITIAL_STATE, INITIAL_STATE, PROJECT_DESCRIPTION_INITIAL_STATE} from './Statement.constants';
 import StatementDropdownBlock from './components/StatementDropdownBlock/StatementDropdownBlock';
 import StatementDropzone from './components/StatementDropzone/StatementDropzone';
 import StatementMainFields from './components/StatementMainFields/StatementMainFields';
 import * as styles from './Statement.module.css';
-import { useTranslation } from 'react-i18next';
-import { createApplication, fetchCategories } from '../../../store/applicationThunk';
+import {useTranslation} from 'react-i18next';
+import {createApplication, fetchCategories} from '../../../store/applicationThunk';
 
 const Statement = () => {
-    const { t, i18n } = useTranslation('statement');
+    const {t, i18n} = useTranslation('statement');
 
     const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ const Statement = () => {
     }, [dispatch]);
 
     const changeValue = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
 
         if (name === 'phone') {
             if (
@@ -42,7 +42,7 @@ const Statement = () => {
                 ((value !== '+' && isNaN(Number(value))) || Number(value) < 1)
             )
                 return;
-            setState((prevState) => ({ ...prevState, [name]: value.trim() }));
+            setState((prevState) => ({...prevState, [name]: value.trim()}));
             return;
         }
 
@@ -57,7 +57,7 @@ const Statement = () => {
             return;
         }
 
-        setState((prevState) => ({ ...prevState, [name]: value }));
+        setState((prevState) => ({...prevState, [name]: value}));
     };
 
     const sendData = async (e) => {
@@ -100,7 +100,10 @@ const Statement = () => {
         }
 
         try {
-            let response_result = await dispatch(createApplication({ application: resultState, lang: i18n.language })).unwrap();
+            let response_result = await dispatch(createApplication({
+                application: resultState,
+                lang: i18n.language
+            })).unwrap();
 
             if (![200, 201, 204].includes(response_result.status)) {
                 alert(`${response_result.data.error}. Возможно, номер телефона или почта уже зарегестрированы.`);
@@ -116,13 +119,13 @@ const Statement = () => {
     return (
         <div className={styles.statement}>
             <div className={styles.title}>
-                <p style={{ paddingBottom: '5px' }}>{t('cust_title')}</p>
+                <p style={{paddingBottom: '5px'}}>{t('cust_title')}</p>
                 <h1>{t('title')}</h1>
                 <p>{t('title_description')}</p>
             </div>
 
             <form onSubmit={sendData} className={styles.form}>
-                <StatementMainFields state={state} changeValue={changeValue} />
+                <StatementMainFields state={state} changeValue={changeValue}/>
 
                 <StatementDropdownBlock
                     projectDescription={projectDescription}
@@ -132,7 +135,7 @@ const Statement = () => {
                     setCostEstimate={setCostEstimate}
                 />
 
-                <StatementDropzone state={state} setState={setState} />
+                <StatementDropzone state={state} setState={setState}/>
 
                 <button className={styles.submit_button}>
                     {t('submit_button')}

@@ -1,15 +1,13 @@
 import React from "react";
 import * as styles from "./WinnerGrant.module.css";
 
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import FilterWinner from "./FilterWinner/FilterWinner";
 import WinnerYearCardList from "../WinnerYearCardList/WinnerYearCardList";
 import WinnerCardFiltered from "./WinnerCardFiltered/WinnerCardFiltered";
-import Pagination from "../../../UI/Pagination/Pagination";
 import {useTranslation} from "react-i18next";
 
 const WinnerGrant = ({years, YEARS_ON_PAGE, winner_list_path}) => {
-    const navigate = useNavigate();
     const {t} = useTranslation("archive");
 
     return (

@@ -16,7 +16,7 @@ const GrandInfo = () => {
                         <Link to={"archive"}>{t("name_grant")}</Link>
                     </p>
                     <p>
-                        <Link to={"archive"}>{t("gratn_to")}</Link>
+                        <Link to={"archive"}>{t("grant_to")}</Link>
                         {t("grant_info3")}
                     </p>
                     <p>

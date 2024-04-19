@@ -22,7 +22,7 @@ const initialState = {
       value: "news",
       label: getArchiveTranslationRu("news", "ru"),
     },
-    { value: "photo", label: getArchiveTranslationRu("foto", "ru") },
+    { value: "photo", label: getArchiveTranslationRu("photo", "ru") },
     { value: "all", label: getArchiveTranslationRu("all", "ru") },
   ],
   currentOption: { value: "all", label: getArchiveTranslationRu("all", "ru") },
@@ -85,7 +85,7 @@ const updateDropdownOptions = (lang) => [
   },
   {
     value: "photo",
-    label: getArchiveTranslationRu("foto", lang),
+    label: getArchiveTranslationRu("photo", lang),
   },
   {
     value: "all",

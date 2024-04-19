@@ -15,7 +15,7 @@ let initialState = {
     year: 2021,
     page: 1,
     filterCategory: {
-      science: { children: getArchiveTranslationRu("sienc", "ru") },
+      science: { children: getArchiveTranslationRu("science", "ru") },
       culture: { children: getArchiveTranslationRu("culture", "ru") },
       it: {
         children: getArchiveTranslationRu("information_technology", "ru"),
@@ -705,7 +705,7 @@ let initialState = {
 
 const updateFilterCategory = (lang) => {
   return {
-    science: { children: getArchiveTranslationRu("sienc", lang) },
+    science: { children: getArchiveTranslationRu("science", lang) },
     culture: { children: getArchiveTranslationRu("culture", lang) },
     it: { children: getArchiveTranslationRu("information_technology", lang) },
     business: { children: getArchiveTranslationRu("business", lang) },
