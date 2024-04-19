@@ -14,11 +14,9 @@ import Status from './components/Pages/Status/Status';
 import ChatBot from './components/ChatBot/ChatBot';
 
 const App = () => {
-    return (
-        <HashRouter>
+    return (<HashRouter>
             <div className={styles.background}
-                 style={{backgroundImage: `url(${background})`}}
-            >
+                 style={{backgroundImage: `url(${background})`}}>
                 <Header/>
                 <main>
                     <Routes>
@@ -34,7 +32,6 @@ const App = () => {
                 <Footer/>
             </div>
         </HashRouter>
-
     );
 };
 

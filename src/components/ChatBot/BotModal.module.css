@@ -1,0 +1,170 @@
+.bot_wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.bot {
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+
+.bot_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 10px;
+    background: var(--basic-blue);
+}
+
+.bot_bnt {
+    cursor: pointer;
+    border: none;
+    border-radius: 40px;
+    background: inherit;
+}
+
+.bot_modal {
+    position: absolute;
+    bottom: 120px;
+    right: 30px;
+    width: 517px;
+    height: 578px;
+    border-radius: 20px;
+    background: white;
+    overflow: hidden;
+    overflow-y: scroll;
+    animation: ease-in modal 0.5s;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 3px lightgray;
+}
+
+.hidden {
+    display: none;
+}
+
+.bot_modal_img_block {
+    background: white;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+}
+
+.bot_modal_img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 27px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.bot_top_header {
+    display: flex;
+    gap: 16px;
+}
+
+.bot_modal_header_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bot_modal_header_text > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bot_modal_header_text > div > p {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--white);
+    opacity: .5;
+}
+
+.bot_modal_header_text p {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+}
+
+.bot_online_img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 10px;
+    height: 10px;
+}
+
+.modal_questions {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--black);
+    background: var(--blue-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.bot_text {
+    animation: ease-in-out modal 0.8s;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.close_btn {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    width: 20px;
+    height: 20px;
+
+    gap: 0;
+    margin-right: 16px;
+}
+
+.questions_list {
+    padding: 16px 10px;
+}
+
+.link {
+    color: rgb(68, 68, 240);
+    font-size: 20px;
+    border-bottom: 2px solid rgb(68, 68, 240);
+    transition: 0.6s;
+}
+
+.link:hover {
+    font-size: 21px;
+}
+
+@media screen and (max-width: 850px) {
+    .bot {
+        display: none;
+    }
+}
+
+@keyframes modal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
