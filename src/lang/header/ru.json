@@ -7,9 +7,13 @@
     {
       "label": "Архив",
       "url": "archive"
+    },
+    {
+      "label": "Документы",
+      "url": "/pdf/rules-ru.pdf",
+      "target": "_blank"
     }
   ],
-  "link": "Документы",
   "concurse": "Конкурс",
   "linkModal": [
     { "href": "/about", "text": "О конкурсе" },

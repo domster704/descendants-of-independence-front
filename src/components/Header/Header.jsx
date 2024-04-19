@@ -1,13 +1,13 @@
-import React, { Suspense, useEffect, useState } from "react";
-import * as style from "./Header.module.css";
-import Logo from "./HeaderLogo";
-import ButtonMenu from "./HeaderButtonMenu";
-import LanguageSwitcher from "./HeaderLangButton";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React, { Suspense, useEffect, useState } from 'react';
+import * as style from './Header.module.css';
+import Logo from './HeaderLogo';
+import ButtonMenu from './HeaderButtonMenu';
+import LanguageSwitcher from './HeaderLangButton';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
-    const { t, i18n } = useTranslation("header");
+    const { t, i18n } = useTranslation('header');
     const [isActive, setIsActive] = useState(false);
     const [accordion, setAccordion] = useState(false);
     const [mobileMenu, openMenu] = useState(false);
@@ -16,8 +16,8 @@ const Header = () => {
     };
 
     useEffect(() => {
-        const localActive = localStorage.getItem("lang");
-        if (localActive && localActive === "kz") {
+        const localActive = localStorage.getItem('lang');
+        if (localActive && localActive === 'kz') {
             setIsActive(true);
             changeLanguage(localActive);
         } else {
@@ -27,15 +27,15 @@ const Header = () => {
     }, [isActive]);
 
     const showActive = () => {
-        localStorage.setItem("lang", "kz");
+        localStorage.setItem('lang', 'kz');
         setIsActive(true);
-        changeLanguage("kz");
+        changeLanguage('kz');
     };
 
     const closeActive = () => {
-        localStorage.setItem("lang", "ru");
+        localStorage.setItem('lang', 'ru');
         setIsActive(false);
-        changeLanguage("ru");
+        changeLanguage('ru');
     };
 
     const togleMore = () => {
@@ -46,10 +46,10 @@ const Header = () => {
         openMenu(!mobileMenu);
     };
 
-    const link = t("navigationLinks", { returnObjects: true });
-    const linkModal = t("linkModal", { returnObjects: true });
+    const link = t('navigationLinks', { returnObjects: true });
+    const linkModal = t('linkModal', { returnObjects: true });
     return (
-        <Suspense fallback="Loading...">
+        <Suspense fallback='Loading...'>
             <div className={`${style.header} ${style.accordion_relative}`}>
                 <div
                     className={`${
@@ -67,50 +67,45 @@ const Header = () => {
                             return (
                                 <li key={index}>
                                     {item.target ? (
-                                        <Link
-                                            to={item.url}
+                                        <a
+                                            href={item.url}
                                             target={item.target}
-                                            rel="noopener noreferrer"
+                                            rel='noopener noreferrer'
                                         >
                                             {item.label}
-                                        </Link>
+                                        </a>
                                     ) : (
                                         <Link to={item.url}>{item.label}</Link>
                                     )}
                                 </li>
                             );
                         })}
-                        <li>
-                            <a href="/pdf/rules-ru.pdf" target="_blank">
-                                {t("link")}
-                            </a>
-                        </li>
                         <li className={style.accordion_relative}>
                             <button
                                 className={style.accordion__btn}
                                 onClick={togleMore}
                             >
-                                {t("concurse")}{" "}
+                                {t('concurse')}{' '}
                                 <span className={style.arrow}>
                                     <svg
                                         className={`${
-                                            accordion ? "" : style.rotate
+                                            accordion ? '' : style.rotate
                                         }`}
-                                        width="14"
-                                        height="9"
-                                        viewBox="0 0 14 9"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                        width='14'
+                                        height='9'
+                                        viewBox='0 0 14 9'
+                                        fill='none'
+                                        xmlns='http://www.w3.org/2000/svg'
                                     >
                                         <path
-                                            d="M13.7108 1.20986C13.6178 1.11613 13.5072 1.04174 13.3854 0.990969C13.2635 0.940201 13.1328 0.914062 13.0008 0.914062C12.8688 0.914062 12.7381 0.940201 12.6162 0.990969C12.4944 1.04174 12.3838 1.11613 12.2908 1.20986L7.71079 5.78986C7.61783 5.88359 7.50723 5.95798 7.38537 6.00875C7.26351 6.05952 7.1328 6.08566 7.00079 6.08566C6.86878 6.08566 6.73807 6.05952 6.61622 6.00875C6.49436 5.95798 6.38376 5.88359 6.29079 5.78986L1.71079 1.20986C1.61783 1.11613 1.50723 1.04174 1.38537 0.990969C1.26351 0.940201 1.1328 0.914062 1.00079 0.914062C0.868781 0.914062 0.738075 0.940201 0.616216 0.990969C0.494356 1.04174 0.383755 1.11613 0.290792 1.20986C0.104542 1.39722 0 1.65067 0 1.91486C0 2.17905 0.104542 2.4325 0.290792 2.61986L4.88079 7.20986C5.44329 7.77166 6.20579 8.08722 7.00079 8.08722C7.79579 8.08722 8.55829 7.77166 9.12079 7.20986L13.7108 2.61986C13.897 2.4325 14.0016 2.17905 14.0016 1.91486C14.0016 1.65067 13.897 1.39722 13.7108 1.20986Z"
-                                            fill="black"
+                                            d='M13.7108 1.20986C13.6178 1.11613 13.5072 1.04174 13.3854 0.990969C13.2635 0.940201 13.1328 0.914062 13.0008 0.914062C12.8688 0.914062 12.7381 0.940201 12.6162 0.990969C12.4944 1.04174 12.3838 1.11613 12.2908 1.20986L7.71079 5.78986C7.61783 5.88359 7.50723 5.95798 7.38537 6.00875C7.26351 6.05952 7.1328 6.08566 7.00079 6.08566C6.86878 6.08566 6.73807 6.05952 6.61622 6.00875C6.49436 5.95798 6.38376 5.88359 6.29079 5.78986L1.71079 1.20986C1.61783 1.11613 1.50723 1.04174 1.38537 0.990969C1.26351 0.940201 1.1328 0.914062 1.00079 0.914062C0.868781 0.914062 0.738075 0.940201 0.616216 0.990969C0.494356 1.04174 0.383755 1.11613 0.290792 1.20986C0.104542 1.39722 0 1.65067 0 1.91486C0 2.17905 0.104542 2.4325 0.290792 2.61986L4.88079 7.20986C5.44329 7.77166 6.20579 8.08722 7.00079 8.08722C7.79579 8.08722 8.55829 7.77166 9.12079 7.20986L13.7108 2.61986C13.897 2.4325 14.0016 2.17905 14.0016 1.91486C14.0016 1.65067 13.897 1.39722 13.7108 1.20986Z'
+                                            fill='black'
                                         />
                                     </svg>
                                 </span>
                             </button>
                             <ul
-                                className={`${accordion ? "" : style.hidden} ${
+                                className={`${accordion ? '' : style.hidden} ${
                                     style.list__type
                                 } ${style.accordion_absolute}`}
                             >
@@ -131,14 +126,14 @@ const Header = () => {
                         <li className={style.lang__flex}>
                             <LanguageSwitcher
                                 isActive={!isActive}
-                                label="Рус"
+                                label='Рус'
                                 onClick={closeActive}
                                 active={style.active}
                                 lang_btn={style.lang__btn}
                             />
                             <LanguageSwitcher
                                 isActive={isActive}
-                                label="Қаз"
+                                label='Қаз'
                                 onClick={showActive}
                                 active={style.active}
                                 lang_btn={style.lang__btn}
@@ -148,13 +143,13 @@ const Header = () => {
                 </nav>
                 <div
                     className={`${style.burger_menu} ${
-                        mobileMenu ? "" : style.hidden
+                        mobileMenu ? '' : style.hidden
                     }`}
                 >
                     <div className={style.burger__lang}>
                         <LanguageSwitcher
                             isActive={!isActive}
-                            label="Рус"
+                            label='Рус'
                             onClick={closeActive}
                             active={style.active_lang}
                             lang_btn={style.burger_lang_btn}
@@ -162,7 +157,7 @@ const Header = () => {
                         -
                         <LanguageSwitcher
                             isActive={isActive}
-                            label="Қаз"
+                            label='Қаз'
                             onClick={showActive}
                             active={style.active_lang}
                             lang_btn={style.burger_lang_btn}
@@ -173,69 +168,72 @@ const Header = () => {
                             {link.map((item, index) => {
                                 return (
                                     <li key={index} className={style.list_item}>
-                                        <Link
-                                            onClick={togleBurger}
-                                            to={item.url}
-                                            className={style.concurse}
-                                        >
-                                            {item.label}
-                                        </Link>
+                                        {
+                                            item.target ?
+                                                <a
+                                                    href={item.url}
+                                                    target={item.target}
+                                                    rel='noopener noreferrer'
+                                                    className={style.concurse}
+                                                >
+                                                    {item.label}
+                                                </a>
+                                                : <Link
+                                                    onClick={togleBurger}
+                                                    to={item.url}
+                                                    className={style.concurse}
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                        }
+
                                     </li>
                                 );
                             })}
-                            <li className={style.list_item}>
-                                <a
-                                    className={style.concurse}
-                                    href="/pdf/rules-ru.pdf"
-                                    target="_blank"
-                                >
-                                    {t("link")}
-                                </a>
-                            </li>
                             <li className={style.list_item}>
                                 <button
                                     className={style.concurse}
                                     onClick={togleMore}
                                 >
-                                    {t("concurse")}
+                                    {t('concurse')}
                                     <span>
                                         <svg
                                             className={`${
-                                                accordion ? "" : style.rotate
+                                                accordion ? '' : style.rotate
                                             }`}
-                                            width="14"
-                                            height="9"
-                                            viewBox="0 0 14 9"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
+                                            width='14'
+                                            height='9'
+                                            viewBox='0 0 14 9'
+                                            fill='none'
+                                            xmlns='http://www.w3.org/2000/svg'
                                         >
                                             <path
-                                                d="M13.7108 1.20986C13.6178 1.11613 13.5072 1.04174 13.3854 0.990969C13.2635 0.940201 13.1328 0.914062 13.0008 0.914062C12.8688 0.914062 12.7381 0.940201 12.6162 0.990969C12.4944 1.04174 12.3838 1.11613 12.2908 1.20986L7.71079 5.78986C7.61783 5.88359 7.50723 5.95798 7.38537 6.00875C7.26351 6.05952 7.1328 6.08566 7.00079 6.08566C6.86878 6.08566 6.73807 6.05952 6.61622 6.00875C6.49436 5.95798 6.38376 5.88359 6.29079 5.78986L1.71079 1.20986C1.61783 1.11613 1.50723 1.04174 1.38537 0.990969C1.26351 0.940201 1.1328 0.914062 1.00079 0.914062C0.868781 0.914062 0.738075 0.940201 0.616216 0.990969C0.494356 1.04174 0.383755 1.11613 0.290792 1.20986C0.104542 1.39722 0 1.65067 0 1.91486C0 2.17905 0.104542 2.4325 0.290792 2.61986L4.88079 7.20986C5.44329 7.77166 6.20579 8.08722 7.00079 8.08722C7.79579 8.08722 8.55829 7.77166 9.12079 7.20986L13.7108 2.61986C13.897 2.4325 14.0016 2.17905 14.0016 1.91486C14.0016 1.65067 13.897 1.39722 13.7108 1.20986Z"
-                                                fill="white"
+                                                d='M13.7108 1.20986C13.6178 1.11613 13.5072 1.04174 13.3854 0.990969C13.2635 0.940201 13.1328 0.914062 13.0008 0.914062C12.8688 0.914062 12.7381 0.940201 12.6162 0.990969C12.4944 1.04174 12.3838 1.11613 12.2908 1.20986L7.71079 5.78986C7.61783 5.88359 7.50723 5.95798 7.38537 6.00875C7.26351 6.05952 7.1328 6.08566 7.00079 6.08566C6.86878 6.08566 6.73807 6.05952 6.61622 6.00875C6.49436 5.95798 6.38376 5.88359 6.29079 5.78986L1.71079 1.20986C1.61783 1.11613 1.50723 1.04174 1.38537 0.990969C1.26351 0.940201 1.1328 0.914062 1.00079 0.914062C0.868781 0.914062 0.738075 0.940201 0.616216 0.990969C0.494356 1.04174 0.383755 1.11613 0.290792 1.20986C0.104542 1.39722 0 1.65067 0 1.91486C0 2.17905 0.104542 2.4325 0.290792 2.61986L4.88079 7.20986C5.44329 7.77166 6.20579 8.08722 7.00079 8.08722C7.79579 8.08722 8.55829 7.77166 9.12079 7.20986L13.7108 2.61986C13.897 2.4325 14.0016 2.17905 14.0016 1.91486C14.0016 1.65067 13.897 1.39722 13.7108 1.20986Z'
+                                                fill='white'
                                             />
                                         </svg>
                                     </span>
                                 </button>
                                 <div
                                     className={`${style.mobile_accordion} ${
-                                        accordion ? "" : style.hidden
+                                        accordion ? '' : style.hidden
                                     }`}
                                 >
                                     <Link
                                         onClick={() => {
                                             togleBurger(), togleMore();
                                         }}
-                                        to="/status"
+                                        to='/status'
                                         className={style.concurse}
                                     >
-                                        {t("concurse_status")}
+                                        {t('concurse_status')}
                                     </Link>
                                     <Link
                                         onClick={togleBurger}
-                                        to="/statement"
+                                        to='/statement'
                                         className={style.concurse}
                                     >
-                                        {t("concurse_send")}
+                                        {t('concurse_send')}
                                     </Link>
                                 </div>
                             </li>
