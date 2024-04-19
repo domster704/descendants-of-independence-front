@@ -100,11 +100,16 @@ const Statement = () => {
         }
 
         try {
-            await dispatch(createApplication({ application: resultState, lang: i18n.language })).unwrap();
+            let response_result = await dispatch(createApplication({ application: resultState, lang: i18n.language })).unwrap();
+
+            if (![200, 201, 204].includes(response_result.status)) {
+                alert(`${response_result.data.error}. Возможно, номер телефона или почта уже зарегестрированы.`);
+            } else {
+                navigate('/success');
+            }
         } catch (e) {
             // Error code...
         } finally {
-            navigate('/success');
         }
     };
 

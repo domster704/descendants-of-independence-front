@@ -1,11 +1,11 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import {createAsyncThunk} from '@reduxjs/toolkit';
 import axiosApi from '../axiosApi';
-import { UNIT_OPTIONS } from '../components/Pages/Statement/Statement.constants';
+import {UNIT_OPTIONS} from '../components/Pages/Statement/Statement.constants';
 
 export const fetchCategories = createAsyncThunk(
     'application/fetchCategories',
     async () => {
-        const { data } = await axiosApi('categories');
+        const {data} = await axiosApi('categories');
         return data.map(category => ({
             value: category.id,
             label: category.name,
@@ -19,26 +19,26 @@ export const fetchApplicationsById = createAsyncThunk(
     async (id) => {
         const response = await axiosApi('applications/' + id);
         if (!response.data.length) {
-            return { ticket: null, cost_estimate: [] };
+            return {ticket: null, cost_estimate: []};
         }
         const [application] = response.data;
-        const ticket = { ...application, files: application.files_path };
+        const ticket = {...application, files: application.files_path};
         delete ticket.files_path;
 
-        const { data } = await axiosApi('cost_estimate/' + id);
+        const {data} = await axiosApi('cost_estimate/' + id);
         const cost_estimate = data.map(item => ({
             ...item,
             unit: UNIT_OPTIONS.find(option => option.label === item.unit),
         }));
-        return { ticket, cost_estimate };
+        return {ticket, cost_estimate};
     },
 );
 
 export const createApplication = createAsyncThunk(
     'application/create',
-    async ({ application, lang }, { getState }) => {
+    async ({application, lang}, {getState}) => {
         try {
-            const { date_of_birth_day, date_of_birth_month, date_of_birth_year } = application;
+            const {date_of_birth_day, date_of_birth_month, date_of_birth_year} = application;
 
             const formattedApplication = {
                 ...application,
@@ -75,20 +75,21 @@ export const createApplication = createAsyncThunk(
                 }
             });
 
-            await axiosApi.post('applications?lang=' + lang, formData);
+           return await axiosApi.post('applications?lang=' + lang, formData);
         } catch (e) {
             console.error(e);
+            return e.response;
         }
     },
 );
 
 export const editApplication = createAsyncThunk(
     'application/edit',
-    async ({ application, ticket }) => {
+    async ({application, ticket}) => {
         const id = application.id;
 
         const getFormattedTicket = (obj) => {
-            const { date_of_birth_day, date_of_birth_month, date_of_birth_year } = obj;
+            const {date_of_birth_day, date_of_birth_month, date_of_birth_year} = obj;
 
             const formattedObj = {
                 ...obj,
