@@ -29,7 +29,8 @@ const WinnerGrant = ({years, YEARS_ON_PAGE, winner_list_path}) => {
                 <WinnerCardFiltered/>
             </div>
             <div className={styles.top_bottom_block}>
-                <Pagination elements_count={years.length}/>
+                {/*<Pagination elements_count={years.length}/>*/}
+                <div></div>
                 <Link to={winner_list_path} className={styles.show_all_winner_button}>
                     {t("list_of_winners")}
                 </Link>

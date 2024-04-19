@@ -25,24 +25,24 @@ let initialState = {
     },
   },
   winnerCards: {
-    2023: {
-      science: [],
-      culture: [],
-      it: [
-        {
-          name: "Наумова Динара",
-          age: "20 лет",
-          region: "Астана",
-          project: "ЛФК-кабинет “Life+”",
-          purpose: "Помощь людям с ограниченными возможностями",
-          status: "Завершен",
-          image: winner_img,
-          index: 0,
-        },
-      ],
-      business: [],
-      media: [],
-    },
+    // 2023: {
+    //   science: [],
+    //   culture: [],
+    //   it: [
+    //     {
+    //       name: "Наумова Динара",
+    //       age: "20 лет",
+    //       region: "Астана",
+    //       project: "ЛФК-кабинет “Life+”",
+    //       purpose: "Помощь людям с ограниченными возможностями",
+    //       status: "Завершен",
+    //       image: winner_img,
+    //       index: 0,
+    //     },
+    //   ],
+    //   business: [],
+    //   media: [],
+    // },
     2022: {
       science: [
         {
