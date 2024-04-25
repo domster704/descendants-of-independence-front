@@ -87,6 +87,7 @@ export const UNIT_OPTIONS = [
     { value: 'unit-06', label: 'Т' },
     { value: 'unit-07', label: 'Л' },
     { value: 'unit-08', label: 'МЛ' },
+    { value: 'unit-09', label: 'ЕД' },
 ];
 
 export const COST_ESTIMATE_INITIAL_STATE = [
