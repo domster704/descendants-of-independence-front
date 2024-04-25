@@ -13,23 +13,23 @@ const GrandInfo = () => {
                 <div className={style.section_wrapper}>
                     <p>
                         {t("grant_info2")}
-                        <Link to={"archive"}>{t("name_grant")}</Link>
+                        {t("name_grant")}
                     </p>
                     <p>
-                        <Link to={"archive"}>{t("grant_to")}</Link>
+                        {t("grant_to")}
                         {t("grant_info3")}
                     </p>
                     <p>
-                        <Link to={"archive"}>{t("grant_year")}</Link>
+                        <Link to={"archive/winner_list"}>{t("grant_year")}</Link>
                         {t("grant_info4")}
                     </p>
                     <p>
-                        <Link to={"archive"}>{t("grant_year2")}</Link>
+                        <Link to={"archive/winner_list"}>{t("grant_year2")}</Link>
                         {t("grant_info5")}
                     </p>
                     <p className={style.main_text}>
                         {t("grant_info6")}
-                        <Link to={"archive"} className={style.text_bold}>
+                        <Link to={"archive/winner_list"} className={style.text_bold}>
                             {t("grant")}
                         </Link>
                     </p>
