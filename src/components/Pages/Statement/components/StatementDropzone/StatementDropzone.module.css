@@ -140,7 +140,6 @@
 
 .files_info_list li::before {
     content: '•';
-    font-size: 40px;
     color: #000;
     width: 10px;
     height: 10px;
