@@ -103,6 +103,21 @@ a:hover {
   display: block;
 }
 
+.telegram_position {
+  position: relative;
+}
+
+.telegram_absolute {
+  position: absolute;
+  text-wrap: nowrap;
+  top: 0px;
+  padding: 5px 25px;
+  background: rgba(52, 154, 217, 1);
+  left: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 950px) {
   .hidden {
     display: none !important;

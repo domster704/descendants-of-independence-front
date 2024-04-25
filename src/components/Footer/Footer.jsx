@@ -100,7 +100,10 @@ const Footer = () => {
             </div>
           </div>
           <div className={style.footer_telegram}>
-            <img src={telegramm} alt="Telegram" />
+            <div className={style.telegram_position}>
+              <img src={telegramm} alt="Telegram" />
+              <span className={style.telegram_absolute}>{t("move_to") }</span>
+            </div>
             <a
               href="https://t.me/TauelsizdikUrpaktary_bot"
               target="_blank"
