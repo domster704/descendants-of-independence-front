@@ -76,7 +76,7 @@
     ],
     "REGION_OPTIONS": [
         { "value": "region-01", "label": "Алматы облысы" },
-        { "value": "region-02", "label": "Нұр-Сұлтан" },
+        { "value": "region-02", "label": "Астана" },
         { "value": "region-03", "label": "Ақмола облысы" },
         { "value": "region-04", "label": "Ақтөбе облысы" },
         { "value": "region-05", "label": "Абай облысы" },
