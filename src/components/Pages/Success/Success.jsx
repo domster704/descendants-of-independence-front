@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {Link} from "react-router-dom";
 import success from "./img/Vector (1).png";
 import * as style from "./Success.module.css";
 import {useTranslation} from 'react-i18next'
 
 const Success = () => {
-    const {t} = useTranslation("success")
+    const { t } = useTranslation("success");
+    useEffect(() => {
+        const element = document.documentElement;
+        element.scrollIntoView({ behavior: "instant", block: "start" });
+  }, []);
     return (
         <div className={style.success_section}>
             <h2 className={style.hidden}>{t("heading")}</h2>

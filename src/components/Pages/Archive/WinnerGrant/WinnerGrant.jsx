@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as styles from "./WinnerGrant.module.css";
 
 import {Link} from "react-router-dom";
@@ -7,7 +7,11 @@ import WinnerYearCardList from "../WinnerYearCardList/WinnerYearCardList";
 import WinnerCardFiltered from "./WinnerCardFiltered/WinnerCardFiltered";
 import {useTranslation} from "react-i18next";
 
-const WinnerGrant = ({years, YEARS_ON_PAGE, winner_list_path}) => {
+const WinnerGrant = ({ years, YEARS_ON_PAGE, winner_list_path }) => {
+    useEffect(() => {
+        const element = document.documentElement;
+        element.scrollIntoView({ behavior: "instant", block: "start" });
+  }, []);
     const {t} = useTranslation("archive");
 
     return (

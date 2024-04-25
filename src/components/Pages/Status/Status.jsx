@@ -22,6 +22,11 @@ const Status = () => {
         }
     }, [dispatch, params['*']]);
 
+    useEffect(() => {
+        const element = document.documentElement;
+        element.scrollIntoView({ behavior: "instant", block: "start" });
+  }, []);
+
     return (
         <Wrapper className={styles.status_wrapper}>
             <div className={styles.status}>

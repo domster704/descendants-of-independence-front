@@ -33,6 +33,11 @@ const Statement = () => {
         };
     }, [dispatch]);
 
+    useEffect(() => {
+        const element = document.documentElement;
+        element.scrollIntoView({ behavior: "instant", block: "start" });
+  }, []);
+
     const changeValue = (e) => {
         const {name, value} = e.target;
 

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as styles from './WinnerList.module.css'
 import WinnerYearCardList from "../WinnerYearCardList/WinnerYearCardList";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
-const WinnerList = ({years}) => {
+const WinnerList = ({ years }) => {
+    useEffect(() => {
+        const element = document.documentElement;
+        element.scrollIntoView({ behavior: "instant", block: "start" });
+  }, []);
     const { t } = useTranslation("archive");
     const YEARS_ON_PAGE = 3
 
