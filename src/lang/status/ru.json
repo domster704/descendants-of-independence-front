@@ -8,6 +8,7 @@
     "headerName": "ФИО",
     "headerDate": "Дата",
     "headerRegion": "Город",
-    "headerPoints": "Кол-во б."
+    "headerPoints": "Кол-во б.",
+    "num": "Заявка №"
 }
   

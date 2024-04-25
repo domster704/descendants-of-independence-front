@@ -48,7 +48,7 @@ const StatusStepContainer = ({ ticket }) => {
                     <p></p>
                 </div>
                 <div className={`${styles.in_block} ${ticket.point && styles.layout_with_points}`}>
-                    <p>Заявка №{ticket.id}</p>
+                    <p>{t("num") }{ticket.id}</p>
                     <p>{ticket.full_name}</p>
                     <p>{ticket.date}</p>
                     <p>{ticket.address_region.label}</p>
