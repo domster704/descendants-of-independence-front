@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { fetchApplicationsById } from '../../../store/applicationThunk';
+import {setTicket} from "../../../store/statusSlice";
 
 
 const Status = () => {
@@ -19,6 +20,10 @@ const Status = () => {
     useEffect(() => {
         if (params['*']) {
             dispatch(fetchApplicationsById(params['*']));
+        }
+
+        return () => {
+            dispatch(setTicket(null));
         }
     }, [dispatch, params['*']]);
 
