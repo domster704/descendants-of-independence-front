@@ -75,7 +75,9 @@ export const createApplication = createAsyncThunk(
                 }
             });
 
-           return await axiosApi.post('applications?lang=' + lang, formData);
+        return await axiosApi.post('applications?lang=' + lang, formData, {
+            maxContentLength: 100 * 1024 * 1024,
+});
         } catch (e) {
             console.error(e);
             return e.response;
