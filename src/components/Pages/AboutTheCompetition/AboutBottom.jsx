@@ -62,7 +62,7 @@ const AboutBottom = () => {
                     </div>
                     <p className={style.about_text}>
                         {t("definition")}{" "}
-                        <Link className={style.navigate_link} to="/archive">
+                        <Link className={style.navigate_link} to="/archive/winner_list">
                             {t("grantees")}
                         </Link>
                         .
